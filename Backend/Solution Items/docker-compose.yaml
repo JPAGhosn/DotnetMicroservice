@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  krkauth:
+    container_name: krkauth
+    build:
+      context: ../KRK-Auth
+      dockerfile: Dockerfile
+    ports: 
+      - "8080:80"
+#    environment:
+#      - ENVIRONMENT=PRODUCTION
+  auth_db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: auth_db
+    volumes:
+      - data_auth:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  data_auth:
