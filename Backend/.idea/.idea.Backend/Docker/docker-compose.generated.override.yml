@@ -1,7 +1,7 @@
 # This is a generated file. Not intended for manual editing.
 version: "3.8"
 services:
-  krkauth:
+  auth:
     build:
       context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Auth"
       dockerfile: "Dockerfile"
