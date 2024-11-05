@@ -1,0 +1,22 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  krkauth:
+    build:
+      context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Auth"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/KRK-Auth.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "krk-auth:dev"
+    ports: []
+    volumes:
+    - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Auth:/app:rw"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
+    working_dir: "/app"
