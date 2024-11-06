@@ -1,4 +1,6 @@
+using KRK_Auth.Clients;
 using KRK_Auth.Data;
+using KRK_Auth.Models;
 using KRK_Auth.Responses;
 
 namespace KRK_Auth.Endpoints;
@@ -10,6 +12,12 @@ public static class AuthenticationEndpoint
         app
             .MapGet("/api/users/check-user-exists/{emailOrPhone}", CheckUserExists)
             .WithName("CheckUserExists")
+            .WithOpenApi()
+            ;
+
+        app
+            .MapPost("/api/auth/signIn", SignIn)
+            .WithName("SignIn")
             .WithOpenApi()
             ;
     }
@@ -27,5 +35,31 @@ public static class AuthenticationEndpoint
         };
 
         return Results.Ok(response);
+    }
+
+    public static async Task<IResult> SignIn(SignInPayload payload, AuthDbContext context,
+        KeycloakClient keycloakClient, CancellationToken cancellationToken)
+    {
+        // Check if user exists
+        var user = context.Users.FirstOrDefault(user =>
+            user.Email == payload.emailOrPhone || user.PhoneNumber == payload.emailOrPhone);
+
+        if (user == null)
+            return Results.NotFound(new ErrorModel
+            {
+                Code = "UserNotFound",
+                Message = "User not found"
+            });
+
+        // Call keycloak to check email and password match
+        try
+        {
+            var signInResponse = await keycloakClient.SignIn(payload.emailOrPhone, payload.password, cancellationToken);
+            return Results.Ok(signInResponse);
+        }
+        catch (Exception ex)
+        {
+            return Results.Unauthorized();
+        }
     }
 }

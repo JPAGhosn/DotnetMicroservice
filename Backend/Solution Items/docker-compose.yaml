@@ -5,7 +5,7 @@ services:
       context: ../KRK-Auth
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "5500:5500"
     networks:
       - krk-network
   auth_db:
@@ -21,15 +21,29 @@ services:
       - "5432:5432"
     networks:
       - krk-network
+  keycloak_db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: keycloak
+    volumes:
+      - data_keycloak:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  # This maps host port 5433 to container port 5432
+    networks:
+      - krk-network
   keycloak:
     image: quay.io/keycloak/keycloak:21.1
     container_name: keycloak
     restart: unless-stopped
     environment:
+      KEYCLOAK_FRONTEND_URL: "localhost"
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
       KC_DB: postgres
-      KC_DB_URL_HOST: auth_db
+      KC_DB_URL_HOST: keycloak_db
       KC_DB_URL_PORT: 5432
       KC_DB_URL_DATABASE: keycloak
       KC_DB_USERNAME: admin
@@ -37,12 +51,15 @@ services:
       KC_HOSTNAME: localhost
     command: start-dev
     ports:
-      - "8080:8081"
+      - "8081:8080"
     depends_on:
-      - auth
+      - keycloak_db
     networks:
       - krk-network
+
 volumes:
   data_auth:
+  data_keycloak:
+
 networks:
   krk-network:
