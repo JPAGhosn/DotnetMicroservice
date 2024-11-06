@@ -1,0 +1,19 @@
+<form [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
+  <krk-email-input [loading]="emailLoading"/>
+
+  @if(passwordVisible()) {
+    <krk-password-input #password/>
+  }
+
+  @if(confirmPasswordVisible()) {
+    <krk-confirm-password-input #confirmPassword/>
+  }
+
+  @if(submitButtonVisible()) {
+    <krk-submit-button class="submit-button"/>
+  }
+
+  @if (errorMessage()) {
+    <span class="error-message">{{ errorMessage() }}</span>
+  }
+</form>

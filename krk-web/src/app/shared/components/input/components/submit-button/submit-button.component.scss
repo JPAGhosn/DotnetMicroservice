@@ -1,0 +1,30 @@
+.submit-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: background-color 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.submit-button:focus {
+  outline: var(--input-border-focused);
+}
+
+.submit-button.hover {
+  background-color: rgba($color: #4BBF57, $alpha: 0.2);
+}
+
+.submit-button.down {
+  background-color: rgba($color: #4BBF57, $alpha: 0.41);
+  outline: 0;
+}

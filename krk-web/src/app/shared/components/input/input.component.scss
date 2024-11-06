@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  --text-padding: 15px;
+}
+
+.input-wrapper {
+  width: 100%;
+  position: relative;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input {
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  border: none;
+  outline: var(--input-border);
+  padding: 0 var(--text-padding);
+  animation: outline 1s ease-in-out 0 1 normal both;
+}
+
+.error input {
+  outline-color: var(--error);
+}
+
+input:focus {
+  outline: var(--input-border-focused);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.placeholder {
+  position: absolute;
+  left: var(--text-padding);
+  right: var(--text-padding);
+  width: fit-content;
+  user-select: none;
+  cursor: text;
+  background-color: white;
+  padding: 0 3px 0 1px;
+  color: var(--placeholder);
+}
+
+.padding-right {
+  padding-right: 50px;
+}

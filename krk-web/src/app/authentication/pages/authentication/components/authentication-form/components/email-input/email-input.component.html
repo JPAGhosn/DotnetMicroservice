@@ -1,0 +1,13 @@
+<ng-container [formGroup]="form.formGroup">
+  <krk-input
+    formControlName="emailOrPhone"
+    placeholder="Email or Phone Number"
+    [withSubmitButton]="true"
+    [control]="form.formGroup.controls.emailOrPhone"
+    [errorsMap]="errorsMap"
+    [loading]="loading"
+    type="email"
+    inputId="email"
+    @inputAnimation
+  />
+</ng-container>

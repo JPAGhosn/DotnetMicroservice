@@ -1,0 +1,11 @@
+<button
+  #button
+  type="submit"
+  class="submit-button"
+  [ngClass]="classValue()"
+  (mousedown)="onMouseDownButton($event)"
+  (mouseup)="onMouseUpButton($event)"
+  (mouseenter)="onMouseEnterButton($event)"
+  (mouseleave)="onMouseLeaveButton($event)">
+  <img src="/icons/submit-icon.svg"/>
+</button>
