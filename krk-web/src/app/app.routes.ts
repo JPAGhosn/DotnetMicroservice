@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
-import { authenticationRoutes } from './authentication/authentication.routes';
+import { authenticationRoute } from '@authentication/authenticationRoute';
+import {guestGuard} from '@shared/guards/guest.guard';
+import {userRoute} from './user/user.routes';
 
 export const routes: Routes = [
-    ...authenticationRoutes,
+  authenticationRoute,
+  userRoute,
   {
     path: "**",
-    redirectTo: "auth"
+    redirectTo: "auth",
   },
 ];

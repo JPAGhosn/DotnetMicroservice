@@ -16,7 +16,7 @@ public static class AuthenticationEndpoint
             ;
 
         app
-            .MapPost("/api/auth/signIn", SignIn)
+            .MapPost("/api/auth/sign-in", SignIn)
             .WithName("SignIn")
             .WithOpenApi()
             ;

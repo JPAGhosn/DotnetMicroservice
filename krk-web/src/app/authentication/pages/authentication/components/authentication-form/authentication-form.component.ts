@@ -11,6 +11,9 @@ import {RemoteService} from '@authentication/remotes';
 import {ErrorModel, isErrorModel} from '@shared/models/error.model';
 import {isString} from '@shared/helpers/is-string';
 import {getHttpErrorMessage} from '@shared/helpers/get-http-error-message';
+import {HttpErrorResponse} from '@angular/common/http';
+import {CredentialsService} from '@shared/services/credentials.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'krk-authentication-form',
@@ -23,6 +26,8 @@ export class AuthenticationFormComponent {
   service = inject(AuthenticationService)
   form = inject(AuthenticationForm)
   remote = inject(RemoteService)
+  credentialsService = inject(CredentialsService)
+  router = inject(Router);
 
   @ViewChild("password") passwordElementRef!: ElementRef;
   @ViewChild("confirmPassword") confirmPasswordElementRef!: ElementRef;
@@ -52,6 +57,7 @@ export class AuthenticationFormComponent {
     const screen = this.service.authenticationScreen();
     switch (screen) {
       case "sign-in":
+        console.log("Sign In")
         this.signIn();
         break;
       case "sign-up":
@@ -90,26 +96,34 @@ export class AuthenticationFormComponent {
   }
 
   signIn() {
-    this.form.formGroup.markAsTouched();
-
     const emailOrPhoneControl = this.form.formGroup.controls.emailOrPhone;
     const passwordControl = this.form.formGroup.controls.password;
+
+    emailOrPhoneControl.markAsTouched();
+    passwordControl.markAsTouched();
 
     if(emailOrPhoneControl.invalid || passwordControl.invalid) {
       return;
     }
 
     const emailOrPhone = emailOrPhoneControl.value!;
-    const password = emailOrPhoneControl.value!;
+    const password = passwordControl.value!;
 
     this.loading.set(true)
     this.remote.signIn(emailOrPhone, password).pipe(
       tap(response => {
-
+        this.errorMessage.set("")
+        this.credentialsService.setCredentials(response);
+        this.router.navigate(["/"]);
       }),
-      catchError(err => {
-        const errorMessage = getHttpErrorMessage(err);
-        this.errorMessage.set(errorMessage)
+      catchError((err: HttpErrorResponse) => {
+        if(err.status === 401) {
+          this.errorMessage.set("Wrong email or password");
+        }
+        else {
+          const errorMessage = getHttpErrorMessage(err);
+          this.errorMessage.set(errorMessage)
+        }
         return throwError(() => err);
       }),
       finalize(() => {
