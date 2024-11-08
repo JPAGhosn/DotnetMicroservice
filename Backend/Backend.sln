@@ -10,8 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{143592C5-9A4C-45DE-B9F7-85270CA1D01A}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\Scripts\run-docker-compose.sh = Solution Items\Scripts\run-docker-compose.sh
+		Solution Items\Configurations\kurkle-realm.json = Solution Items\Configurations\kurkle-realm.json
 	EndProjectSection
 EndProject
 Global
@@ -27,5 +29,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{143592C5-9A4C-45DE-B9F7-85270CA1D01A} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 	EndGlobalSection
 EndGlobal

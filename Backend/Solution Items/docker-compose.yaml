@@ -38,6 +38,8 @@ services:
     image: quay.io/keycloak/keycloak:21.1
     container_name: keycloak
     restart: unless-stopped
+    volumes:
+      - ./Configurations:/opt/keycloak/data/import
     environment:
       KEYCLOAK_FRONTEND_URL: "localhost"
       KEYCLOAK_ADMIN: admin
@@ -49,7 +51,7 @@ services:
       KC_DB_USERNAME: admin
       KC_DB_PASSWORD: admin
       KC_HOSTNAME: localhost
-    command: start-dev
+    command: start-dev --import-realm
     ports:
       - "8081:8080"
     depends_on:
