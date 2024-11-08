@@ -7,6 +7,8 @@ import { map, Subscription, tap } from 'rxjs';
 import { ErrorButtonComponent } from "./components/error-button/error-button.component";
 import { LoaderComponent } from './components';
 import {disableDebugTools} from '@angular/platform-browser';
+import {placeholderAnimation} from '@shared/animations/placeholder.animation';
+import {getComputedState} from '@shared/helpers/get-computed.state';
 
 @Component({
   selector: 'krk-input',
@@ -15,54 +17,21 @@ import {disableDebugTools} from '@angular/platform-browser';
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   animations: [
-    trigger("placeholderAnimation", [
-      state("empry-blured-normal", style({
-        fontSize: "*",
-        top: "13px",
-        color: "var(--placeholder)"
-      })),
-      state("empry-blured-error", style({
-        fontSize: "*",
-        top: "13px",
-        color: "var(--error)"
-      })),
-
-      state("filled-blured-normal", style({
-        fontSize: "10px",
-        top: "-7px",
-        color: "var(--placeholder)"
-      })),
-      state("filled-blured-error", style({
-        fontSize: "10px",
-        top: "-7px",
-        color: "var(--error)"
-      })),
-
-
-      state("filled-focused-normal", style({
+    placeholderAnimation({
+      focused: {
         fontSize: "10px",
         top: "-7px",
         color: "var(--primary)"
-      })),
-      state("filled-focused-error", style({
-        fontSize: "10px",
-        top: "-7px",
+      },
+      blurred: {
+        fontSize: "*",
+        top: "13px",
+        color: "var(--placeholder)"
+      },
+      error: {
         color: "var(--error)"
-      })),
-
-      state("empty-focused-normal", style({
-        fontSize: "10px",
-        top: "-7px",
-        color: "var(--primary)"
-      })),
-      state("empty-focused-error", style({
-        fontSize: "10px",
-        top: "-7px",
-        color: "var(--error)"
-      })),
-
-      transition('* <=> *', [animate('200ms ease-out')]),
-    ])
+      }
+    })
   ],
   providers: [
     {
@@ -100,44 +69,7 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
   subs$ = new Subscription();
 
-  placeholderAnimationState = computed(() => {
-    const focused = this.focused();
-    const value = this.value();
-    const error = this.error();
-
-    if(focused && value && !error) {
-      return "filled-focused-normal"
-    }
-    else if(focused && value && error) {
-      return "filled-focused-error"
-    }
-
-    else if(focused && !value && !error) {
-      return "empty-focused-normal"
-    }
-    else if(focused && !value && error) {
-      return "empty-focused-error"
-    }
-
-
-    else if(!focused && value && !error) {
-      return "filled-blured-normal"
-    }
-    else if(!focused && value && error) {
-      return "filled-blured-error"
-    }
-
-
-    else if(!focused && !value && !error) {
-      return "empry-blured-normal"
-    }
-    else if(!focused && !value && error) {
-      return "empry-blured-error"
-    }
-
-
-    return focused ? "filled-focused-normal" : "filled-blured-normal";
-  })
+  placeholderAnimationState = getComputedState(this.focused, this.value, this.error);
 
   constructor() {
   }

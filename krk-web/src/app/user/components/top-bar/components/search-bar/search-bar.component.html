@@ -1,0 +1,15 @@
+<div id="search-wrapper">
+  <input
+    #input
+    id="search"
+    (focus)="onInputFocus()"
+    (blur)="onInputBlur()"
+    [value]="value()"
+    (input)="onInputChange(input.value)"
+    type="text"
+  >
+  <div id="placeholder" [@placeholderAnimation]="placeholderAnimationState()">
+    <span>Search for anything</span>
+  </div>
+  <img id="search-icon" [ngSrc]="searchIconPath()" alt="Search" height="18" width="18"/>
+</div>

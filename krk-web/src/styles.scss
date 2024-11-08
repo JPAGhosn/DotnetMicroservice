@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "instrument-sans";
-    src: url("../public/fonts/Instrument_Sans/InstrumentSans-VariableFont_wdth\,wght.ttf");
+    src: url("../public/fonts/Instrument_Sans/InstrumentSans-VariableFont_wdth,wght.ttf");
 }
 
 html, body {
@@ -25,7 +25,9 @@ html, body {
     --placeholder: #AEAEAE;
     --error: #C60F0F;
 
-    font-family: "instrument-sans", sans-serif;
+    --border-color-1: solid 1px #CECECE;
+
+    font-family: "instrument-sans", sans-serif !important;
     font-size: 15px;
 }
 
