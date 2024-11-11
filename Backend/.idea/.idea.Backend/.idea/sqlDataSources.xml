@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="c470a5be-88cc-474a-b265-9f74568b3b95" name="subscriptions@localhost Mapping">
+      <data-sources db="2789eb74-6756-4c61-b0fa-feecbe375bb4" />
+      <scope>
+        <node kind="database" qname="subscriptions_db" />
+      </scope>
+    </mapping>
+  </component>
+</project>

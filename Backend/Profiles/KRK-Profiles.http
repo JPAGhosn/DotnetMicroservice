@@ -1,0 +1,6 @@
+@KRK_Profiles_HostAddress = http://localhost:5200
+
+GET {{KRK_Profiles_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

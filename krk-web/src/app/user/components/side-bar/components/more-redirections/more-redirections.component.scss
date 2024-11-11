@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 11px;
+  margin-top: auto;
+}
+
+.redirections {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 9px;
+  row-gap: 3px;
+}

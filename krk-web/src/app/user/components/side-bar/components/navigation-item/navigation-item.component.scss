@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  height: 50px;
+  border-radius: var(--border-radius);
+  background: var(--surface);
+  gap: 10px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+:host-context(.selected) {
+  background: var(--primary);
+}
+
+:host-context(.selected) span {
+  color: var(--on-primary);
+  font-weight: bold;
+}
+
+span {
+  color: var(--on-surface);
+}

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+svg {
+  fill: var(--on-surface);
+}
+
+svg.selected {
+  fill: var(--on-primary);
+}
