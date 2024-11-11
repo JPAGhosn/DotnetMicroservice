@@ -1,5 +1,4 @@
 # This is a generated file. Not intended for manual editing.
-version: "3.8"
 services:
   auth:
     build:
@@ -18,5 +17,43 @@ services:
     volumes:
     - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Auth:/app:rw"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
+    working_dir: "/app"
+  profiles:
+    build:
+      context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Profiles"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/KRK-Profiles.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "krk-profiles:dev"
+    ports: []
+    volumes:
+    - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Profiles:/app:rw"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
+    working_dir: "/app"
+  subscriptions:
+    build:
+      context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Subscriptions"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/KRK-Subscriptions.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "krk-subscriptions:dev"
+    ports: []
+    volumes:
+    - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Subscriptions:/app:rw"
     - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
     working_dir: "/app"

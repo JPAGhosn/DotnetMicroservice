@@ -16,7 +16,7 @@ import {getComputedState} from '@shared/helpers/get-computed.state';
     placeholderAnimation({
       focused: {
         fontSize: "10px",
-        top: "-8px",
+        top: "-6px",
         color: "var(--primary)"
       },
       blurred: {
@@ -38,6 +38,14 @@ export class SearchBarComponent {
   value = signal("");
 
   placeholderAnimationState = getComputedState(this.focused, this.value);
+  searchIconPath = computed(() => {
+    const focused = this.focused();
+    if (focused) {
+      return "/icons/search-focused.svg";
+    } else {
+      return "/icons/search.svg";
+    }
+  })
 
   onInputFocus() {
     this.focused.set(true);
@@ -50,14 +58,4 @@ export class SearchBarComponent {
   onInputChange(value: string) {
     this.value.set(value);
   }
-
-  searchIconPath = computed(() => {
-    const focused = this.focused();
-    if(focused) {
-      return "/icons/search-focused.svg";
-    }
-    else {
-      return "/icons/search.svg";
-    }
-  })
 }

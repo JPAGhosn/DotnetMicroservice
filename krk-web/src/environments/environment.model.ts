@@ -1,3 +1,5 @@
 export interface EnvironmentModel {
-  apiUrl: string
-};
+  apiUrl: string,
+  subscriptionsApi: string,
+  profilesApi: string,
+}

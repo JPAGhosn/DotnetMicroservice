@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "KRKProfiles";
+
+package profiles;
+
+service Profile{
+  rpc GetManyProfiles(GetManyProfilesRequest) returns (GetManyProfilesResponse) {}
+}
+
+message GetManyProfilesRequest {
+  repeated string ids = 1;
+}
+
+message GetManyProfilesResponse {
+  repeated GrpcProfileModel profiles = 1;
+}
+
+message GrpcProfileModel {
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string userName = 4;
+  optional string profilePicture = 5;
+  optional string coverPicture = 6;
+}

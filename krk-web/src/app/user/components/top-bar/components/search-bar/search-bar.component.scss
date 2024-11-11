@@ -15,6 +15,7 @@
   width: 100%;
   border-radius: 50px;
   border: var(--border-color-1);
+  box-sizing: border-box;
 }
 
 #search {
@@ -26,6 +27,7 @@
   background: transparent;
   outline: none;
   border: none;
+  border-radius: 50px;
 }
 
 #search-wrapper:has(#search:focus) {

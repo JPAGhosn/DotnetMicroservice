@@ -1,38 +1,58 @@
 @import "./styles/material-disable";
+@import "./styles/scroll";
 
 @font-face {
-    font-family: "instrument-sans";
-    src: url("../public/fonts/Instrument_Sans/InstrumentSans-VariableFont_wdth,wght.ttf");
+  font-family: "instrument-sans";
+  src: url("../public/fonts/Instrument_Sans/InstrumentSans-VariableFont_wdth,wght.ttf");
 }
 
 html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: var(--surface);
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: var(--surface);
 }
 
 :root {
-    --primary: #4BBF57;
-    --mat-app-primary: #4BBF57;
+  --primary: #4BBF57;
+  --on-primary: #ffffff;
+
+  --mat-app-primary: #4BBF57;
   --mdc-filled-button-container-color: #4BBF57;
 
-    --surface: white;
-    --on-surface: #686868;
-    --input-border: solid 1px #AEAEAE;
-    --input-border-focused: solid 2px #4BBF57;
-    --placeholder: #AEAEAE;
-    --error: #C60F0F;
+  --surface: white;
+  --on-surface: #686868;
+  --input-border: solid 1px #AEAEAE;
+  --input-border-focused: solid 2px #4BBF57;
+  --placeholder: #AEAEAE;
+  --error: #C60F0F;
 
-    --border-color-1: solid 1px #CECECE;
+  --border-color-1: solid 1px #CECECE;
+  --border-radius: 10px;
 
-    font-family: "instrument-sans", sans-serif !important;
-    font-size: 15px;
+  --spacer-color: #E4E4E4;
+
+  --image-placeholder: #E4E4E4;
+  --box-shadow: rgb(0, 0, 0, 0.2);
+
+  --scroll-color: #59E567;
+
+  font-family: "instrument-sans", sans-serif !important;
+  font-size: 13px;
+  color: var(--on-surface);
+  fill: var(--on-surface);
 }
 
 input {
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 

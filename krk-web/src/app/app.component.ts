@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {CredentialsService} from '@shared/services/credentials.service';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {LoaderService} from '@shared/services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,7 @@ import {CredentialsService} from '@shared/services/credentials.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [
+    LoaderService
   ]
 })
 export class AppComponent {

@@ -1,0 +1,21 @@
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-color) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Optional: set track background */
+}
+
+::-webkit-scrollbar-thumb {
+  //background-color: var(--primary);
+  border-radius: 100px; /* Circular border radius */
+  border: none; /* Optional: remove thumb border */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Left-side shadow */
+}

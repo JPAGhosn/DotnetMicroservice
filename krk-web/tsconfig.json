@@ -25,8 +25,12 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@shared/*": ["app/shared/*"],
-      "@authentication/*": ["app/authentication/*"],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@authentication/*": [
+        "app/authentication/*"
+      ]
     }
   },
   "angularCompilerOptions": {

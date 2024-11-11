@@ -1,6 +1,7 @@
 :host {
   grid-area: top-bar;
-  padding: 7px 20px;
+  padding: 0px 20px;
+  height: 53px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -27,5 +28,5 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 19px;
 }
