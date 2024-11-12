@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: kurkle.com
+      http:
+        paths:
+          - path: /api/profiles
+            pathType: Prefix
+            backend:
+              service:
+                name: profiles-clusterip-srv
+                port:
+                  number: 80
+          - path: /api/subscriptions
+            pathType: Prefix
+            backend:
+              service:
+                name: subscriptions-clusterip-srv
+                port:
+                  number: 80
+
+              

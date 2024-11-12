@@ -4,7 +4,7 @@ services:
   auth:
     container_name: auth
     build:
-      context: ../KRK-Auth
+      context: ../Auth
       dockerfile: Dockerfile
     ports:
       - "5500:5500"
@@ -69,7 +69,7 @@ services:
   subscriptions:
     container_name: subscriptions
     build:
-      context: ../KRK-Subscriptions
+      context: ../Subscriptions
       dockerfile: Dockerfile
     ports:
       - "5501:5501"
@@ -96,10 +96,12 @@ services:
   profiles:
     container_name: profiles
     build:
-      context: ../KRK-Profiles
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ../Profiles/Dockerfile
+    environment:
+      BUILD_CONFIGURATION: Release
     ports:
-      - "5502:5502"
+      - "80:80"
     depends_on:
       - profiles_db
     networks:
@@ -118,6 +120,8 @@ services:
       - "5435:5432"
     networks:
       - krk-network
+
+
 volumes:
   data_auth:
   data_keycloak:

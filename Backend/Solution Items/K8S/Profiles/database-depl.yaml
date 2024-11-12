@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profiles-database-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profiles-database
+  template:
+    metadata:
+      labels:
+        app: profiles-database
+    spec:
+      containers:
+        - name: profiles-database
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresprofiles
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: "profiles_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: profilesdb
+      volumes:
+        - name: profilesdb
+          persistentVolumeClaim:
+            claimName: profiles-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: profiles-database-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: profiles-database
+  ports:
+    - name: profiles-database
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: profiles-database-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: profiles-database
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

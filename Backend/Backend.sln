@@ -24,8 +24,36 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{85B066D7-4AA3-470D-B68D-CAAB2D9F349D}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\K8S\profiles-depl.yaml = Solution Items\K8S\profiles-depl.yaml
+		Solution Items\K8S\ingress-src.yaml = Solution Items\K8S\ingress-src.yaml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{ED4416CF-E23F-4290-9B30-E0DF891A7140}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Development", "Development", "{B9103DD0-64E3-445E-A387-EBAF50E35763}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Docker\Development\profiles-service.Development.sh = Solution Items\Docker\Development\profiles-service.Development.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", "{51680D01-CFB5-427D-AB1C-14408CD888C6}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Docker\Production\profiles-service.Production.sh = Solution Items\Docker\Production\profiles-service.Production.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Docker\Dockerfiles\ProfilesDatabaseDockerfile = Solution Items\Docker\Dockerfiles\ProfilesDatabaseDockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiles", "Profiles", "{A6EB157D-7C30-4F85-8A91-E2421FAD8136}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Profiles\database-depl.yaml = Solution Items\K8S\Profiles\database-depl.yaml
+		Solution Items\K8S\Profiles\local-pvc.yaml = Solution Items\K8S\Profiles\local-pvc.yaml
+		Solution Items\K8S\Profiles\np-srv.yaml = Solution Items\K8S\Profiles\np-srv.yaml
+		Solution Items\K8S\Profiles\service-depl.yaml = Solution Items\K8S\Profiles\service-depl.yaml
+		Solution Items\K8S\Profiles\database-np.yaml = Solution Items\K8S\Profiles\database-np.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subscriptions", "Subscriptions", "{0B0851A5-5989-4A11-9804-61BD8BC78DE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,5 +82,11 @@ Global
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 		{143592C5-9A4C-45DE-B9F7-85270CA1D01A} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 		{85B066D7-4AA3-470D-B68D-CAAB2D9F349D} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{ED4416CF-E23F-4290-9B30-E0DF891A7140} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{B9103DD0-64E3-445E-A387-EBAF50E35763} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
+		{51680D01-CFB5-427D-AB1C-14408CD888C6} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
+		{EA8A992F-E3EB-431C-9E0D-F395FC64DC37} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
+		{A6EB157D-7C30-4F85-8A91-E2421FAD8136} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{0B0851A5-5989-4A11-9804-61BD8BC78DE4} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 	EndGlobalSection
 EndGlobal

@@ -1,59 +1,21 @@
 # This is a generated file. Not intended for manual editing.
 services:
-  auth:
-    build:
-      context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Auth"
-      dockerfile: "Dockerfile"
-      target: "base"
-    command: []
-    entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net8.0/KRK-Auth.dll"
-    environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      DOTNET_USE_POLLING_FILE_WATCHER: "true"
-    image: "krk-auth:dev"
-    ports: []
-    volumes:
-    - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
-    - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Auth:/app:rw"
-    - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
-    working_dir: "/app"
   profiles:
     build:
-      context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Profiles"
-      dockerfile: "Dockerfile"
+      context: "/Users/jeanpaul/Projects/Kurkle/Backend/Solution Items"
+      dockerfile: "../Profiles/Dockerfile"
       target: "base"
     command: []
     entrypoint:
     - "dotnet"
-    - "/app/bin/Debug/net8.0/KRK-Profiles.dll"
+    - "/app/bin/Debug/net8.0/Profiles.dll"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       DOTNET_USE_POLLING_FILE_WATCHER: "true"
-    image: "krk-profiles:dev"
+    image: "profiles:dev"
     ports: []
     volumes:
     - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
-    - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Profiles:/app:rw"
-    - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
-    working_dir: "/app"
-  subscriptions:
-    build:
-      context: "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Subscriptions"
-      dockerfile: "Dockerfile"
-      target: "base"
-    command: []
-    entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net8.0/KRK-Subscriptions.dll"
-    environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      DOTNET_USE_POLLING_FILE_WATCHER: "true"
-    image: "krk-subscriptions:dev"
-    ports: []
-    volumes:
-    - "/Users/jeanpaul/.nuget/packages:/home/app/.nuget/packages"
-    - "/Users/jeanpaul/Projects/Kurkle/Backend/KRK-Subscriptions:/app:rw"
+    - "/Users/jeanpaul/Projects/Kurkle/Backend/Profiles:/app:rw"
     - "/Users/jeanpaul/Projects/Kurkle/Backend:/src:rw"
     working_dir: "/app"
