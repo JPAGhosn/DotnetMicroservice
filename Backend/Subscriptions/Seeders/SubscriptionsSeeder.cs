@@ -21,61 +21,6 @@ public static class SubscriptionsSeeder
         {
             Id = Guid.NewGuid(),
             ProfileId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a6")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a7")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a8")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a9")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("40f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("50f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("60f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("70f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("80f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("90f10c25-ab78-452e-82cc-11861c9750a5")
-        },
-        new()
-        {
-            Id = Guid.NewGuid(),
-            ProfileId = Guid.Parse("30f40c25-ab78-452e-82cc-11861c9750a5")
         }
     ];
 

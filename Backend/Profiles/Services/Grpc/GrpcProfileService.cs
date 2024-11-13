@@ -24,7 +24,7 @@ public class GrpcProfileService(ProfileRepository profileRepository) : Profile.P
 
             if (profile.ProfilePicture is not null) model.ProfilePicture = profile.ProfilePicture;
 
-            if (model.CoverPicture is not null) model.CoverPicture = model.CoverPicture;
+            if (profile.CoverPicture is not null) model.CoverPicture = profile.CoverPicture;
 
             response.Profiles.Add(model);
         }

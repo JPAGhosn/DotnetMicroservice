@@ -1,3 +1,4 @@
+using KRK_Profiles.Data;
 using KRK_Profiles.Endpoints;
 using KRK_Profiles.Extensions;
 
@@ -22,5 +23,7 @@ app.UseHttpsRedirection();
 
 app.MapProfilesEndpoints();
 app.MapKrkGrpc();
+
+ProfilesDbPreparation.PrepPopulation(app, builder.Environment.IsProduction());
 
 app.Run();

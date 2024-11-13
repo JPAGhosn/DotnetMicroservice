@@ -11,7 +11,7 @@ public class ProfileModel : BaseModel
 
     [MaxLength(48)] public string UserName { get; set; } = default!;
 
-    [MaxLength(256)] public string ProfilePicture { get; set; } = default!;
+    [MaxLength(256)] public string? ProfilePicture { get; set; } = default!;
 
-    [MaxLength(256)] public string CoverPicture { get; set; } = default!;
+    [MaxLength(256)] public string? CoverPicture { get; set; } = default!;
 }

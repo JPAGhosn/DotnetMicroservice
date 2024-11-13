@@ -1,5 +1,6 @@
 using KRK_Subscriptions.Client.Grpc;
 using KRK_Subscriptions.Data;
+using KRK_Subscriptions.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace KRK_Subscriptions.Endpoints;
@@ -25,8 +26,16 @@ public static class SubscriptionsEndpoint
         var profileIds = subscriptions.Select(s => s.ProfileId).Distinct().ToList();
         var profiles = await profileDataClient.GetManyProfiles(profileIds);
 
-        foreach (var profile in profiles) subscriptions.First(s => s.ProfileId == profile.Id).Profile = profile;
+        var subsResponse = new List<SubscriptionModel>();
 
-        return Results.Ok(subscriptions);
+        foreach (var profile in profiles)
+        {
+            var sub = subscriptions.FirstOrDefault(s => s.ProfileId == profile.Id);
+            if (sub is null) continue;
+            sub.Profile = profile;
+            subsResponse.Add(sub);
+        }
+
+        return Results.Ok(subsResponse);
     }
 }
