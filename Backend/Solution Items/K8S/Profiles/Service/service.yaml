@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profiles-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profiles-service
+  template:
+    metadata:
+      labels:
+        app: profiles-service
+    spec:
+      containers:
+        - name: profiles-service
+          image: localhost:9870/kurkle/profiles-service:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: profiles-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: profiles-service
+  ports:
+    - name: profiles-service
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: plafromgrpc
+      protocol: TCP
+      port: 666
+      targetPort: 666

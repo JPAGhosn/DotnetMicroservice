@@ -26,6 +26,7 @@ services:
       - "5432:5432"
     networks:
       - krk-network
+  
   keycloak_db:
     container_name: keycloak_db
     image: postgres:16

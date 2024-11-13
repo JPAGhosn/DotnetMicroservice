@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: profiles-depl
+  name: subscriptions-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: profilesservice
+      app: subscriptions-service
   template:
     metadata:
       labels:
-        app: profilesservice
+        app: subscriptions-service
     spec:
       containers:
-        - name: profilesservice
-          image: localhost:9870/kurkle/profiles:latest
+        - name: subscriptions-service
+          image: localhost:9870/kurkle/subscriptions:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: profiles-clusterip-srv
+  name: subscriptions-cluster-ip-service
 spec:
   type: ClusterIP
   selector:
-    app: profilesservice
+    app: subscriptions-service
   ports:
-    - name: profilesservice
+    - name: subscriptions-service
       protocol: TCP
       port: 80
       targetPort: 80

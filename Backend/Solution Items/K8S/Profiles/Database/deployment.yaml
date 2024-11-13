@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: profiles-database-depl
+  name: profiles-database-deployment
 spec:
   replicas: 1
   selector:
@@ -33,12 +33,12 @@ spec:
       volumes:
         - name: profilesdb
           persistentVolumeClaim:
-            claimName: profiles-claim
+            claimName: profiles-persistent-volume-claim
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: profiles-database-clusterip-srv
+  name: profiles-database-cluster-ip
 spec:
   type: ClusterIP
   selector:
@@ -52,7 +52,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: profiles-database-loadbalancer
+  name: profiles-database-load-balancer
 spec:
   type: LoadBalancer
   selector:
@@ -61,3 +61,4 @@ spec:
     - protocol: TCP
       port: 5432
       targetPort: 5432
+      nodePort: 3000

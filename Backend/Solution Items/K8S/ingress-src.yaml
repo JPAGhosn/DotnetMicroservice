@@ -14,14 +14,14 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: profiles-clusterip-srv
+                name: profiles-cluster-ip-service
                 port:
                   number: 80
           - path: /api/subscriptions
             pathType: Prefix
             backend:
               service:
-                name: subscriptions-clusterip-srv
+                name: subscriptions-cluster-ip-service
                 port:
                   number: 80
 
