@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: subscriptions-service
-          image: localhost:9870/kurkle/subscriptions:latest
+          image: localhost:9870/kurkle/subscriptions-service:latest
 ---
 apiVersion: v1
 kind: Service

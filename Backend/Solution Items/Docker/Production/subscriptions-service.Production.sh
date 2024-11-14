@@ -7,5 +7,5 @@ docker build \
   -f ../../../Subscriptions/Dockerfile ../../.. \
   --build-arg BUILD_CONFIGURATION=Production;
   
-docker push ${REGISTRY_URL}/kurkle/profiles-service
+docker push ${REGISTRY_URL}/kurkle/subscriptions-service
  
