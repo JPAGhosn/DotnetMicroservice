@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{85B066D7-4AA3-470D-B68D-CAAB2D9F349D}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\K8S\ingress-src.yaml = Solution Items\K8S\ingress-src.yaml
+		Solution Items\K8S\ingress-service.yaml = Solution Items\K8S\ingress-service.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{ED4416CF-E23F-4290-9B30-E0DF891A7140}"
