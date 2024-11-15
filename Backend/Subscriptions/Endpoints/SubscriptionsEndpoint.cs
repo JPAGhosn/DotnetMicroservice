@@ -10,7 +10,7 @@ public static class SubscriptionsEndpoint
     public static void MapSubscriptionsEndpoints(this WebApplication app)
     {
         app
-            .MapGet("/subscriptions", GetSubscriptions)
+            .MapGet("/api/subscriptions", GetSubscriptions)
             .WithName("GetSubscriptions")
             .WithOpenApi();
     }

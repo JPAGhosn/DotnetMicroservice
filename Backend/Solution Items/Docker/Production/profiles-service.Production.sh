@@ -9,3 +9,6 @@ docker build \
   
 docker push ${REGISTRY_URL}/kurkle/profiles-service
  
+kubectl delete deployments profiles-service;
+
+kubectl apply -f ../../K8S/Profiles/Service/service.yaml;

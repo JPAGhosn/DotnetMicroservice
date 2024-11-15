@@ -9,6 +9,7 @@ public class ProfileDataClient(ProfilesServiceConfiguration profilesServiceConfi
 {
     public async Task<List<ProfileModel>> GetManyProfiles(List<Guid> profilesIds)
     {
+        Console.WriteLine("Calling " + profilesServiceConfiguration.Url);
         var channel = GrpcChannel.ForAddress(profilesServiceConfiguration.Url);
         var client = new Profile.ProfileClient(channel);
         var request = new GetManyProfilesRequest();

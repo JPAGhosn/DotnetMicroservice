@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: subscriptions-service
+          imagePullPolicy: Always
           image: localhost:9870/kurkle/subscriptions-service:latest
 ---
 apiVersion: v1
@@ -28,8 +29,4 @@ spec:
     - name: subscriptions-service
       protocol: TCP
       port: 80
-      targetPort: 80
-    - name: plafromgrpc
-      protocol: TCP
-      port: 666
-      targetPort: 666
+      targetPort: 8080

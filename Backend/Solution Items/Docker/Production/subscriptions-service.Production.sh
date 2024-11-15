@@ -7,5 +7,8 @@ docker build \
   -f ../../../Subscriptions/Dockerfile ../../.. \
   --build-arg BUILD_CONFIGURATION=Production;
   
-docker push ${REGISTRY_URL}/kurkle/subscriptions-service
- 
+docker push ${REGISTRY_URL}/kurkle/subscriptions-service;
+
+kubectl delete deployments subscriptions-service;
+
+kubectl apply -f ../../K8S/Subscriptions/Service/service.yaml;
