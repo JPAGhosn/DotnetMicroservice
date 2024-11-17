@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-database
+  template:
+    metadata:
+      labels:
+        app: auth-database
+    spec:
+      containers:
+        - name: auth-database
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresauth
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: "auth_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: authdb
+      volumes:
+        - name: authdb
+          persistentVolumeClaim:
+            claimName: auth-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-database-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    app: auth-database
+  ports:
+    - name: auth-database
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-database-load-balancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: auth-database
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

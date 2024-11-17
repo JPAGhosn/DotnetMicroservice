@@ -1,0 +1,175 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", "{6A15DCEE-03B1-4430-8AEF-8D38CF91D25B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\docker-compose.yaml = Solution Items\docker-compose.yaml
+		Solution Items\README.md = Solution Items\README.md
+		Solution Items\technical-README.md = Solution Items\technical-README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{143592C5-9A4C-45DE-B9F7-85270CA1D01A}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Configurations\kurkle-realm.json = Solution Items\Configurations\kurkle-realm.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriptions", "Subscriptions\Subscriptions.csproj", "{D08B9DDC-43CF-4F2E-A954-4911938CFC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profiles", "Profiles\Profiles.csproj", "{9E0F77D4-341E-4469-8CA1-6B30BE651809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{85B066D7-4AA3-470D-B68D-CAAB2D9F349D}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\ingress-service.yaml = Solution Items\K8S\ingress-service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{ED4416CF-E23F-4290-9B30-E0DF891A7140}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", "{51680D01-CFB5-427D-AB1C-14408CD888C6}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Docker\Production\profiles-service.Production.sh = Solution Items\Docker\Production\profiles-service.Production.sh
+		Solution Items\Docker\Production\keycloak-service.Production.sh = Solution Items\Docker\Production\keycloak-service.Production.sh
+		Solution Items\Docker\Production\subscriptions-service.Production.sh = Solution Items\Docker\Production\subscriptions-service.Production.sh
+		Solution Items\Docker\Production\frontend-service.sh = Solution Items\Docker\Production\frontend-service.sh
+		Solution Items\Docker\Production\ingress.sh = Solution Items\Docker\Production\ingress.sh
+		Solution Items\Docker\Production\auth.sh = Solution Items\Docker\Production\auth.sh
+		Solution Items\Docker\Production\seaweed-fs.sh = Solution Items\Docker\Production\seaweed-fs.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Docker\Dockerfiles\ProfilesDatabaseDockerfile = Solution Items\Docker\Dockerfiles\ProfilesDatabaseDockerfile
+		Solution Items\Docker\Dockerfiles\KeycloakDockerfile = Solution Items\Docker\Dockerfiles\KeycloakDockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiles", "Profiles", "{A6EB157D-7C30-4F85-8A91-E2421FAD8136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subscriptions", "Subscriptions", "{0B0851A5-5989-4A11-9804-61BD8BC78DE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{38FD7833-E584-4A17-B005-EE31FA794607}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Profiles\Database\deployment.yaml = Solution Items\K8S\Profiles\Database\deployment.yaml
+		Solution Items\K8S\Profiles\Database\nodeport.yaml = Solution Items\K8S\Profiles\Database\nodeport.yaml
+		Solution Items\K8S\Profiles\Database\pvc.yaml = Solution Items\K8S\Profiles\Database\pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{9491EACE-F62C-4544-842B-BC57CD11444E}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Profiles\Service\nodeport.yaml = Solution Items\K8S\Profiles\Service\nodeport.yaml
+		Solution Items\K8S\Profiles\Service\service.yaml = Solution Items\K8S\Profiles\Service\service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{7F313EE0-B59E-44AF-A526-7110186482C6}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Subscriptions\Service\nodeport.yaml = Solution Items\K8S\Subscriptions\Service\nodeport.yaml
+		Solution Items\K8S\Subscriptions\Service\service.yaml = Solution Items\K8S\Subscriptions\Service\service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{27DB717F-546F-4695-84DD-0DE77A377C6A}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Subscriptions\Database\deployment.yaml = Solution Items\K8S\Subscriptions\Database\deployment.yaml
+		Solution Items\K8S\Subscriptions\Database\nodeport.yaml = Solution Items\K8S\Subscriptions\Database\nodeport.yaml
+		Solution Items\K8S\Subscriptions\Database\pvc.yaml = Solution Items\K8S\Subscriptions\Database\pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keycloak", "Keycloak", "{03A6DF9E-59A0-4A82-B4E5-EA7DD4EF50E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{15A17FBD-6AB3-4C19-926B-EE36547EB7C1}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Keycloak\Database\deployment.yaml = Solution Items\K8S\Keycloak\Database\deployment.yaml
+		Solution Items\K8S\Keycloak\Database\nodeport.yaml = Solution Items\K8S\Keycloak\Database\nodeport.yaml
+		Solution Items\K8S\Keycloak\Database\pvc.yaml = Solution Items\K8S\Keycloak\Database\pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{BC881C6E-2C42-4946-BCDC-37865532B26E}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Keycloak\Service\service.yaml = Solution Items\K8S\Keycloak\Service\service.yaml
+		Solution Items\K8S\Keycloak\Service\nodeport.yaml = Solution Items\K8S\Keycloak\Service\nodeport.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{ED9849EC-9662-4CC9-92CF-8ACC54D95962}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{22C33F62-BB08-4715-8680-A7F97DA26974}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Frontend\Service\service.yaml = Solution Items\K8S\Frontend\Service\service.yaml
+		Solution Items\K8S\Frontend\Service\nodeport.yaml = Solution Items\K8S\Frontend\Service\nodeport.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{94997946-486A-46A0-92F7-B8CAA6812B06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{5103DD2F-2CE4-4F4A-A26E-E468889919BB}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Auth\Service\nodeport.yaml = Solution Items\K8S\Auth\Service\nodeport.yaml
+		Solution Items\K8S\Auth\Service\service.yaml = Solution Items\K8S\Auth\Service\service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{ED6D206B-5FAB-46A8-90B8-3E9F1AB01407}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Auth\Database\deployment.yaml = Solution Items\K8S\Auth\Database\deployment.yaml
+		Solution Items\K8S\Auth\Database\nodeport.yaml = Solution Items\K8S\Auth\Database\nodeport.yaml
+		Solution Items\K8S\Auth\Database\pvc.yaml = Solution Items\K8S\Auth\Database\pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Store", "Store", "{38982E59-E2C5-4250-B13C-952187031F7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SeaweedFS", "SeaweedFS", "{583EEA00-5630-4C63-AB70-5614CBBAF890}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{92AD9D2C-EC04-42FA-91F5-CAB139553FD6}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\SeaweedFS\Service\node-port.yaml = Solution Items\K8S\SeaweedFS\Service\node-port.yaml
+		Solution Items\K8S\SeaweedFS\Service\seaweedfs.yaml = Solution Items\K8S\SeaweedFS\Service\seaweedfs.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A15DCEE-03B1-4430-8AEF-8D38CF91D25B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A15DCEE-03B1-4430-8AEF-8D38CF91D25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A15DCEE-03B1-4430-8AEF-8D38CF91D25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A15DCEE-03B1-4430-8AEF-8D38CF91D25B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08B9DDC-43CF-4F2E-A954-4911938CFC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08B9DDC-43CF-4F2E-A954-4911938CFC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08B9DDC-43CF-4F2E-A954-4911938CFC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08B9DDC-43CF-4F2E-A954-4911938CFC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0F77D4-341E-4469-8CA1-6B30BE651809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0F77D4-341E-4469-8CA1-6B30BE651809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0F77D4-341E-4469-8CA1-6B30BE651809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0F77D4-341E-4469-8CA1-6B30BE651809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{143592C5-9A4C-45DE-B9F7-85270CA1D01A} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{85B066D7-4AA3-470D-B68D-CAAB2D9F349D} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{ED4416CF-E23F-4290-9B30-E0DF891A7140} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{51680D01-CFB5-427D-AB1C-14408CD888C6} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
+		{EA8A992F-E3EB-431C-9E0D-F395FC64DC37} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
+		{A6EB157D-7C30-4F85-8A91-E2421FAD8136} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{0B0851A5-5989-4A11-9804-61BD8BC78DE4} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{38FD7833-E584-4A17-B005-EE31FA794607} = {A6EB157D-7C30-4F85-8A91-E2421FAD8136}
+		{9491EACE-F62C-4544-842B-BC57CD11444E} = {A6EB157D-7C30-4F85-8A91-E2421FAD8136}
+		{7F313EE0-B59E-44AF-A526-7110186482C6} = {0B0851A5-5989-4A11-9804-61BD8BC78DE4}
+		{27DB717F-546F-4695-84DD-0DE77A377C6A} = {0B0851A5-5989-4A11-9804-61BD8BC78DE4}
+		{03A6DF9E-59A0-4A82-B4E5-EA7DD4EF50E8} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{15A17FBD-6AB3-4C19-926B-EE36547EB7C1} = {03A6DF9E-59A0-4A82-B4E5-EA7DD4EF50E8}
+		{BC881C6E-2C42-4946-BCDC-37865532B26E} = {03A6DF9E-59A0-4A82-B4E5-EA7DD4EF50E8}
+		{ED9849EC-9662-4CC9-92CF-8ACC54D95962} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{22C33F62-BB08-4715-8680-A7F97DA26974} = {ED9849EC-9662-4CC9-92CF-8ACC54D95962}
+		{94997946-486A-46A0-92F7-B8CAA6812B06} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{5103DD2F-2CE4-4F4A-A26E-E468889919BB} = {94997946-486A-46A0-92F7-B8CAA6812B06}
+		{ED6D206B-5FAB-46A8-90B8-3E9F1AB01407} = {94997946-486A-46A0-92F7-B8CAA6812B06}
+		{38982E59-E2C5-4250-B13C-952187031F7F} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{583EEA00-5630-4C63-AB70-5614CBBAF890} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{92AD9D2C-EC04-42FA-91F5-CAB139553FD6} = {583EEA00-5630-4C63-AB70-5614CBBAF890}
+	EndGlobalSection
+EndGlobal
