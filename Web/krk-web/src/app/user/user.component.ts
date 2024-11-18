@@ -3,9 +3,11 @@ import {TopBarComponent} from './components/top-bar/top-bar.component';
 import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RouterOutlet} from '@angular/router';
 import {SubscriptionsStore} from './stores/subscriptions.store';
+import {RecipesStore} from './stores/recipes.store';
 
 const stores = [
-  SubscriptionsStore
+  SubscriptionsStore,
+  RecipesStore
 ]
 
 @Component({

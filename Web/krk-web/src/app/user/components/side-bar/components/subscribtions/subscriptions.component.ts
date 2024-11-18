@@ -28,7 +28,7 @@ export class SubscriptionsComponent implements OnInit {
   subscriptions = computed(() => {
     const subscriptions = this.subscriptionsStore.data();
 
-    if (subscriptions.length < 5) {
+    if (subscriptions.length < 5 || this.subscriptionsService.expanded()) {
       return subscriptions;
     }
 
@@ -37,7 +37,7 @@ export class SubscriptionsComponent implements OnInit {
 
   showMoreButtonVisible = computed(() => {
     const subscriptions = this.subscriptionsStore.data();
-    return subscriptions.length > 5
+    return subscriptions.length > 5 && !this.subscriptionsService.expanded();
   })
 
 

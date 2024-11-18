@@ -31,6 +31,13 @@ spec:
                 name: auth-cluster-ip-service
                 port:
                   number: 80
+          - path: /api/recipes
+            pathType: Prefix
+            backend:
+              service:
+                name: recipes-cluster-ip-service
+                port:
+                  number: 80
           - path: /Profiles
             pathType: Prefix
             backend:

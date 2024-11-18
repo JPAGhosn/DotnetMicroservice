@@ -9,7 +9,7 @@ public static class ProfilesDbPreparation
     {
         using (var serviceScope = app.ApplicationServices.CreateScope())
         {
-            SeedData(serviceScope.ServiceProvider.GetService<ProfilesDbContext>(), isProd);
+            SeedData(serviceScope.ServiceProvider.GetService<ProfilesDbContext>()!, isProd);
         }
     }
 

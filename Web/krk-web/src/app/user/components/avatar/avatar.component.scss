@@ -11,4 +11,12 @@
   box-shadow: 0 4px 4px 0px var(--box-shadow);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+krk-image {
+  height: 100%;
+  width: 100%;
 }

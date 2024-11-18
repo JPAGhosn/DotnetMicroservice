@@ -7,7 +7,10 @@ docker build \
   -f ../../../Profiles/Dockerfile ../../.. \
   --build-arg BUILD_CONFIGURATION=Production;
   
-docker push ${REGISTRY_URL}/kurkle/profiles-service
+docker push ${REGISTRY_URL}/kurkle/profiles-service;
+
+kubectl delete secrets postgresprofiles;
+kubectl create secret generic postgresprofiles --from-literal=POSTGRES_PASSWORD=admin;
  
 kubectl delete deployments profiles-service;
 

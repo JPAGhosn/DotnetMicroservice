@@ -13,6 +13,7 @@ krk-title {
   flex-direction: column;
   align-items: stretch;
   gap: 20px;
+  transition: height 0.1s;
 }
 
 .no-subscriptions-message {

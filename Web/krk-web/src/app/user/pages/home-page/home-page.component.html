@@ -1,1 +1,5 @@
-<p>Home</p>
+<krk-group-container [column]="4">
+  @for (recipe of recipesStore.data(); track recipe.id) {
+    <krk-recipe [recipe]="recipe"/>
+  }
+</krk-group-container>

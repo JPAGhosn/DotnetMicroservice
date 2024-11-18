@@ -19,7 +19,7 @@ export abstract class BaseDataStore<T extends BaseModel> {
 
     data.push(model);
 
-    this.cachedData.set(data);
+    this.cachedData.set([...data]);
   }
 
   addMany(models: T[]) {

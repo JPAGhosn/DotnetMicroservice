@@ -38,6 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", 
 		Solution Items\Docker\Production\ingress.sh = Solution Items\Docker\Production\ingress.sh
 		Solution Items\Docker\Production\auth.sh = Solution Items\Docker\Production\auth.sh
 		Solution Items\Docker\Production\seaweed-fs.sh = Solution Items\Docker\Production\seaweed-fs.sh
+		Solution Items\Docker\Production\recipes.sh = Solution Items\Docker\Production\recipes.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
@@ -124,6 +125,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{92AD
 		Solution Items\K8S\SeaweedFS\Service\seaweedfs.yaml = Solution Items\K8S\SeaweedFS\Service\seaweedfs.yaml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes", "Recipes\Recipes.csproj", "{06D4BE40-B798-4F56-B5F7-6C67E355B343}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recipes", "Recipes", "{F69AD4A7-24EE-43BB-BBB1-E761452E0A05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{E2FD080E-DCAF-43DC-943F-2AA1BDDA4609}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Recipes\Database\deployment.yaml = Solution Items\K8S\Recipes\Database\deployment.yaml
+		Solution Items\K8S\Recipes\Database\nodeport.yaml = Solution Items\K8S\Recipes\Database\nodeport.yaml
+		Solution Items\K8S\Recipes\Database\pvc.yaml = Solution Items\K8S\Recipes\Database\pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{27A1ADE5-1E9C-4F02-B216-D302F2393D21}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Recipes\Service\nodeport.yaml = Solution Items\K8S\Recipes\Service\nodeport.yaml
+		Solution Items\K8S\Recipes\Service\service.yaml = Solution Items\K8S\Recipes\Service\service.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -146,6 +164,10 @@ Global
 		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0D7636E-0A17-48D7-9E88-DB28EAF4BD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D4BE40-B798-4F56-B5F7-6C67E355B343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4BE40-B798-4F56-B5F7-6C67E355B343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4BE40-B798-4F56-B5F7-6C67E355B343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4BE40-B798-4F56-B5F7-6C67E355B343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
@@ -171,5 +193,8 @@ Global
 		{38982E59-E2C5-4250-B13C-952187031F7F} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{583EEA00-5630-4C63-AB70-5614CBBAF890} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{92AD9D2C-EC04-42FA-91F5-CAB139553FD6} = {583EEA00-5630-4C63-AB70-5614CBBAF890}
+		{F69AD4A7-24EE-43BB-BBB1-E761452E0A05} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{E2FD080E-DCAF-43DC-943F-2AA1BDDA4609} = {F69AD4A7-24EE-43BB-BBB1-E761452E0A05}
+		{27A1ADE5-1E9C-4F02-B216-D302F2393D21} = {F69AD4A7-24EE-43BB-BBB1-E761452E0A05}
 	EndGlobalSection
 EndGlobal

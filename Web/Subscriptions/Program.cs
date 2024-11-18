@@ -1,4 +1,5 @@
 using KRK_Shared.Extensions;
+using KRK_Subscriptions.Data;
 using KRK_Subscriptions.Endpoints;
 using KRK_Subscriptions.Extensions;
 
@@ -27,5 +28,6 @@ app.UseWebCors();
 
 app.MapSubscriptionsEndpoints();
 
+SubscriptionsDbPreparation.PrepPopulation(app, builder.Environment.IsProduction());
 
 app.Run();

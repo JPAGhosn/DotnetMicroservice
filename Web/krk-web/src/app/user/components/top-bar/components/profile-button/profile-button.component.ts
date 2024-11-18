@@ -11,5 +11,6 @@ import {AvatarComponent} from '../../../avatar/avatar.component';
   styleUrl: './profile-button.component.scss'
 })
 export class ProfileButtonComponent {
+  image = "";
 
 }

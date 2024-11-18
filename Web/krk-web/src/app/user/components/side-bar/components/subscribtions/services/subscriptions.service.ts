@@ -1,4 +1,4 @@
-import {inject, Injectable, Injector} from '@angular/core';
+import {inject, Injectable, Injector, signal} from '@angular/core';
 import {SubscriptionsStore} from '../../../../../stores/subscriptions.store';
 import {SubscriptionsRemote} from '../remotes/subscriptions.remote';
 import {hideLoader} from '@shared/operators/hide-loader.operator';
@@ -13,6 +13,8 @@ export class SubscriptionsService {
   subscriptionsRemote = inject(SubscriptionsRemote)
   subscriptionsStore = inject(SubscriptionsStore)
   loaderService = inject(LoaderService)
+
+  expanded = signal(false)
 
   fetch() {
     const loaderId = generateUUID()

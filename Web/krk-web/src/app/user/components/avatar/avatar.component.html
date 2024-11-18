@@ -1,3 +1,7 @@
 <div class="avatar">
-  <img [ngSrc]="img ?? ''" alt="Avatar" fill/>
+  @if (image) {
+    <krk-image [image]="image" [height]="22" [width]="22" [errorTemplate]="errorTemplate"/>
+  } @else {
+    <img ngSrc="/icons/no-profile.svg" height="16" width="16" alt="No profile"/>
+  }
 </div>

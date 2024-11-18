@@ -1,5 +1,8 @@
-<krk-avatar [img]="profilePicture"/>
+<krk-avatar [errorTemplate]="errorTemplate" [image]="profilePicture"/>
+
 <div class="information">
   <span class="full-name">{{ firstName }} {{ lastName }}</span>
   <span class="user-name">&#64;{{ userName }}</span>
 </div>
+
+<ng-template #errorTemplate></ng-template>
