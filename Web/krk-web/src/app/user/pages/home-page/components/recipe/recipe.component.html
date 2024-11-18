@@ -1,0 +1,15 @@
+<div class="krk-recipe-cover">
+  <krk-image [image]="recipe.cover"/>
+</div>
+<div class="krk-information">
+  <krk-avatar [image]="recipe.creator.profilePicture"/>
+  <div class="krk-text-information">
+    <span>{{ recipe.name }}</span>
+    <span>&#64;{{ recipe.creator.userName }}</span>
+    <div class="minimal-information">
+      <span>{{ recipe.numberOfViews }}</span>
+      <div class="separator"></div>
+      <span>{{ recipe.publishedDate }}</span>
+    </div>
+  </div>
+</div>
