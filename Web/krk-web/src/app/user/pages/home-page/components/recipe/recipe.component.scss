@@ -1,3 +1,45 @@
 :host {
   display: block;
 }
+
+.recipe-cover {
+  width: 341px;
+  height: 192px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.krk-information {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.krk-text-information {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.recipe-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.minimal-information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  color: var(--on-surface-light);
+  font-size: 12px;
+}
+
+.separator {
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: var(--on-surface-light);
+}

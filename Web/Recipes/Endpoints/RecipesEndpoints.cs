@@ -1,4 +1,6 @@
 using Recipes.Bindings;
+using Recipes.Clients.Grpc;
+using Recipes.Dtos.Recipe;
 using Recipes.Repositories;
 
 namespace Recipes.Endpoints;
@@ -12,6 +14,7 @@ public static class RecipesEndpoints
 
     private static async Task<IResult> GetRecipes(RecipesRepository recipesRepository,
         PicturesBasePath picturesBasePath,
+        ProfileDataClient profilesClient,
         CancellationToken cancellationToken)
     {
         var recipes = await recipesRepository.GetAll(cancellationToken);
@@ -22,6 +25,22 @@ public static class RecipesEndpoints
             return recipe;
         }).ToList();
 
-        return Results.Ok(recipes);
+        var creatorsIds = recipes.Select(recipe => recipe.CreatorId).Distinct().ToList();
+
+        var profiles = await profilesClient.GetManyProfiles(creatorsIds, cancellationToken);
+
+        recipes = recipes.Select(recipe =>
+        {
+            var profile = profiles.FirstOrDefault(p => p.Id == recipe.CreatorId);
+            if (profile is not null)
+            {
+                recipe.Creator = profile;
+            }
+            return recipe;
+        }).ToList();
+
+        var recipesDtos = recipes.Select(recipe => new RecipeViewDto(recipe)).ToList();
+
+        return Results.Ok(recipesDtos);
     }
 }

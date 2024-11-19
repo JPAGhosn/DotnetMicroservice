@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.home-items-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(1, 1fr);
+
+  @media screen and (min-width: 1010px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 1350px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1700px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: 2044px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: 2044px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (min-width: 2421px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

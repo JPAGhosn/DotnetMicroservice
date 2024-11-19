@@ -12,7 +12,8 @@ public class GrpcProfileService(ProfileRepository profileRepository, PicturesBas
         ServerCallContext context)
     {
         var response = new GetManyProfilesResponse();
-        var profiles = await profileRepository.GetAll();
+        var ids = request.Ids.Select(Guid.Parse).ToList();
+        var profiles = await profileRepository.GetAllWithIds(ids);
 
         foreach (var profile in profiles)
         {

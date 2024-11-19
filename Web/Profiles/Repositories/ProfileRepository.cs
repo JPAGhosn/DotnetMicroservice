@@ -10,4 +10,9 @@ public class ProfileRepository(ProfilesDbContext context)
     {
         return await context.Profiles.ToListAsync();
     }
+
+    public async Task<List<ProfileModel>> GetAllWithIds(List<Guid> ids)
+    {
+        return await context.Profiles.Where(profile => ids.Contains(profile.Id)).ToListAsync();
+    }
 }

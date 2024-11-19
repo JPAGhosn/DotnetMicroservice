@@ -9,5 +9,8 @@ public static class BindingsExtension
     {
         services.Configure<PicturesBasePath>(configuration.GetSection("PicturesBasePath"));
         services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<PicturesBasePath>>().Value);
+
+        services.Configure<ProfilesServiceBinding>(configuration.GetSection("ProfilesService"));
+        services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<ProfilesServiceBinding>>().Value);
     }
 }

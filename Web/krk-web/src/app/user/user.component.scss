@@ -8,3 +8,12 @@
   grid-template-rows: auto 1fr;
   grid-template-columns: auto 1fr;
 }
+
+#body {
+  position: relative;
+}
+
+#body > div:first-child {
+  position: absolute;
+  inset: 0;
+}
