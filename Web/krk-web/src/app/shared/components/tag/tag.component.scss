@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 20px;
+  border-radius: 12px;
+  background-color: var(--unselected);
+  color: var(--on-unselected);
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+:host-context(.active) {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}

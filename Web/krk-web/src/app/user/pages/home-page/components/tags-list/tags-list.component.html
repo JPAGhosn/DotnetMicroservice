@@ -1,0 +1,12 @@
+<swiper-container [config]="swiperConfig" krkSwiper>
+  <swiper-slide>
+    <krk-home-tag [tag]="null"/>
+  </swiper-slide>
+  @for (tag of tagsStore.data(); track tag.id) {
+    <swiper-slide>
+      <krk-home-tag [tag]="tag"/>
+    </swiper-slide>
+  } @empty {
+    <span class="no-tags">No Tags</span>
+  }
+</swiper-container>
