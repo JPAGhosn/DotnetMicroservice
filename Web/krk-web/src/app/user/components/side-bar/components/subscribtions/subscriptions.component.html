@@ -1,7 +1,7 @@
 <krk-title>Subscriptions</krk-title>
 <div class="subscriptions">
   @for (profile of subscriptions(); track profile.id) {
-    <krk-subscribtion [profile]="profile"/>
+    <krk-subscription [profile]="profile"/>
   } @empty {
     <span class="no-subscriptions-message">No Subscriptions</span>
   }

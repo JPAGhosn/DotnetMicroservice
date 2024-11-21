@@ -5,4 +5,5 @@ export const environment: EnvironmentModel = {
   subscriptionsApi: 'https://kurkle.com/api/subscriptions',
   authApi: "https://kurkle.com/api/auth",
   recipesApi: 'https://kurkle.com/api/recipes',
+  tagsApi: 'https://kurkle.com/api/tags',
 };

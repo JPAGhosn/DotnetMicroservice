@@ -2,7 +2,9 @@
   <img class="loaded-image" (error)="onError()" (load)="onLoaded()" [alt]="alt" [src]="image" [height]="height"
        [width]="width"/>
 } @else {
-  <img ngSrc="/icons/no-image.svg" alt="No image" [width]="width" [height]="height">
+  <div class="no-image">
+    <img ngSrc="/icons/no-image.svg" alt="No image" fill>
+  </div>
 }
 
 @if (state() === "loading") {

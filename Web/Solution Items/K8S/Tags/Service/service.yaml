@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tags-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tags-service
+  template:
+    metadata:
+      labels:
+        app: tags-service
+    spec:
+      containers:
+        - name: tags-service
+          imagePullPolicy: Always
+          image: localhost:9870/kurkle/tags-service:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tags-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: tags-service
+  ports:
+    - name: tags-service
+      protocol: TCP
+      port: 80
+      targetPort: 8080

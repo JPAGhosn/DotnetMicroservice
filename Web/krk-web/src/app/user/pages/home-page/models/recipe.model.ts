@@ -1,4 +1,4 @@
-import {ProfileModel} from './profile.model';
+import {ProfileModel} from '../../../components/side-bar/components/subscribtions/models/profile.model';
 import {BaseModel} from '@shared/models/base/base.model';
 
 export interface RecipeModel extends BaseModel {

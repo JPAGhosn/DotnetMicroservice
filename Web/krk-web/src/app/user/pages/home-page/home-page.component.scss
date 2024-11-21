@@ -5,10 +5,17 @@
   overflow: auto;
 }
 
+krk-recipe {
+  width: 100%;
+}
+
 .home-items-container {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(1, 1fr);
+  row-gap: 17px;
+  column-gap: 15px;
+  padding: 0 20px 0 30px;
 
   @media screen and (min-width: 1010px) {
     grid-template-columns: repeat(2, 1fr);

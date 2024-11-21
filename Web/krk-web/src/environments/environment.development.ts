@@ -5,4 +5,5 @@ export const environment: EnvironmentModel = {
   subscriptionsApi: 'http://localhost:5201/api/subscriptions',
   authApi: 'http://localhost:5202/api/auth',
   recipesApi: 'https://localhost:7204/api/recipes',
+  tagsApi: 'https://localhost:7205/api/tags',
 };

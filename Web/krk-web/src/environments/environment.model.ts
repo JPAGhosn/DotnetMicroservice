@@ -3,4 +3,5 @@ export interface EnvironmentModel {
   profilesApi: string;
   authApi: string;
   recipesApi: string;
+  tagsApi: string;
 }

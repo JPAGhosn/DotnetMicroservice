@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tags-database-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tags-database
+  template:
+    metadata:
+      labels:
+        app: tags-database
+    spec:
+      containers:
+        - name: tags-database
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgrestags
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: "tags_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: tagsdb
+      volumes:
+        - name: tagsdb
+          persistentVolumeClaim:
+            claimName: tags-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tags-database-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    app: tags-database
+  ports:
+    - name: tags-database
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tags-database-load-balancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: tags-database
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

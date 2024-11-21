@@ -3,7 +3,7 @@ import {SubscriptionModel} from '../../models/subscription.model';
 import {AvatarComponent} from '../../../../../avatar/avatar.component';
 
 @Component({
-  selector: 'krk-subscribtion',
+  selector: 'krk-subscription',
   standalone: true,
   imports: [
     AvatarComponent

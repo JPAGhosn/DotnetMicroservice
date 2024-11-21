@@ -14,6 +14,13 @@ builder.Services.AddServices();
 builder.Services.AddConfigurationSettings(builder.Configuration);
 builder.Services.AddWebCors();
 
+// Choose the right appsettings based on env variable
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", false, true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
+    .AddEnvironmentVariables();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
