@@ -11,6 +11,10 @@ import {GlimpsesRemote} from './remotes/glimpses.remote';
 import {GlimpsesComponent} from './components/glimpses/glimpses.component';
 import {RecipesStore} from '../../stores/recipes.store';
 import {RecipeComponent} from './components/recipe/recipe.component';
+import {CollectionsComponent} from './components/collections/collections.component';
+import {GlimpsesStore} from '../../stores/glimpses.store';
+import {CollectionsStore} from '../../stores/collections.store';
+import {CollectionsRemote} from './remotes/collections.remote';
 
 @Component({
   selector: 'krk-home-page',
@@ -20,6 +24,7 @@ import {RecipeComponent} from './components/recipe/recipe.component';
     GlimpseComponent,
     GlimpsesComponent,
     RecipeComponent,
+    CollectionsComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
@@ -28,6 +33,7 @@ import {RecipeComponent} from './components/recipe/recipe.component';
     RecipesRemote,
     TagsRemote,
     GlimpsesRemote,
+    CollectionsRemote,
     GuidHelper,
   ],
 })
@@ -37,6 +43,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
   guidHelper = inject(GuidHelper);
   router = inject(Router);
   recipesStore = inject(RecipesStore);
+  glimpsesStore = inject(GlimpsesStore);
+  collectionsStore = inject(CollectionsStore);
 
   subscriptions = new Subscription();
 
@@ -46,8 +54,20 @@ export class HomePageComponent implements OnInit, OnDestroy {
     return this.recipesStore.data().slice(0, this.numberOfColumns() * 2);
   })
 
-  restOfBatchRecipes = computed(() => {
-    return this.recipesStore.data().slice(8);
+  secondBatchRecipes = computed(() => {
+    return this.recipesStore.data().slice(this.numberOfColumns() * 2, this.numberOfColumns() * 4);
+  })
+
+  thirdBatchRecipes = computed(() => {
+    return this.recipesStore.data().slice(this.numberOfColumns() * 4);
+  })
+
+  hasGlimpses = computed(() => {
+    return this.glimpsesStore.data().length > 0;
+  })
+
+  hasCollections = computed(() => {
+    return this.collectionsStore.data().length > 0;
   })
 
   constructor() {

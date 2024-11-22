@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collections-database-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collections-database
+  template:
+    metadata:
+      labels:
+        app: collections-database
+    spec:
+      containers:
+        - name: collections-database
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgrescollections
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: "collections_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: collectionsdb
+      volumes:
+        - name: collectionsdb
+          persistentVolumeClaim:
+            claimName: collections-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collections-database-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    app: collections-database
+  ports:
+    - name: collections-database
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collections-database-load-balancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: collections-database
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

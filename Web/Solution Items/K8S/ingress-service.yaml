@@ -66,6 +66,13 @@ spec:
                 name: seaweedfs-filer
                 port:
                   number: 80
+          - path: /Collections
+            pathType: Prefix
+            backend:
+              service:
+                name: seaweedfs-filer
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:

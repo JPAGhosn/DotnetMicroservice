@@ -1,0 +1,11 @@
+<krk-titled-container title="Collections">
+  <swiper-container [config]="swiperConfig" krkSwiper>
+    @for (collection of collectionsStore.data(); track collection.id) {
+      <swiper-slide>
+        <krk-collection [collection]="collection"/>
+      </swiper-slide>
+    } @empty {
+      <span class="no-tags">No Collections</span>
+    }
+  </swiper-container>
+</krk-titled-container>

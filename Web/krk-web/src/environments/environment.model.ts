@@ -5,4 +5,5 @@ export interface EnvironmentModel {
   recipesApi: string;
   tagsApi: string;
   glimpsesApi: string;
+  collectionsApi: string;
 }

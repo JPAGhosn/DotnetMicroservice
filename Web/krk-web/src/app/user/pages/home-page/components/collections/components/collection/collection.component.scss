@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.images-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.image-container {
+  width: 341px;
+  aspect-ratio: 341 / 210;
+  background-color: var(--image-placeholder);
+  border-radius: 10px;
+  border: solid 1px var(--surface);
+  z-index: 3;
+  overflow: hidden;
+}
+
+.image-container > krk-image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container-2 {
+  position: absolute;
+  bottom: 17px;
+  background-color: var(--image-placeholder);
+  z-index: 2;
+  transform: scale(calc(321 / 341));
+}
+
+.image-container-3 {
+  position: absolute;
+  bottom: 34px;
+  background-color: var(--image-placeholder);
+  z-index: 1;
+  transform: scale(calc(299 / 341));
+}

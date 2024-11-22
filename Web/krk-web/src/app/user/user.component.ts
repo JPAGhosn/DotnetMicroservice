@@ -6,12 +6,14 @@ import {SubscriptionsStore} from './stores/subscriptions.store';
 import {RecipesStore} from './stores/recipes.store';
 import {TagsStore} from './stores/tags.store';
 import {GlimpsesStore} from './stores/glimpses.store';
+import {CollectionsStore} from './stores/collections.store';
 
 const stores = [
   SubscriptionsStore,
   RecipesStore,
   TagsStore,
-  GlimpsesStore
+  GlimpsesStore,
+  CollectionsStore
 ]
 
 @Component({

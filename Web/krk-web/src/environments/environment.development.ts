@@ -7,4 +7,5 @@ export const environment: EnvironmentModel = {
   recipesApi: 'https://localhost:7204/api/recipes',
   tagsApi: 'https://localhost:7205/api/tags',
   glimpsesApi: 'https://localhost:7206/api/glimpses',
+  collectionsApi: 'https://localhost:7207/api/collections',
 };

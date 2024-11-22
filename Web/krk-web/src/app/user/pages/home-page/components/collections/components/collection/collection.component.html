@@ -1,0 +1,21 @@
+<div class="collection">
+  <div class="images-group">
+    <div class="image-container">
+      <krk-image [image]="collection.coverPath1 ?? ''"/>
+    </div>
+
+    <div class="image-container image-container-2">
+      @if (collection.coverPath2) {
+        <krk-image [image]="collection.coverPath2"/>
+      }
+    </div>
+
+    <div class="image-container image-container-3">
+      @if (collection.coverPath3) {
+        <krk-image [image]="collection.coverPath3"/>
+      }
+    </div>
+
+  </div>
+  <krk-media-information [media]="collection"/>
+</div>

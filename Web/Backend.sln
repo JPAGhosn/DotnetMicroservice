@@ -41,6 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", 
 		Solution Items\Docker\Production\recipes.sh = Solution Items\Docker\Production\recipes.sh
 		Solution Items\Docker\Production\tags.sh = Solution Items\Docker\Production\tags.sh
 		Solution Items\Docker\Production\glimpses.sh = Solution Items\Docker\Production\glimpses.sh
+		Solution Items\Docker\Production\collections.sh = Solution Items\Docker\Production\collections.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
@@ -178,6 +179,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{28
 		Solution Items\K8S\Glimpses\Database\pvc.yaml = Solution Items\K8S\Glimpses\Database\pvc.yaml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Collections", "Collections", "{4BAE1209-7C70-4C47-9B1F-A25822B6B0C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{4FFFD6B4-A08B-49F6-BB29-F44F99F9F36B}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Collections\Service\nodeport.yaml = Solution Items\K8S\Collections\Service\nodeport.yaml
+		Solution Items\K8S\Collections\Service\service.yaml = Solution Items\K8S\Collections\Service\service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{618D290F-3CBF-4144-ACBC-873E84C3524D}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Collections\Database\deployment.yaml = Solution Items\K8S\Collections\Database\deployment.yaml
+		Solution Items\K8S\Collections\Database\nodeport.yaml = Solution Items\K8S\Collections\Database\nodeport.yaml
+		Solution Items\K8S\Collections\Database\pvc.yaml = Solution Items\K8S\Collections\Database\pvc.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -212,6 +230,10 @@ Global
 		{7A3DC346-F76B-47D9-BC45-DC122627B7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3DC346-F76B-47D9-BC45-DC122627B7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A3DC346-F76B-47D9-BC45-DC122627B7E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
@@ -246,5 +268,8 @@ Global
 		{085FD92E-6550-4EB6-94E1-C0EED338F516} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{1EF34D1B-19C6-4D9E-83C2-3AEA79640E70} = {085FD92E-6550-4EB6-94E1-C0EED338F516}
 		{28952390-4243-4953-AB15-525EC8E90AC2} = {085FD92E-6550-4EB6-94E1-C0EED338F516}
+		{4BAE1209-7C70-4C47-9B1F-A25822B6B0C0} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{4FFFD6B4-A08B-49F6-BB29-F44F99F9F36B} = {4BAE1209-7C70-4C47-9B1F-A25822B6B0C0}
+		{618D290F-3CBF-4144-ACBC-873E84C3524D} = {4BAE1209-7C70-4C47-9B1F-A25822B6B0C0}
 	EndGlobalSection
 EndGlobal

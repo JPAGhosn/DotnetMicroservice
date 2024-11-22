@@ -48,17 +48,3 @@
 krk-recipe {
   width: 100%;
 }
-
-.glimpses-container {
-  grid-column: 1 / -1;
-  position: relative;
-  width: 100%;
-  height: 449px;
-}
-
-krk-glimpses {
-  position: absolute;
-  inset: 0;
-  right: -20px;
-  left: -30px;
-}

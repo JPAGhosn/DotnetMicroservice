@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collections-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collections-service
+  template:
+    metadata:
+      labels:
+        app: collections-service
+    spec:
+      containers:
+        - name: collections-service
+          imagePullPolicy: Always
+          image: localhost:9870/kurkle/collections-service:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collections-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: collections-service
+  ports:
+    - name: collections-service
+      protocol: TCP
+      port: 80
+      targetPort: 8080

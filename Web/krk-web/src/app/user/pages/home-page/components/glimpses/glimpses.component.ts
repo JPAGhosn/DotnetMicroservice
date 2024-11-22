@@ -26,6 +26,6 @@ export class GlimpsesComponent {
     slidesPerView: "auto",
     spaceBetween: 15,
     slidesOffsetBefore: 30,
-    slidesOffsetAfter: 30,
+    slidesOffsetAfter: 20,
   }
 }
