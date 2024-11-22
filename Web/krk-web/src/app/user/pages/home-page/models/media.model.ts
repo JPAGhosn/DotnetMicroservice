@@ -4,6 +4,5 @@ import {ProfileModel} from '../../../components/side-bar/components/subscribtion
 export interface MediaModel extends BaseModel {
   creator: ProfileModel;
   name: string;
-  numberOfViews: number;
   publishedDate: Date
 }

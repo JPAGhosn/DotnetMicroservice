@@ -15,4 +15,6 @@ import {DatePipe} from '@angular/common';
 })
 export class MediaInformationComponent {
   @Input({required: true}) media!: MediaModel;
+
+  @Input({required: true}) minimalInformation1?: string;
 }
