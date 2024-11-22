@@ -1,15 +1,4 @@
 <div class="krk-recipe-cover">
   <krk-image [image]="recipe.cover" class="recipe-cover"/>
 </div>
-<div class="krk-information">
-  <krk-avatar [image]="recipe.creator.profilePicture"/>
-  <div class="krk-text-information">
-    <span class="recipe-title">{{ recipe.name }}</span>
-    <span class="creator-user-name">&#64;{{ recipe.creator.userName }}</span>
-    <div class="minimal-information">
-      <span>{{ recipe.numberOfViews }}</span>
-      <div class="separator"></div>
-      <span>{{ recipe.publishedDate }}</span>
-    </div>
-  </div>
-</div>
+<krk-media-information [media]="recipe"/>

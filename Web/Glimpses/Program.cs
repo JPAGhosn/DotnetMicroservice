@@ -1,5 +1,7 @@
+using Glimpses.Data;
 using Glimpses.Endpoints;
 using Glimpses.Extensions;
+using KRK_Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", false, true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
+    .AddEnvironmentVariables();
+
 builder.Services.AddServices();
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddWebCors();
+builder.Services.AddBindings(builder.Configuration);
 
 var app = builder.Build();
 
@@ -20,13 +30,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseWebCors();
+
 app.UseHttpsRedirection();
 
 app.MapGlimpsesEndpoints();
 
-app.Run();
+GlimpsesDataPreparation.GenerateData(app, app.Environment.IsProduction());
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+app.Run();

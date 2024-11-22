@@ -5,11 +5,13 @@ import {RouterOutlet} from '@angular/router';
 import {SubscriptionsStore} from './stores/subscriptions.store';
 import {RecipesStore} from './stores/recipes.store';
 import {TagsStore} from './stores/tags.store';
+import {GlimpsesStore} from './stores/glimpses.store';
 
 const stores = [
   SubscriptionsStore,
   RecipesStore,
-  TagsStore
+  TagsStore,
+  GlimpsesStore
 ]
 
 @Component({
@@ -18,7 +20,7 @@ const stores = [
   imports: [
     TopBarComponent,
     SideBarComponent,
-    RouterOutlet
+    RouterOutlet,
   ],
   providers: [
     stores,

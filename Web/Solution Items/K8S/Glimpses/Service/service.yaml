@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glimpses-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: glimpses-service
+  template:
+    metadata:
+      labels:
+        app: glimpses-service
+    spec:
+      containers:
+        - name: glimpses-service
+          imagePullPolicy: Always
+          image: localhost:9870/kurkle/glimpses-service:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: glimpses-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: glimpses-service
+  ports:
+    - name: glimpses-service
+      protocol: TCP
+      port: 80
+      targetPort: 8080

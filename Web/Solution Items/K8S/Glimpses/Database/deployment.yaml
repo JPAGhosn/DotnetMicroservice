@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glimpses-database-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: glimpses-database
+  template:
+    metadata:
+      labels:
+        app: glimpses-database
+    spec:
+      containers:
+        - name: glimpses-database
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresglimpses
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: "glimpses_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: glimpsesdb
+      volumes:
+        - name: glimpsesdb
+          persistentVolumeClaim:
+            claimName: glimpses-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: glimpses-database-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    app: glimpses-database
+  ports:
+    - name: glimpses-database
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: glimpses-database-load-balancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: glimpses-database
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

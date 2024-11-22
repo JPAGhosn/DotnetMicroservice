@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.krk-glimpses {
+}
+
+swiper-slide {
+  width: fit-content;
+}
+
+:host ::ng-deep krk-titled-container .krk-title {
+  padding-left: 30px;
+  padding-right: 30px;
+}

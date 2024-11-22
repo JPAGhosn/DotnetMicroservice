@@ -19,5 +19,8 @@ RUN dotnet publish "Glimpses.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:
 
 FROM base AS final
 WORKDIR /app
+
+ENV ASPNETCORE_ENVIRONMENT=Production
+
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Glimpses.dll"]

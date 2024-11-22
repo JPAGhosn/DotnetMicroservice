@@ -38,6 +38,13 @@ spec:
                 name: recipes-cluster-ip-service
                 port:
                   number: 80
+          - path: /api/glimpses
+            pathType: Prefix
+            backend:
+              service:
+                name: glimpses-cluster-ip-service
+                port:
+                  number: 80
           - path: /Profiles
             pathType: Prefix
             backend:
@@ -46,6 +53,13 @@ spec:
                 port:
                   number: 80
           - path: /Covers
+            pathType: Prefix
+            backend:
+              service:
+                name: seaweedfs-filer
+                port:
+                  number: 80
+          - path: /Glimpses
             pathType: Prefix
             backend:
               service:

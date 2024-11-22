@@ -1,7 +1,7 @@
 import {ProfileModel} from '../../../components/side-bar/components/subscribtions/models/profile.model';
-import {BaseModel} from '@shared/models/base/base.model';
+import {MediaModel} from './media.model';
 
-export interface RecipeModel extends BaseModel {
+export interface RecipeModel extends MediaModel {
   name: string;
   cover?: string;
   creator: ProfileModel;

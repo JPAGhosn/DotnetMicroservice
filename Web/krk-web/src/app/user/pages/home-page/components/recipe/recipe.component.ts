@@ -3,6 +3,7 @@ import {RecipeModel} from '../../models/recipe.model';
 import {NgOptimizedImage} from '@angular/common';
 import {ImageComponent} from '@shared/components/image/image.component';
 import {AvatarComponent} from '../../../../components/avatar/avatar.component';
+import {MediaInformationComponent} from '../media-information/media-information.component';
 
 @Component({
   selector: 'krk-recipe',
@@ -10,7 +11,8 @@ import {AvatarComponent} from '../../../../components/avatar/avatar.component';
   imports: [
     NgOptimizedImage,
     ImageComponent,
-    AvatarComponent
+    AvatarComponent,
+    MediaInformationComponent
   ],
   templateUrl: './recipe.component.html',
   styleUrl: './recipe.component.scss'

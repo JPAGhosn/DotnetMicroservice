@@ -1,6 +1,13 @@
 <krk-tags-list/>
 <div class="home-items-container">
-  @for (recipe of recipesStore.data(); track recipe.id) {
+  @for (recipe of firstBatchRecipes(); track recipe.id; ) {
+    <krk-recipe [recipe]="recipe"/>
+  }
+  <div class="glimpses-container">
+    <krk-glimpses/>
+  </div>
+  @for (recipe of restOfBatchRecipes(); track recipe.id; ) {
     <krk-recipe [recipe]="recipe"/>
   }
 </div>
+

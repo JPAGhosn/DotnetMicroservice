@@ -1,0 +1,11 @@
+<krk-titled-container title="Glimpses">
+  <swiper-container [config]="swiperConfig" krkSwiper>
+    @for (glimpse of glimpsesStore.data(); track glimpse.id) {
+      <swiper-slide>
+        <krk-glimpse [glimpse]="glimpse"/>
+      </swiper-slide>
+    } @empty {
+      <span class="no-tags">No Tags</span>
+    }
+  </swiper-container>
+</krk-titled-container>

@@ -40,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", 
 		Solution Items\Docker\Production\seaweed-fs.sh = Solution Items\Docker\Production\seaweed-fs.sh
 		Solution Items\Docker\Production\recipes.sh = Solution Items\Docker\Production\recipes.sh
 		Solution Items\Docker\Production\tags.sh = Solution Items\Docker\Production\tags.sh
+		Solution Items\Docker\Production\glimpses.sh = Solution Items\Docker\Production\glimpses.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
@@ -162,6 +163,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{92
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glimpses", "Glimpses\Glimpses.csproj", "{7A3DC346-F76B-47D9-BC45-DC122627B7E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Glimpses", "Glimpses", "{085FD92E-6550-4EB6-94E1-C0EED338F516}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{1EF34D1B-19C6-4D9E-83C2-3AEA79640E70}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Glimpses\Service\nodeport.yaml = Solution Items\K8S\Glimpses\Service\nodeport.yaml
+		Solution Items\K8S\Glimpses\Service\service.yaml = Solution Items\K8S\Glimpses\Service\service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{28952390-4243-4953-AB15-525EC8E90AC2}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Glimpses\Database\deployment.yaml = Solution Items\K8S\Glimpses\Database\deployment.yaml
+		Solution Items\K8S\Glimpses\Database\nodeport.yaml = Solution Items\K8S\Glimpses\Database\nodeport.yaml
+		Solution Items\K8S\Glimpses\Database\pvc.yaml = Solution Items\K8S\Glimpses\Database\pvc.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,5 +243,8 @@ Global
 		{155241FD-8BAF-4786-9505-503F2A60B8C2} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{10D3CEA3-814B-4868-A4E8-45A97F891528} = {155241FD-8BAF-4786-9505-503F2A60B8C2}
 		{92029180-92BC-4431-B8AB-131CF37E9F30} = {155241FD-8BAF-4786-9505-503F2A60B8C2}
+		{085FD92E-6550-4EB6-94E1-C0EED338F516} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{1EF34D1B-19C6-4D9E-83C2-3AEA79640E70} = {085FD92E-6550-4EB6-94E1-C0EED338F516}
+		{28952390-4243-4953-AB15-525EC8E90AC2} = {085FD92E-6550-4EB6-94E1-C0EED338F516}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
-@if (image) {
+@if (image && state() !== "error") {
   <img class="loaded-image" (error)="onError()" (load)="onLoaded()" [alt]="alt" [src]="image" [height]="height"
-       [width]="width"/>
+       [width]="width">
 } @else {
   <div class="no-image">
     <img ngSrc="/icons/no-image.svg" alt="No image" fill>

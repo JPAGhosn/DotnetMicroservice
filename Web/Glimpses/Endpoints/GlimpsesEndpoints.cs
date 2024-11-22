@@ -1,3 +1,5 @@
+using Glimpses.Bindings;
+using Glimpses.Clients.Grpc;
 using Glimpses.Repositories;
 
 namespace Glimpses.Endpoints;
@@ -9,10 +11,28 @@ public static class GlimpsesEndpoints
         app.MapGet("/api/glimpses", GetGlimpses);
     }
 
-    public static async Task<IResult> GetGlimpses(GlimpsesRepository glimpsesRepository,
+    private static async Task<IResult> GetGlimpses(GlimpsesRepository glimpsesRepository,
+        ProfileDataClient profilesClient,
+        PicturesBasePath picturesBasePath,
         CancellationToken cancellationToken)
     {
-        var response = await glimpsesRepository.GetAll(cancellationToken);
-        return Results.Ok(response);
+        var glimpses = await glimpsesRepository.GetAll(cancellationToken);
+
+        var creatorsIds = glimpses.Select(recipe => recipe.CreatorId).Distinct().ToList();
+        var profiles = await profilesClient.GetManyProfiles(creatorsIds, cancellationToken);
+
+        glimpses = glimpses.Select(glimpse =>
+        {
+            var profile = profiles.FirstOrDefault(p => p.Id == glimpse.CreatorId);
+            if (profile is not null) glimpse.Creator = profile;
+
+            glimpse.VideoPath = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Glimpses + "/" + glimpse.VideoPath;
+            glimpse.ThumbnailPath = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Glimpses + "/" +
+                                    glimpse.ThumbnailPath;
+
+            return glimpse;
+        }).ToList();
+
+        return Results.Ok(glimpses);
     }
 }

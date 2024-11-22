@@ -1,0 +1,12 @@
+<div class="krk-information">
+  <krk-avatar [image]="media.creator.profilePicture"/>
+  <div class="krk-text-information">
+    <span class="media-title">{{ media.name }}</span>
+    <span class="creator-user-name">&#64;{{ media.creator.userName }}</span>
+    <div class="minimal-information">
+      <span>{{ media.numberOfViews }}</span>
+      <div class="separator"></div>
+      <span>{{ media.publishedDate | date: 'dd/MM/yyyy' }}</span>
+    </div>
+  </div>
+</div>

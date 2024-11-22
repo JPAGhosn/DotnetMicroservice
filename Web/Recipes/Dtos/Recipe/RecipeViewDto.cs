@@ -1,3 +1,4 @@
+using KRK_Shared.Models;
 using Recipes.Models;
 
 namespace Recipes.Dtos.Recipe;

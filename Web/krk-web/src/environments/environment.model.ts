@@ -4,4 +4,5 @@ export interface EnvironmentModel {
   authApi: string;
   recipesApi: string;
   tagsApi: string;
+  glimpsesApi: string;
 }

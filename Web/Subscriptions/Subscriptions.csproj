@@ -40,10 +40,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos/profile.proto" GrpcServices="Client"/>
+        <Folder Include="Services\"/>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Services\"/>
+        <Protobuf Include="Protos\profile.proto">
+            <Generator>MSBuild:Compile</Generator>
+        </Protobuf>
     </ItemGroup>
 </Project>

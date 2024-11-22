@@ -1,7 +1,7 @@
 using Grpc.Net.Client;
+using KRK_Shared.Models;
 using KRKProfiles;
 using Recipes.Bindings;
-using Recipes.Models;
 
 namespace Recipes.Clients.Grpc;
 
