@@ -1,4 +1,5 @@
 using KRK_Shared.Extensions;
+using KRK_Shared.Middlewares;
 using Recipes.Data;
 using Recipes.Endpoints;
 using Recipes.Extensions;
@@ -35,6 +36,8 @@ app.UseWebCors();
 app.UseHttpsRedirection();
 
 app.MapRecipes();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 RecipesDataPreparation.GenerateData(app, builder.Environment.IsProduction());
 

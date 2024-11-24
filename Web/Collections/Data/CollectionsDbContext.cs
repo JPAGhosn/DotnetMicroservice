@@ -13,8 +13,11 @@ public class CollectionsDbContext(DbContextOptions<CollectionsDbContext> options
     {
         modelBuilder.ApplyConfiguration(new CollectionModelConfiguration());
 
+        TagsSeeder.Seed(modelBuilder);
         CollectionsSeeder.Seed(modelBuilder);
         RecipesSeeder.Seed(modelBuilder);
+        CollectionHasRecipeSeeder.Seed(modelBuilder);
+        CollectionHasTagSeeder.Seed(modelBuilder);
 
         base.OnModelCreating(modelBuilder);
     }

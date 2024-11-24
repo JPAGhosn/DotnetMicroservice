@@ -26,7 +26,7 @@ public static class RecipesSeeder
         //// Lebanese
         new RecipeModel
         {
-            Id = Guid.Parse("ab9e2f8b-534a-4a04-9575-41f650a8ef04"),
+            Id = Guid.Parse("9dae1b65-0507-4625-a64f-8cd375d1034c"),
             ExternalId = Guid.Parse("9dae1b65-0507-4625-a64f-8cd375d1034c")
         },
         new RecipeModel

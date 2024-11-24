@@ -13,6 +13,7 @@ public class RecipeViewDto
         Cover = recipe.Cover;
         NumberOfViews = recipe.NumberOfViews;
         PublishedDate = recipe.PublishedDate;
+        slug = recipe.Slug;
     }
 
     public Guid Id { get; set; }
@@ -26,4 +27,6 @@ public class RecipeViewDto
     public ulong NumberOfViews { get; set; }
 
     public DateTime PublishedDate { get; set; } = DateTime.Now;
+
+    public string slug { get; set; }
 }

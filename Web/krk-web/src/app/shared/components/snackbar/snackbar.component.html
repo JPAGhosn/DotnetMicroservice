@@ -1,0 +1,12 @@
+@if (snackbarService.type()) {
+  <div class="snackbar" [ngClass]="snackbarClass()" @snackbarAnimation>
+    <div class="messages">
+      <span class="krk-snackbar-title">{{ snackbarService.title() }}</span>
+      <span class="krk-snackbar-message">{{ snackbarService.message() }}</span>
+    </div>
+
+    <button class="close-button" (click)="onCloseSnackbarClicked()">
+      <img src="/icons/close.svg"/>
+    </button>
+  </div>
+}

@@ -2,7 +2,7 @@ import {computed, inject, Injectable, Injector, signal, WritableSignal} from '@a
 import {LoaderService} from '@shared/services/loader.service';
 import {SubscriptionsStore} from '../../../stores/subscriptions.store';
 import {RecipesRemote} from '../remotes/recipes.remote';
-import {catchError, forkJoin, of, tap, throwError} from 'rxjs';
+import {catchError, EMPTY, forkJoin, of, tap, throwError} from 'rxjs';
 import {RecipesStore} from '../../../stores/recipes.store';
 import {TagsRemote} from '../remotes/tags.remote';
 import {TagsStore} from '../../../stores/tags.store';
@@ -15,6 +15,7 @@ import {GlimpsesStore} from '../../../stores/glimpses.store';
 import {CollectionModel} from '../models/collection.model';
 import {CollectionsStore} from '../../../stores/collections.store';
 import {CollectionsRemote} from '../remotes/collections.remote';
+import {emptyPaginationResponse, PaginationResponse} from '@shared/response/pagination.response';
 
 @Injectable()
 export class HomeService {
@@ -35,23 +36,31 @@ export class HomeService {
   filterTagId = signal<string>("");
 
   pageNumber = signal(1);
+  totalPages = signal(1);
   pageSize = 6 * 6;
 
   tagsLoaded = signal(false);
 
   recipesIds: WritableSignal<string[]> = signal([]);
   glimpsesIds: WritableSignal<string[]> = signal([]);
+  collectionsIds: WritableSignal<string[]> = signal([]);
 
   recipes = computed(() => {
     const ids = this.recipesIds();
     const data = this.recipesStore.data();
-    return data.filter(recipe => ids.includes(recipe.id));
+    return ids.map(id => data.find(recipe => recipe.id === id)!);
   })
 
   glimpses = computed(() => {
     const ids = this.glimpsesIds();
     const data = this.glimpsesStore.data();
-    return data.filter(glimpse => ids.includes(glimpse.id));
+    return ids.map(id => data.find(glimpse => glimpse.id === id)!);
+  })
+
+  collections = computed(() => {
+    const ids = this.collectionsIds();
+    const data = this.collectionsStore.data();
+    return ids.map(id => data.find(collection => collection.id === id)!);
   })
 
   fetchAll() {
@@ -62,7 +71,7 @@ export class HomeService {
         tagId: this.filterTagId(),
         pageNumber: this.pageNumber(),
         pageSize: this.pageSize
-      }).pipe(preventErrorPropagation<RecipeModel[]>([])),
+      }).pipe(preventErrorPropagation<PaginationResponse<RecipeModel>>(emptyPaginationResponse<RecipeModel>(this.pageNumber(), this.pageSize))),
 
       // Prevent loading the tags twice
       tags: this.tagsLoaded() ? of([]) : this.tagsRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<TagModel[]>([])),
@@ -75,18 +84,24 @@ export class HomeService {
         this.tagsStore.addMany(tags)
         this.tagsLoaded.set(true)
 
-        this.recipesStore.addMany(recipes);
-        this.recipesIds.set(recipes.map(recipe => recipe.id));
+        this.recipesStore.addMany(recipes.data);
+        this.recipesIds.set(recipes.data.map(recipe => recipe.id));
+        this.totalPages.set(recipes.totalPages)
 
         this.glimpsesStore.addMany(glimpses)
         this.glimpsesIds.set(glimpses.map(glimpse => glimpse.id));
 
         this.collectionsStore.addMany(collections)
+        this.collectionsIds.set(collections.map(collection => collection.id));
       })
     )
   }
 
   fetchMoreRecipes() {
+    if (this.pageNumber() >= this.totalPages()) {
+      return EMPTY;
+    }
+
     this.pageNumber.set(this.pageNumber() + 1);
 
     return this.recipesRemote.fetch({
@@ -95,12 +110,20 @@ export class HomeService {
       pageSize: this.pageSize
     }).pipe(
       tap(recipes => {
-        if (recipes.length <= 0) {
+        if (recipes.data.length <= 0) {
           this.pageNumber.set(this.pageNumber() - 1);
           return;
         }
 
-        this.recipesStore.addMany(recipes);
+        this.recipesStore.addMany(recipes.data);
+        let recipesIds = [...this.recipesIds()];
+        const newRecipesIds = recipes.data.map(recipe => recipe.id)
+        recipesIds = [
+          ...recipesIds,
+          ...newRecipesIds
+        ];
+        this.recipesIds.set(recipesIds);
+
       }),
       catchError(err => {
         this.pageNumber.set(this.pageNumber() - 1);

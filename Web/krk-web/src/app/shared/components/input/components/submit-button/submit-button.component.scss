@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-.submit-button:focus {
+.submit-button:focus-visible {
   outline: var(--input-border-focused);
 }
 

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Collections.Models.Pivots;
 using KRK_Shared.Models;
 
 namespace Collections.Models;
@@ -23,4 +24,8 @@ public class CollectionModel : BaseModel
     public List<RecipeModel> Recipes { get; set; }
 
     public List<CollectionHasRecipe> CollectionHasRecipe { get; set; }
+
+    public List<TagModel> Tags { get; set; }
+
+    public List<CollectionHasTag> CollectionHasTag { get; set; }
 }

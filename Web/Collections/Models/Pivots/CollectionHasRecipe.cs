@@ -1,4 +1,4 @@
-namespace Collections.Models;
+namespace Collections.Models.Pivots;
 
 public class CollectionHasRecipe
 {

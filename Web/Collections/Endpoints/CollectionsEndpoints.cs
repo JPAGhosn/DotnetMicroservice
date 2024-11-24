@@ -1,4 +1,5 @@
 using Collections.Clients.Grpc;
+using Collections.Dtos;
 using Collections.Repository;
 using Glimpses.Bindings;
 
@@ -12,21 +13,21 @@ public static class CollectionsEndpoints
     }
 
     private static async Task<IResult> GetCollections(
+        Guid? tagId,
         CollectionsRepository collectionsRepository,
         ProfileDataClient profileDataClient,
         PicturesBasePath picturesBasePath,
         CancellationToken cancellationToken)
     {
-        var collections = await collectionsRepository.Get();
+        var collections = await collectionsRepository.Get(tagId, cancellationToken);
 
         var profilesIds = collections.Select(collection => collection.CreatorId).ToList();
         var profiles = await profileDataClient.GetManyProfiles(profilesIds, cancellationToken);
 
-        foreach (var collection in collections)
+        var collectionsDtos = collections.Select(collection =>
         {
             var profile = profiles.FirstOrDefault(p => p.Id == collection.CreatorId);
-            if (profile == null) continue;
-            collection.Creator = profile;
+            if (profile != null) collection.Creator = profile;
 
             if (collection.CoverPath1 != null)
                 collection.CoverPath1 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" +
@@ -39,10 +40,12 @@ public static class CollectionsEndpoints
             if (collection.CoverPath3 != null)
                 collection.CoverPath3 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" +
                                         collection.CoverPath3;
-        }
 
-        collections = collections.Where(collection => collection.Creator != null).ToList();
+            return new CollectionViewDto(collection);
+        });
 
-        return Results.Ok(collections);
+        collectionsDtos = collectionsDtos.Where(collection => collection.Creator != null).ToList();
+
+        return Results.Ok(collectionsDtos);
     }
 }

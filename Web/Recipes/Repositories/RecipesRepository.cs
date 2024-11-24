@@ -1,3 +1,5 @@
+using KRK_Shared.Helpers;
+using KRK_Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using Recipes.Data;
 using Recipes.Models;
@@ -6,7 +8,7 @@ namespace Recipes.Repositories;
 
 public class RecipesRepository(RecipesDbContext context)
 {
-    public async Task<List<RecipeModel>> GetAll(
+    public async Task<PaginationResponse<RecipeModel>> GetAll(
         int pageNumber,
         int pageSize,
         Guid? tagId,
@@ -17,11 +19,15 @@ public class RecipesRepository(RecipesDbContext context)
             .Include(recipe => recipe.Tags)
             .AsQueryable();
 
-        if (tagId.HasValue) query = query.Where(recipe => recipe.Tags.Any(tag => tag.Id == tagId.Value));
+        if (tagId.HasValue)
+            query = query.Where(recipe => recipe.Tags.Any(tag => tag.Id == tagId.Value));
 
-        return await query
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync(cancellationToken);
+
+        return await PaginationHelper.Pagination(query, pageNumber, pageSize, cancellationToken);
+    }
+
+    public async Task<RecipeModel?> GetById(Guid id, CancellationToken cancellationToken)
+    {
+        return await context.Recipes.FirstOrDefaultAsync(recipe => recipe.Id == id, cancellationToken);
     }
 }

@@ -1,3 +1,5 @@
+using Collections.Models.Pivots;
+
 namespace Collections.Models;
 
 public class RecipeModel

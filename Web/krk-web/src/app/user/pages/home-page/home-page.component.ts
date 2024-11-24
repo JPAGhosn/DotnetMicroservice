@@ -8,7 +8,8 @@ import {
   inject,
   OnDestroy,
   OnInit,
-  signal
+  signal,
+  ViewChild
 } from '@angular/core';
 import {HomeService} from './services/home.service';
 import {RecipesRemote} from './remotes/recipes.remote';
@@ -58,6 +59,8 @@ import {PayloadHelper} from '@shared/helpers/payload.helper';
   ],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
+  @ViewChild("scrollContainer") scrollContainer!: ElementRef;
+
   elementRef = inject(ElementRef)
 
   homeService = inject(HomeService);
@@ -86,7 +89,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     return this.homeService.glimpses().length > 0;
   })
   hasCollections = computed(() => {
-    return this.collectionsStore.data().length > 0;
+    return this.homeService.collections().length > 0;
   })
   skeletonArray = Array(6 * 10).fill(0).map((_, i) => i + 1);
 
@@ -117,11 +120,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   // When scrolling to the bottom, load more recipes
-  @HostListener('scroll', ['$event.target'])
-  onScroll(target: HTMLElement): void {
+  onScroll(event: Event): void {
     const threshold = 100; // Distance from the bottom in pixels
-    const position = target.scrollTop + target.clientHeight;
-    const height = target.scrollHeight;
+    const position = this.scrollContainer.nativeElement.scrollTop + this.scrollContainer.nativeElement.clientHeight;
+    const height = this.scrollContainer.nativeElement.scrollHeight;
 
     if (height - position <= threshold && !this.isLoadingMore()) {
       this.isLoadingMore.set(true);

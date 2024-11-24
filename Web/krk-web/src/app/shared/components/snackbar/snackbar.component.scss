@@ -1,0 +1,59 @@
+:host {
+  display: block;
+}
+
+.snackbar {
+  position: absolute;
+  bottom: 23px;
+  width: 95%;
+  transform: translateX(-50%);
+  max-width: 450px;
+  padding: 10px 13.5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-radius: 7px;
+  color: white;
+  gap: 5px;
+  backdrop-filter: blur(9px);
+  z-index: 10;
+
+  &.error {
+    background-color: rgba(#B81B1B, 0.75);
+  }
+}
+
+.krk-snackbar-title {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+}
+
+.close-button {
+  height: 26px;
+  min-width: 26px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.close-button:focus-visible {
+  outline: var(--input-border-focused);
+}
+
+.close-button:hover {
+  background-color: rgba(#B81B1B, 0.75);
+}
+

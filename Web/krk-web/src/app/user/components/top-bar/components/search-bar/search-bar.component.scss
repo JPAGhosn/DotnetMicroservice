@@ -30,7 +30,7 @@
   border-radius: 50px;
 }
 
-#search-wrapper:has(#search:focus) {
+#search-wrapper:has(#search:focus-visible) {
   border: var(--input-border-focused);
 }
 
@@ -50,6 +50,6 @@
   left: 49px;
 }
 
-#placeholder span{
+#placeholder span {
 
 }

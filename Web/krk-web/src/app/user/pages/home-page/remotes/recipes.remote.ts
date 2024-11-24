@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../../../environments/environment';
 import {RecipeModel} from '../models/recipe.model';
 import {PayloadHelper} from '@shared/helpers/payload.helper';
+import {PaginationResponse} from '@shared/response/pagination.response';
 
 @Injectable()
 export class RecipesRemote {
@@ -16,8 +17,8 @@ export class RecipesRemote {
     const httpParams = new HttpParams({
       fromObject: payload
     })
-    
-    return this.http.get<RecipeModel[]>(`${environment.recipesApi}`, {
+
+    return this.http.get<PaginationResponse<RecipeModel>>(`${environment.recipesApi}`, {
       params: httpParams
     });
   }

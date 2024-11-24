@@ -9,7 +9,7 @@ a {
   padding: 0 3px;
 }
 
-a:focus {
+a:focus-visible {
   outline: solid 2px var(--primary);
   border-radius: 3px;
 }

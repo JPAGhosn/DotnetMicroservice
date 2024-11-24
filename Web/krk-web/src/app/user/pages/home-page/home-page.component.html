@@ -3,7 +3,7 @@
 } @else {
   <krk-tags-list/>
 }
-<div class="home-items-container">
+<div #scrollContainer (scroll)="onScroll($event)" class="home-items-container">
   @if (contentLoading()) {
     @for (skeleton of skeletonArray; track skeleton) {
       <krk-recipe-skeleton/>

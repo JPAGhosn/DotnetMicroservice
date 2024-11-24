@@ -24,4 +24,6 @@ public class RecipeModel
     public List<TagModel> Tags { get; set; }
 
     public List<RecipeHasTag> RecipeHasTag { get; set; }
+
+    public string Slug { get; set; }
 }

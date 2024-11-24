@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, computed, inject} from '@angular/core';
+import {RecipePageService} from '../../services/recipe-page.service';
 
 @Component({
   selector: 'krk-breadcrumb',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './breadcrumb.component.scss'
 })
 export class BreadcrumbComponent {
+  service = inject(RecipePageService);
 
+  userName = computed(() => {
+    return this.service.profile()?.userName
+  })
+
+  recipeSlug = computed(() => {
+    return this.service.recipe()?.slug
+  })
 }

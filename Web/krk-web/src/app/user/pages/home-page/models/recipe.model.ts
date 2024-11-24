@@ -7,4 +7,5 @@ export interface RecipeModel extends MediaModel {
   creator: ProfileModel;
   numberOfViews: number;
   publishedDate: Date;
+  slug: string;
 }

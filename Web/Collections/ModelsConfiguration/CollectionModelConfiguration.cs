@@ -1,4 +1,5 @@
 using Collections.Models;
+using Collections.Models.Pivots;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,6 +9,7 @@ public class CollectionModelConfiguration : IEntityTypeConfiguration<CollectionM
 {
     public void Configure(EntityTypeBuilder<CollectionModel> builder)
     {
+        // CollectionHasRecipe
         builder
             .HasMany(collection => collection.Recipes)
             .WithMany(recipe => recipe.Collections)
@@ -26,6 +28,29 @@ public class CollectionModelConfiguration : IEntityTypeConfiguration<CollectionM
                     {
                         collectionHasRecipe.RecipeId,
                         collectionHasRecipe.CollectionId
+                    });
+                }
+            );
+
+        // CollectionHasTag
+        builder
+            .HasMany(recipe => recipe.Tags)
+            .WithMany(tag => tag.Collections)
+            .UsingEntity<CollectionHasTag>(
+                b => b
+                    .HasOne(recipeHasTag => recipeHasTag.Tag)
+                    .WithMany(tag => tag.CollectionHasTag)
+                    .HasForeignKey(recipeHasTag => recipeHasTag.TagId),
+                b => b
+                    .HasOne(recipeHasTag => recipeHasTag.Collection)
+                    .WithMany(recipe => recipe.CollectionHasTag)
+                    .HasForeignKey(recipeHasTag => recipeHasTag.CollectionId),
+                jointEntity =>
+                {
+                    jointEntity.HasKey(recipeHasTag => new
+                    {
+                        recipeHasTag.CollectionId,
+                        recipeHasTag.TagId
                     });
                 }
             );

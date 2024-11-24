@@ -1,4 +1,4 @@
-using Collections.Models;
+using Collections.Models.Pivots;
 using Microsoft.EntityFrameworkCore;
 
 namespace Collections.Seeders;
@@ -131,7 +131,7 @@ public static class CollectionHasRecipeSeeder
         new CollectionHasRecipe
         {
             CollectionId = Guid.Parse("327b9523-ea66-4e60-ab9f-57aafff11f4e"),
-            RecipeId = Guid.Parse("3f5409a3-e1ad-4d0b-9fb1-320b654e3add")
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
         },
 
         // Egyptian

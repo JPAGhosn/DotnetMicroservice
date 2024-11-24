@@ -9,17 +9,17 @@ export abstract class BaseDataStore<T extends BaseModel> {
   });
 
   addOne(model: T) {
-    const data = this.cachedData();
+    const data = [...this.cachedData()];
 
-    const found = data.find(m => m.id === model.id);
+    const foundIndex = data.findIndex(m => m.id === model.id);
 
-    if (found) {
-      return;
+    if (foundIndex !== -1) {
+      data.splice(foundIndex, 1);
     }
 
     data.push(model);
 
-    this.cachedData.set([...data]);
+    this.cachedData.set(data);
   }
 
   addMany(models: T[]) {
@@ -29,7 +29,7 @@ export abstract class BaseDataStore<T extends BaseModel> {
   }
 
   removeOne(model: T) {
-    const data = this.cachedData();
+    const data = [...this.cachedData()];
     const index = data.findIndex(m => m.id === model.id);
 
     if (index === -1) {
@@ -42,7 +42,7 @@ export abstract class BaseDataStore<T extends BaseModel> {
   }
 
   removeOneById(id: string) {
-    const data = this.cachedData();
+    const data = [...this.cachedData()];
     const index = data.findIndex(m => m.id === id);
     if (index === -1) {
       return;

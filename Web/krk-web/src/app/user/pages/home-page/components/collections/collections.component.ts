@@ -5,6 +5,7 @@ import {SwiperDirective} from '@shared/directives/swiper.directive';
 import {SwiperProps} from 'swiper/react';
 import {CollectionComponent} from './components/collection/collection.component';
 import {CollectionsStore} from '../../../../stores/collections.store';
+import {HomeService} from '../../services/home.service';
 
 @Component({
   selector: 'krk-collections',
@@ -20,6 +21,7 @@ import {CollectionsStore} from '../../../../stores/collections.store';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CollectionsComponent {
+  homeService = inject(HomeService)
   collectionsStore = inject(CollectionsStore);
 
   swiperConfig: SwiperProps = {

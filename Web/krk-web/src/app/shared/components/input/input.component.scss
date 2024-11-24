@@ -28,7 +28,7 @@ input {
   outline-color: var(--error);
 }
 
-input:focus {
+input:focus-visible {
   outline: var(--input-border-focused);
 }
 

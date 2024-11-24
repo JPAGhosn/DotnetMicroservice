@@ -1,3 +1,4 @@
+using KRK_Shared.Models;
 using Recipes.Bindings;
 using Recipes.Clients.Grpc;
 using Recipes.Dtos.Recipe;
@@ -10,6 +11,23 @@ public static class RecipesEndpoints
     public static void MapRecipes(this WebApplication app)
     {
         app.MapGet("/api/recipes", GetRecipes);
+        app.MapGet("/api/recipes/{recipeId}", GetRecipe);
+    }
+
+    private static async Task<IResult> GetRecipe(
+        Guid recipeId,
+        RecipesRepository recipesRepository,
+        PicturesBasePath picturesBasePath,
+        ProfileDataClient profilesClient,
+        CancellationToken cancellationToken)
+    {
+        return Results.NotFound();
+        var recipe = await recipesRepository.GetById(recipeId, cancellationToken);
+        if (recipe is null) return Results.NotFound();
+
+        var recipeDto = new RecipeReadDto(recipe);
+
+        return Results.Ok(recipeDto);
     }
 
     private static async Task<IResult> GetRecipes(
@@ -21,32 +39,40 @@ public static class RecipesEndpoints
         ProfileDataClient profilesClient,
         CancellationToken cancellationToken)
     {
-        var recipes = await recipesRepository.GetAll(
-            pageNumber: pageNumber ?? 1,
-            pageSize: pageSize ?? 6 * 6,
-            tagId: tagId,
-            cancellationToken: cancellationToken
+        var paginatedResponse = await recipesRepository.GetAll(
+            pageNumber ?? 1,
+            pageSize ?? 6 * 6,
+            tagId,
+            cancellationToken
         );
-        recipes = recipes.Select(recipe =>
+
+        paginatedResponse.Data = paginatedResponse.Data.Select(recipe =>
         {
             if (recipe.Cover is not null)
                 recipe.Cover = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" + recipe.Cover;
             return recipe;
         }).ToList();
 
-        var creatorsIds = recipes.Select(recipe => recipe.CreatorId).Distinct().ToList();
+        var creatorsIds = paginatedResponse.Data.Select(recipe => recipe.CreatorId).Distinct().ToList();
 
         var profiles = await profilesClient.GetManyProfiles(creatorsIds, cancellationToken);
 
-        recipes = recipes.Select(recipe =>
+        paginatedResponse.Data = paginatedResponse.Data.Select(recipe =>
         {
             var profile = profiles.FirstOrDefault(p => p.Id == recipe.CreatorId);
             if (profile is not null) recipe.Creator = profile;
             return recipe;
         }).ToList();
 
-        var recipesDtos = recipes.Select(recipe => new RecipeViewDto(recipe)).ToList();
+        var recipesDtos = paginatedResponse.Data.Select(recipe => new RecipeViewDto(recipe)).ToList();
 
-        return Results.Ok(recipesDtos);
+
+        return Results.Ok(new PaginationResponse<RecipeViewDto>
+        {
+            Data = recipesDtos,
+            PageNumber = paginatedResponse.PageNumber,
+            PageSize = paginatedResponse.PageSize,
+            TotalPages = paginatedResponse.TotalPages
+        });
     }
 }
