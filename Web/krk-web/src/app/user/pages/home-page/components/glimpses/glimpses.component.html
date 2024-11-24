@@ -1,6 +1,6 @@
 <krk-titled-container title="Glimpses">
   <swiper-container [config]="swiperConfig" krkSwiper>
-    @for (glimpse of glimpsesStore.data(); track glimpse.id) {
+    @for (glimpse of homeService.glimpses(); track glimpse.id) {
       <swiper-slide>
         <krk-glimpse [glimpse]="glimpse"/>
       </swiper-slide>

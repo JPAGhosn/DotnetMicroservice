@@ -1,8 +1,8 @@
-import {inject, Injectable, Injector, signal} from '@angular/core';
+import {computed, inject, Injectable, Injector, signal, WritableSignal} from '@angular/core';
 import {LoaderService} from '@shared/services/loader.service';
 import {SubscriptionsStore} from '../../../stores/subscriptions.store';
 import {RecipesRemote} from '../remotes/recipes.remote';
-import {forkJoin, tap} from 'rxjs';
+import {catchError, forkJoin, of, tap, throwError} from 'rxjs';
 import {RecipesStore} from '../../../stores/recipes.store';
 import {TagsRemote} from '../remotes/tags.remote';
 import {TagsStore} from '../../../stores/tags.store';
@@ -34,19 +34,79 @@ export class HomeService {
   // Used to filter the content of the page. Choose it from the top navbar
   filterTagId = signal<string>("");
 
-  fetch() {
+  pageNumber = signal(1);
+  pageSize = 6 * 6;
+
+  tagsLoaded = signal(false);
+
+  recipesIds: WritableSignal<string[]> = signal([]);
+  glimpsesIds: WritableSignal<string[]> = signal([]);
+
+  recipes = computed(() => {
+    const ids = this.recipesIds();
+    const data = this.recipesStore.data();
+    return data.filter(recipe => ids.includes(recipe.id));
+  })
+
+  glimpses = computed(() => {
+    const ids = this.glimpsesIds();
+    const data = this.glimpsesStore.data();
+    return data.filter(glimpse => ids.includes(glimpse.id));
+  })
+
+  fetchAll() {
+    this.pageNumber.set(1);
+
     return forkJoin({
-      recipes: this.recipesRemote.fetch({tagId: this.filterTagId()}).pipe(preventErrorPropagation<RecipeModel[]>([])),
-      tags: this.tagsRemote.fetch().pipe(preventErrorPropagation<TagModel[]>([])),
-      glimpses: this.glimpsesRemote.fetch().pipe(preventErrorPropagation<GlimpseModel[]>([])),
-      collections: this.collectionsRemote.fetch().pipe(preventErrorPropagation<CollectionModel[]>([])),
+      recipes: this.recipesRemote.fetch({
+        tagId: this.filterTagId(),
+        pageNumber: this.pageNumber(),
+        pageSize: this.pageSize
+      }).pipe(preventErrorPropagation<RecipeModel[]>([])),
+
+      // Prevent loading the tags twice
+      tags: this.tagsLoaded() ? of([]) : this.tagsRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<TagModel[]>([])),
+
+      glimpses: this.glimpsesRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<GlimpseModel[]>([])),
+
+      collections: this.collectionsRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<CollectionModel[]>([])),
     }).pipe(
       tap(({recipes, tags, glimpses, collections}) => {
-        this.recipesStore.addMany(recipes)
         this.tagsStore.addMany(tags)
+        this.tagsLoaded.set(true)
+
+        this.recipesStore.addMany(recipes);
+        this.recipesIds.set(recipes.map(recipe => recipe.id));
+
         this.glimpsesStore.addMany(glimpses)
+        this.glimpsesIds.set(glimpses.map(glimpse => glimpse.id));
+
         this.collectionsStore.addMany(collections)
       })
     )
   }
+
+  fetchMoreRecipes() {
+    this.pageNumber.set(this.pageNumber() + 1);
+
+    return this.recipesRemote.fetch({
+      tagId: this.filterTagId(),
+      pageNumber: this.pageNumber(),
+      pageSize: this.pageSize
+    }).pipe(
+      tap(recipes => {
+        if (recipes.length <= 0) {
+          this.pageNumber.set(this.pageNumber() - 1);
+          return;
+        }
+
+        this.recipesStore.addMany(recipes);
+      }),
+      catchError(err => {
+        this.pageNumber.set(this.pageNumber() - 1);
+        return throwError(() => err);
+      })
+    )
+  }
+
 }

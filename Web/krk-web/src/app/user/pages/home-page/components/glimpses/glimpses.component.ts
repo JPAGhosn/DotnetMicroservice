@@ -5,6 +5,7 @@ import {HomeTagComponent} from '../home-tag/home-tag.component';
 import {SwiperDirective} from '@shared/directives/swiper.directive';
 import {SwiperProps} from 'swiper/react';
 import {TitledContainerComponent} from '../titled-container/titled-container.component';
+import {HomeService} from '../../services/home.service';
 
 @Component({
   selector: 'krk-glimpses',
@@ -21,6 +22,7 @@ import {TitledContainerComponent} from '../titled-container/titled-container.com
 })
 export class GlimpsesComponent {
   glimpsesStore = inject(GlimpsesStore);
+  homeService = inject(HomeService)
 
   swiperConfig: SwiperProps = {
     slidesPerView: "auto",

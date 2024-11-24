@@ -19,6 +19,7 @@ html, body {
   --on-primary: #ffffff;
 
   --mat-app-primary: #4BBF57;
+  --mdc-circular-progress-active-indicator-color: #4BBF57;
   --mdc-filled-button-container-color: #4BBF57;
 
   --surface: white;
@@ -40,7 +41,10 @@ html, body {
   --image-placeholder: #E4E4E4;
   --box-shadow: rgb(0, 0, 0, 0.2);
 
+  --loader-color: #EAEAEA;
+
   --scroll-color: #59E567;
+
 
   font-family: "instrument-sans", sans-serif !important;
   font-size: 13px;

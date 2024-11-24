@@ -11,108 +11,90 @@ public static class CollectionsSeeder
         {
             Id = Guid.Parse("1c54b08c-37f5-4f35-9dcc-e04aef5297e4"),
             Name = "Asian Cuisine",
-            CoverPath1 = "1c54b08c-37f5-4f35-9dcc-e04aef5297e4--1.avif",
-            CoverPath2 = "1c54b08c-37f5-4f35-9dcc-e04aef5297e4--2.avif",
-            CoverPath3 = "1c54b08c-37f5-4f35-9dcc-e04aef5297e4--3.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            CoverPath1 = "193b9092-1f68-45ce-bdb4-1c362c7f50ee.png",
+            CoverPath2 = "963fbaca-aaaf-4c5d-a88d-b385fb2c80ff.png",
+            CoverPath3 = "771c0417-da5e-4901-809d-844fb3abfdd4.png",
+            CreatorId = Guid.Parse("ebf82549-cfeb-4f3f-a753-21dfcc0ccb61"),
+            NumberOfFollowers = 453232,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
+
         new CollectionModel
         {
             Id = Guid.Parse("47e69648-e8ec-45b6-aa37-0221939e9e4a"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "47e69648-e8ec-45b6-aa37-0221939e9e4a--1.avif",
-            CoverPath2 = "47e69648-e8ec-45b6-aa37-0221939e9e4a--2.avif",
-            CoverPath3 = "47e69648-e8ec-45b6-aa37-0221939e9e4a--3.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            Name = "Lebanese Cuisine",
+            CoverPath1 = "9dae1b65-0507-4625-a64f-8cd375d1034c.png",
+            CoverPath2 = "313a8ab8-f2b4-45c3-9dd1-a9498ea94a39.png",
+            CoverPath3 = "55d9272f-851a-4638-abbb-92b92ccb031e.png",
+            CreatorId = Guid.Parse("6b7ffda1-eaab-43bd-b61d-bf0d35766590"),
+            NumberOfFollowers = 6547687,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
+
         new CollectionModel
         {
             Id = Guid.Parse("13ec4bce-faa1-4a17-9d7f-ec03e88b1708"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "13ec4bce-faa1-4a17-9d7f-ec03e88b1708--1.avif",
-            CoverPath2 = "13ec4bce-faa1-4a17-9d7f-ec03e88b1708--2.avif",
-            CoverPath3 = "13ec4bce-faa1-4a17-9d7f-ec03e88b1708--3.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            Name = "Korean Cuisine",
+            CoverPath1 = "51c48c53-8299-4b52-b581-a38516effb12.png",
+            CoverPath2 = "91f71ec1-ec59-4745-93e4-2cebe4bf5d60.png",
+            CoverPath3 = "9fcb71bc-86b2-415c-95df-770651b05e05.png",
+            CreatorId = Guid.Parse("18590908-6512-4948-95ca-14ebb9b75652"),
+            NumberOfFollowers = 546,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
         new CollectionModel
         {
             Id = Guid.Parse("0e45bbbb-0882-41fc-a99f-3aaf045d6845"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "0e45bbbb-0882-41fc-a99f-3aaf045d6845--1.avif",
-            CoverPath2 = "0e45bbbb-0882-41fc-a99f-3aaf045d6845--2.avif",
-            CoverPath3 = "0e45bbbb-0882-41fc-a99f-3aaf045d6845--3.avif",
+            Name = "French Cuisine",
+            CoverPath1 = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png",
+            CoverPath2 = "738f7ad7-4060-4a74-bcc7-c29ca4e23ce2.png",
+            CoverPath3 = "c7494117-5946-4efe-a26d-ee3a6d380d15.png",
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            NumberOfFollowers = 234343,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
         new CollectionModel
         {
             Id = Guid.Parse("18db4d9b-6a51-4f7b-8712-c2a477847d6a"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "18db4d9b-6a51-4f7b-8712-c2a477847d6a--1.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
-            PublishedDate = DateTime.Now.ToUniversalTime()
-        },
-        new CollectionModel
-        {
-            Id = Guid.Parse("949f8b31-7554-4028-b691-23fc251348e2"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "949f8b31-7554-4028-b691-23fc251348e2--1.avif",
-            CoverPath2 = "949f8b31-7554-4028-b691-23fc251348e2--2.avif",
-            CoverPath3 = "949f8b31-7554-4028-b691-23fc251348e2--3.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            Name = "American Cuisine",
+            CoverPath1 = "d4d00bef-c865-495d-8c96-eec230bcf1ac.png",
+            CoverPath2 = "10b97e4c-30f2-499d-9f8d-0c0d79af8822.png",
+            CoverPath3 = "0a59a6e6-a583-417e-81ad-89e7cb55b8f4.png",
+            CreatorId = Guid.Parse("bd0f2bb7-001b-4990-a15d-48959bfd66dc"),
+            NumberOfFollowers = 54354565476,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
         new CollectionModel
         {
             Id = Guid.Parse("83681495-a381-4bcf-a075-5d18cf0a646e"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "83681495-a381-4bcf-a075-5d18cf0a646e--1.avif",
-            CoverPath2 = "83681495-a381-4bcf-a075-5d18cf0a646e--2.avif",
-            CoverPath3 = "83681495-a381-4bcf-a075-5d18cf0a646e--3.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
-            PublishedDate = DateTime.Now.ToUniversalTime()
-        },
-        new CollectionModel
-        {
-            Id = Guid.Parse("1b8ab95a-930a-4e8f-b6cd-e3e5678d4c98"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "1b8ab95a-930a-4e8f-b6cd-e3e5678d4c98--1.avif",
-            CoverPath2 = "1b8ab95a-930a-4e8f-b6cd-e3e5678d4c98--2.avif",
-            CoverPath3 = "1b8ab95a-930a-4e8f-b6cd-e3e5678d4c98--3.avif",
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            Name = "Egyptian Cuisine",
+            CoverPath1 = "2ec1d62e-953f-481a-a1cd-ad145deae37a.png",
+            CoverPath2 = "cded9fee-5057-4b91-9e50-a812248458bd.png",
+            CoverPath3 = "17d56165-5365-4bf1-80db-3aea91f9d115.png",
+            CreatorId = Guid.Parse("0fe05ee0-1254-4217-ad9b-9b8c8ba2bf46"),
+            NumberOfFollowers = 324,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
         new CollectionModel
         {
             Id = Guid.Parse("327b9523-ea66-4e60-ab9f-57aafff11f4e"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "327b9523-ea66-4e60-ab9f-57aafff11f4e--1.avif",
-            CoverPath2 = "327b9523-ea66-4e60-ab9f-57aafff11f4e--2.avif",
-            CoverPath3 = "327b9523-ea66-4e60-ab9f-57aafff11f4e--3.avif",
+            Name = "Japanese Cuisine",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            NumberOfFollowers = 7656765,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
         new CollectionModel
         {
             Id = Guid.Parse("967aa6eb-2372-42b8-bf06-338cfb196b04"),
-            Name = "Asian Cuisine",
-            CoverPath1 = "967aa6eb-2372-42b8-bf06-338cfb196b04--1.avif",
-            CoverPath2 = "967aa6eb-2372-42b8-bf06-338cfb196b04--2.avif",
-            CoverPath3 = "967aa6eb-2372-42b8-bf06-338cfb196b04--3.avif",
+            Name = "Mexican Cuisine",
+            CoverPath1 = "2bec25d1-0d12-4445-9aee-38b18dc27c41.png",
+            CoverPath2 = "02bb5e76-0b06-4d99-b9a9-cef5ee6bb8df.png",
+            CoverPath3 = "2769be35-6c35-47cb-8a0d-c7fb68d6cb8b.png",
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            NumberOfFollowers = 1342,
+            NumberOfFollowers = 4354,
             PublishedDate = DateTime.Now.ToUniversalTime()
         }
     };

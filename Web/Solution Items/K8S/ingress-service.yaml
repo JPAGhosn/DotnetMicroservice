@@ -73,6 +73,13 @@ spec:
                 name: seaweedfs-filer
                 port:
                   number: 80
+          - path: /Recipes
+            pathType: Prefix
+            backend:
+              service:
+                name: seaweedfs-filer
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:

@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  padding: 0 20px 0 30px;
+  min-height: 60px;
+}
+
+.tag-skeleton {
+  min-width: 120px;
+  height: 30px;
+  border-radius: 12px;
+  background-color: var(--loader-color);
+}
+
+$widths: 57px, 105px, 109px, 106px, 100px, 123px, 70px, 90px, 70px, 90px, 120px, 78px, 80px, 60px, 70px, 80px, 100px, 75px, 80px, 100px, 70px, 60px, 100px;
+
+@for $i from 1 through length($widths) {
+  .tag-skeleton:nth-child(#{$i}) {
+    min-width: nth($widths, $i);
+  }
+}

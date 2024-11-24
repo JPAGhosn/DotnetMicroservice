@@ -1,5 +1,5 @@
-using KRK_Profiles.Data;
 using Microsoft.EntityFrameworkCore;
+using Profiles.Data;
 
 namespace KRK_Profiles.Extensions;
 

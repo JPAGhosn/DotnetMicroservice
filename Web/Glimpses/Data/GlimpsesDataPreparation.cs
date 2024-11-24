@@ -8,10 +8,10 @@ public static class GlimpsesDataPreparation
     public static void GenerateData(IApplicationBuilder app, bool isProd)
     {
         using var serviceScope = app.ApplicationServices.CreateScope();
-        SeedData(serviceScope.ServiceProvider.GetService<GlimpseDbContext>()!, isProd);
+        SeedData(serviceScope.ServiceProvider.GetService<GlimpsesDbContext>()!, isProd);
     }
 
-    private static void SeedData(GlimpseDbContext context, bool isProd)
+    private static void SeedData(GlimpsesDbContext context, bool isProd)
     {
         if (isProd)
             try

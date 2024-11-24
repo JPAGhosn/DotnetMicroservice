@@ -23,7 +23,7 @@ public class RecipeViewDto
 
     public ProfileModel Creator { get; set; }
 
-    public int NumberOfViews { get; set; }
+    public ulong NumberOfViews { get; set; }
 
     public DateTime PublishedDate { get; set; } = DateTime.Now;
 }

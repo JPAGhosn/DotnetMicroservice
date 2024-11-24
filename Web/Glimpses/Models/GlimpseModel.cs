@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Glimpses.Models.Pivots;
 using KRK_Shared.Models;
 
 namespace Glimpses.Models;
@@ -21,4 +22,7 @@ public class GlimpseModel
     [Required] public string VideoPath { get; set; }
 
     [Required] public string ThumbnailPath { get; set; }
+
+    public List<TagModel> Tags { get; set; }
+    public List<GlimpseHasTag> GlimpseHasTag { get; set; }
 }

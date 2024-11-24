@@ -29,15 +29,15 @@ public static class CollectionsEndpoints
             collection.Creator = profile;
 
             if (collection.CoverPath1 != null)
-                collection.CoverPath1 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Collections + "/" +
+                collection.CoverPath1 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" +
                                         collection.CoverPath1;
 
             if (collection.CoverPath2 != null)
-                collection.CoverPath2 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Collections + "/" +
+                collection.CoverPath2 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" +
                                         collection.CoverPath2;
 
             if (collection.CoverPath3 != null)
-                collection.CoverPath3 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Collections + "/" +
+                collection.CoverPath3 = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" +
                                         collection.CoverPath3;
         }
 

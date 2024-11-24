@@ -1,23 +1,38 @@
-<krk-tags-list/>
+@if (tagsLoading()) {
+  <krk-tags-list-skeleton/>
+} @else {
+  <krk-tags-list/>
+}
 <div class="home-items-container">
-  @for (recipe of firstBatchRecipes(); track recipe.id; ) {
-    <krk-recipe [recipe]="recipe"/>
+  @if (contentLoading()) {
+    @for (skeleton of skeletonArray; track skeleton) {
+      <krk-recipe-skeleton/>
+    }
+  } @else {
+    @for (recipe of firstBatchRecipes(); track recipe.id; ) {
+      <krk-recipe [recipe]="recipe"/>
+    }
+
+    @if (hasGlimpses()) {
+      <krk-glimpses/>
+    }
+
+    @for (recipe of secondBatchRecipes(); track recipe.id; ) {
+      <krk-recipe [recipe]="recipe"/>
+    }
+
+    @if (hasCollections()) {
+      <krk-collections/>
+    }
+
+    @for (recipe of thirdBatchRecipes(); track recipe.id; ) {
+      <krk-recipe [recipe]="recipe"/>
+    }
   }
 
-  @if (hasGlimpses()) {
-    <krk-glimpses/>
-  }
-
-  @for (recipe of secondBatchRecipes(); track recipe.id; ) {
-    <krk-recipe [recipe]="recipe"/>
-  }
-
-  @if (hasCollections()) {
-    <krk-collections/>
-  }
-
-  @for (recipe of thirdBatchRecipes(); track recipe.id; ) {
-    <krk-recipe [recipe]="recipe"/>
+  @if (isLoadingMore()) {
+    <krk-is-loading-more/>
   }
 </div>
+
 

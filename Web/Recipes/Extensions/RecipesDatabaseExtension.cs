@@ -9,7 +9,9 @@ public static class RecipesDatabaseExtension
     {
         services.AddDbContext<RecipesDbContext>(options =>
         {
-            options.UseNpgsql(configuration.GetConnectionString("ProfilesConnectionString"));
+            options.UseNpgsql(configuration.GetConnectionString("RecipesConnectionString"));
+            options.EnableDetailedErrors();
+            options.EnableSensitiveDataLogging();
         });
     }
 }

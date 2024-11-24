@@ -1,0 +1,40 @@
+:host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.image, .avatar, .text-info {
+  background-color: var(--loader-color);
+}
+
+.image, .text-info {
+  border-radius: 10px;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 341 / 192;
+}
+
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.avatar {
+  background-color: var(--loader-color);
+  border-radius: 100%;
+  width: 33px;
+  height: 33px;
+}
+
+.text-info {
+  flex-grow: 1;
+  height: 48px;
+}

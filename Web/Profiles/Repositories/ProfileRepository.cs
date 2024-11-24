@@ -1,6 +1,6 @@
-using KRK_Profiles.Data;
 using KRK_Profiles.Models;
 using Microsoft.EntityFrameworkCore;
+using Profiles.Data;
 
 namespace KRK_Profiles.Repositories;
 

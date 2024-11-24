@@ -12,12 +12,21 @@ public static class RecipesEndpoints
         app.MapGet("/api/recipes", GetRecipes);
     }
 
-    private static async Task<IResult> GetRecipes(RecipesRepository recipesRepository,
+    private static async Task<IResult> GetRecipes(
+        int? pageNumber,
+        int? pageSize,
+        Guid? tagId,
+        RecipesRepository recipesRepository,
         PicturesBasePath picturesBasePath,
         ProfileDataClient profilesClient,
         CancellationToken cancellationToken)
     {
-        var recipes = await recipesRepository.GetAll(cancellationToken);
+        var recipes = await recipesRepository.GetAll(
+            pageNumber: pageNumber ?? 1,
+            pageSize: pageSize ?? 6 * 6,
+            tagId: tagId,
+            cancellationToken: cancellationToken
+        );
         recipes = recipes.Select(recipe =>
         {
             if (recipe.Cover is not null)
@@ -32,10 +41,7 @@ public static class RecipesEndpoints
         recipes = recipes.Select(recipe =>
         {
             var profile = profiles.FirstOrDefault(p => p.Id == recipe.CreatorId);
-            if (profile is not null)
-            {
-                recipe.Creator = profile;
-            }
+            if (profile is not null) recipe.Creator = profile;
             return recipe;
         }).ToList();
 

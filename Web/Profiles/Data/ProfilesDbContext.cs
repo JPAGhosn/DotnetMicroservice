@@ -1,8 +1,8 @@
 using KRK_Profiles.Models;
-using KRK_Profiles.Seeders;
 using Microsoft.EntityFrameworkCore;
+using Profiles.Seeders;
 
-namespace KRK_Profiles.Data;
+namespace Profiles.Data;
 
 public class ProfilesDbContext : DbContext
 {

@@ -16,7 +16,11 @@ public class CollectionModel : BaseModel
 
     [NotMapped] public ProfileModel? Creator { get; set; }
 
-    [Required] public int NumberOfFollowers { get; set; }
+    [Required] public ulong NumberOfFollowers { get; set; }
 
     [Required] public DateTime PublishedDate { get; set; }
+
+    public List<RecipeModel> Recipes { get; set; }
+
+    public List<CollectionHasRecipe> CollectionHasRecipe { get; set; }
 }

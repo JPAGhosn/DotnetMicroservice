@@ -28,6 +28,10 @@ export const userRoute: Route = {
     helpRoute,
     feedbackRoute,
     {
+      path: "recipes/:id",
+      loadComponent: () => import("./pages/recipe-page/recipe-page.component").then(m => m.RecipePageComponent),
+    },
+    {
       path: '**',
       redirectTo: 'home',
     }

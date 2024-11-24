@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KRK_Shared.Models;
+using Recipes.Models.Pivots;
 
 namespace Recipes.Models;
 
@@ -16,7 +17,11 @@ public class RecipeModel
 
     [NotMapped] public ProfileModel Creator { get; set; }
 
-    [Required] public int NumberOfViews { get; set; } = 0;
+    [Required] public ulong NumberOfViews { get; set; } = 0;
 
     [Required] public DateTime PublishedDate { get; set; } = DateTime.Now;
+
+    public List<TagModel> Tags { get; set; }
+
+    public List<RecipeHasTag> RecipeHasTag { get; set; }
 }

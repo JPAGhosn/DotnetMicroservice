@@ -1,8 +1,10 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  position: relative;
 }
 
 .krk-content {
@@ -37,12 +39,15 @@
 }
 
 .home-items-container {
-  padding: 0 20px 0 30px;
+  padding: 0 20px 100px 30px;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(var(--number-of-columns), 1fr);
   row-gap: 17px;
   column-gap: 15px;
+  position: relative;
+  flex-grow: 1;
+  overflow: auto;
 }
 
 krk-recipe {

@@ -9,1068 +9,631 @@ public static class RecipesSeeder
     {
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("9ecd7941-eafd-4b6a-b129-f3808c3d9bfc"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Hamburger American Style",
-            NumberOfViews = 0,
+            Name = "Basic Sabzee (Curried Vegetables)",
+            NumberOfViews = 434434,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "9ecd7941-eafd-4b6a-b129-f3808c3d9bfc.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("7f407a72-ba91-4851-9c59-ceeb069b8454"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pizza De La Mama",
+            Name = "Mango Lassi",
+            NumberOfViews = 433,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "7f407a72-ba91-4851-9c59-ceeb069b8454.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("74061819-d8f0-4220-8a2e-f423064b9596"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Golden Milk: Healing Tonic for Vitality and Flexibility",
+            NumberOfViews = 3232,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "74061819-d8f0-4220-8a2e-f423064b9596.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("ec5361cc-1935-4ece-8ee4-1dc8b828c59e"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Solstice Potato Soup",
+            NumberOfViews = 323212,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "ec5361cc-1935-4ece-8ee4-1dc8b828c59e.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("2df0deca-8b7e-4a92-8fdb-54dd99cb120b"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Hearty & Delicious Potato Leek Soup",
+            NumberOfViews = 65654,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "2df0deca-8b7e-4a92-8fdb-54dd99cb120b.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("458b0559-39b2-4c17-8303-464f73aaaa0c"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "3 Bean Vegetarian Chili and Skillet Cornbread",
+            NumberOfViews = 435,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "458b0559-39b2-4c17-8303-464f73aaaa0c.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("0195eb1a-96e5-415a-97de-d66e825d499c"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "3 Bean Vegetarian Chili and Skillet Cornbread",
+            NumberOfViews = 654,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "0195eb1a-96e5-415a-97de-d66e825d499c.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("a957b032-8508-44f8-9166-b9930eb0a6e7"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Decadent Vegan Chocolate Mousse",
+            NumberOfViews = 42342342,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "a957b032-8508-44f8-9166-b9930eb0a6e7.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("ab3ebd2d-f94d-490a-8a19-ff60243b1881"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Easy Triple Berry Galette",
+            NumberOfViews = 654675,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "ab3ebd2d-f94d-490a-8a19-ff60243b1881.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("ae414607-b268-4a1e-9911-fc70d935fb74"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Spaghetti Squash with Marinara and Parmesan",
+            NumberOfViews = 4565456,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "ae414607-b268-4a1e-9911-fc70d935fb74.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("d8bb1649-2c06-44b9-80e7-c6d7b06c7a34"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Vegan Zuppa Toscana",
+            NumberOfViews = 798879,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "d8bb1649-2c06-44b9-80e7-c6d7b06c7a34.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("fd91c5d8-fb87-4d15-8c23-d0d686856588"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "The Best Tofu Scramble",
             NumberOfViews = 33,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "fd91c5d8-fb87-4d15-8c23-d0d686856588.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("fcde7ae3-4c40-4cf6-8968-26ea7caf4032"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Mjadara A La Libanaise",
-            NumberOfViews = 4232,
+            Name = "Grilled Mushroom Steaks with Polenta",
+            NumberOfViews = 5342,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "fcde7ae3-4c40-4cf6-8968-26ea7caf4032.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("1e7acbcb-a575-4511-ae19-b5971177a15c"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Arnabit A La Libanaise",
-            NumberOfViews = 2988,
+            Name = "Basmati Rice with Garlic and Parsley",
+            NumberOfViews = 33,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "1e7acbcb-a575-4511-ae19-b5971177a15c.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("5ca82ead-9965-4963-aea5-20e1a2f5bb29"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Wings",
-            NumberOfViews = 45324,
+            Name = "Hot Chapattis: Spicy Corn & Garbanzo Fritters",
+            NumberOfViews = 68898,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "5ca82ead-9965-4963-aea5-20e1a2f5bb29.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("6235f110-a0b5-4f79-8333-5e1a39c6eee5"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Subway Sandwich",
-            NumberOfViews = 65345,
+            Name = "Fall Yoga Bowl",
+            NumberOfViews = 987867,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "6235f110-a0b5-4f79-8333-5e1a39c6eee5.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("ecbaaa43-9d1b-4a62-8226-068ff320906e"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Grilled Chicken",
-            NumberOfViews = 176543,
+            Name = "Grilled Portobello Mushroom Burgers",
+            NumberOfViews = 3423432432,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "ecbaaa43-9d1b-4a62-8226-068ff320906e.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("a7064206-50a7-458d-b420-38e03c37fe42"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Cajun Chicken",
-            NumberOfViews = 356734,
+            Name = "Best Black Bean Veggie Burgers",
+            NumberOfViews = 3234454355653,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "a7064206-50a7-458d-b420-38e03c37fe42.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
+            Id = Guid.Parse("9a215ebc-3d48-40ee-9537-462cf603dbbe"),
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Mighty Chicken",
-            NumberOfViews = 12987,
+            Name = "Easy Weeknight Ramen Noodles",
+            NumberOfViews = 42345434435,
             PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
-            Cover = "1.jpg"
+            Cover = "9a215ebc-3d48-40ee-9537-462cf603dbbe.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("273a52af-fe96-4edf-8c93-f95676e53f8d"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Tofu, Lentil, and Quinoa Bowl",
+            NumberOfViews = 534543,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "273a52af-fe96-4edf-8c93-f95676e53f8d.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("78b5e258-bef9-4af6-ae38-66990afd3268"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Banana Whey Smoothie for Children",
+            NumberOfViews = 4343,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "78b5e258-bef9-4af6-ae38-66990afd3268.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("fc6610da-2751-4b1c-b929-dfde52049e54"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Cleansing Beet Millet Pancakes",
+            NumberOfViews = 232423,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "fc6610da-2751-4b1c-b929-dfde52049e54.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("dcb00c6a-f3fd-41de-8455-fef6aaf836da"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Potent Potato Soup",
+            NumberOfViews = 4234,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "dcb00c6a-f3fd-41de-8455-fef6aaf836da.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("523ffde2-cbde-48fd-947f-5d935a025ba7"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Your Choice Muffins",
+            NumberOfViews = 0,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "523ffde2-cbde-48fd-947f-5d935a025ba7.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("026d3f56-9e23-4fa6-a7b4-32dd2bca860b"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Root Vegetable Curry Soup",
+            NumberOfViews = 43543534,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "026d3f56-9e23-4fa6-a7b4-32dd2bca860b.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("1924c6ca-e6e4-4fe7-9e13-840c2627f6c9"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Fountain of Youth Fruit Salad",
+            NumberOfViews = 0,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "1924c6ca-e6e4-4fe7-9e13-840c2627f6c9.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("a541ce68-3834-4c18-96a2-8e7bf0afe3a1"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Mineral-Balancing Cilantro, Celery, and Tahini Dressing",
+            NumberOfViews = 6756,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "a541ce68-3834-4c18-96a2-8e7bf0afe3a1.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("b45c6b09-803d-42a5-a8c5-4efd0a8cbdc4"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Chocolate Bliss Balls",
+            NumberOfViews = 5675643,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "b45c6b09-803d-42a5-a8c5-4efd0a8cbdc4.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("ad42d148-6771-48f5-a152-f01bab953f73"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Blissful Cacao Smoothie",
+            NumberOfViews = 5345454,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "ad42d148-6771-48f5-a152-f01bab953f73.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("c9e46e37-fb57-42d3-8b4d-b3d66eaf016e"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Swiss Chard & Rose Potatoes with Mustard Oil",
+            NumberOfViews = 5435465,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "c9e46e37-fb57-42d3-8b4d-b3d66eaf016e.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("cd94a6a4-957e-4062-a9d9-6f68c1395f29"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Spaghetti Squash with Turmeric",
+            NumberOfViews = 876,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "cd94a6a4-957e-4062-a9d9-6f68c1395f29.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("4c59dbf9-5e17-4886-a026-fb674273a775"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Ginger Curry",
+            NumberOfViews = 232343,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "4c59dbf9-5e17-4886-a026-fb674273a775.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("6bb57dc9-8d9a-4bc0-a957-ffc4bec1b018"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Jalapeno Pancakes",
+            NumberOfViews = 564655,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "6bb57dc9-8d9a-4bc0-a957-ffc4bec1b018.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("5c6d4a87-cbbe-41e6-823c-f6352d5c6292"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Ms. Whiz: The Perfect Breakfast Drink for Women",
+            NumberOfViews = 786,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "5c6d4a87-cbbe-41e6-823c-f6352d5c6292.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("1347c878-fa9a-4031-9d78-04ed25689b08"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Savory Indian Pancakes",
+            NumberOfViews = 786567,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "1347c878-fa9a-4031-9d78-04ed25689b08.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("ee00deba-4a76-40bc-9473-97e9234fc817"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Potent Potatoes",
+            NumberOfViews = 0,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "ee00deba-4a76-40bc-9473-97e9234fc817.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("351b2c40-cce3-4d78-9dfe-fabd38a12911"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Golden Milk: Healing Tonic for Vitality and Flexibility",
+            NumberOfViews = 0,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "351b2c40-cce3-4d78-9dfe-fabd38a12911.png"
+        },
+        new RecipeModel
+        {
+            Id = Guid.Parse("dc8d6830-2dd5-4455-9c04-65990d120abd"),
+            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
+            Name = "Healing Ginger Lemon Drink",
+            NumberOfViews = 0,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "dc8d6830-2dd5-4455-9c04-65990d120abd.png"
         },
 
-        // Additional 50 RecipeModel instances
+        // Lebanese
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Spaghetti Carbonara",
-            NumberOfViews = 1500,
-            PublishedDate = DateTime.Parse("2020-10-01 09:30:00").ToUniversalTime(),
-            Cover = "1.jpg"
+            Id = Guid.Parse("9dae1b65-0507-4625-a64f-8cd375d1034c"),
+            CreatorId = Guid.Parse("6b7ffda1-eaab-43bd-b61d-bf0d35766590"),
+            Name = "Lebanese Stuffed Grape Leaves",
+            NumberOfViews = 434312,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "9dae1b65-0507-4625-a64f-8cd375d1034c.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Stroganoff",
-            NumberOfViews = 2450,
-            PublishedDate = DateTime.Parse("2020-10-02 11:45:00").ToUniversalTime(),
-            Cover = "1.jpg"
+            Id = Guid.Parse("313a8ab8-f2b4-45c3-9dd1-a9498ea94a39"),
+            CreatorId = Guid.Parse("6b7ffda1-eaab-43bd-b61d-bf0d35766590"),
+            Name = "Fattoush Salad",
+            NumberOfViews = 4322,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "313a8ab8-f2b4-45c3-9dd1-a9498ea94a39.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Stir Fry",
-            NumberOfViews = 980,
-            PublishedDate = DateTime.Parse("2020-10-03 14:20:00").ToUniversalTime(),
-            Cover = "1.jpg"
+            Id = Guid.Parse("88313bf8-1510-4659-b301-e0d1f6629721"),
+            CreatorId = Guid.Parse("6b7ffda1-eaab-43bd-b61d-bf0d35766590"),
+            Name = "Olive Oil Mashed Potatoes",
+            NumberOfViews = 4322,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "88313bf8-1510-4659-b301-e0d1f6629721.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Lemon Garlic Salmon",
-            NumberOfViews = 3120,
-            PublishedDate = DateTime.Parse("2020-10-04 16:50:00").ToUniversalTime(),
-            Cover = "1.jpg"
+            Id = Guid.Parse("55d9272f-851a-4638-abbb-92b92ccb031e"),
+            CreatorId = Guid.Parse("6b7ffda1-eaab-43bd-b61d-bf0d35766590"),
+            Name = "Roasted Brussels Sprouts with Toasted Hazelnuts",
+            NumberOfViews = 4322,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "55d9272f-851a-4638-abbb-92b92ccb031e.png"
         },
+
+        // French
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Thai Green Curry",
-            NumberOfViews = 2765,
-            PublishedDate = DateTime.Parse("2020-10-05 13:15:00").ToUniversalTime(),
-            Cover = "1.jpg"
+            Id = Guid.Parse("d7c4877c-bfc3-4519-b21d-f8d01da3d729"),
+            CreatorId = Guid.Parse("f15ee0e3-ee98-474f-b08d-a96d42b76dc4"),
+            Name = "Stuffed Mushroom Caps with Pork and Brie (Champignons Farcis)",
+            NumberOfViews = 32112,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Tacos",
-            NumberOfViews = 1987,
-            PublishedDate = DateTime.Parse("2020-10-06 12:00:00").ToUniversalTime(),
-            Cover = "1.jpg"
+            Id = Guid.Parse("738f7ad7-4060-4a74-bcc7-c29ca4e23ce2"),
+            CreatorId = Guid.Parse("f15ee0e3-ee98-474f-b08d-a96d42b76dc4"),
+            Name = "Pouding Chômeur (Quebecois Maple Pudding)",
+            NumberOfViews = 31232111,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Alfredo",
-            NumberOfViews = 3421,
-            PublishedDate = DateTime.Parse("2020-10-07 17:30:00").ToUniversalTime()
+            Id = Guid.Parse("c7494117-5946-4efe-a26d-ee3a6d380d15"),
+            CreatorId = Guid.Parse("f15ee0e3-ee98-474f-b08d-a96d42b76dc4"),
+            Name = "Classic French Onion Soup",
+            NumberOfViews = 31232111,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "c7494117-5946-4efe-a26d-ee3a6d380d15.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Quinoa Salad",
-            NumberOfViews = 875,
-            PublishedDate = DateTime.Parse("2020-10-08 08:45:00").ToUniversalTime()
+            Id = Guid.Parse("297d7739-22fd-4c59-a8f3-1b0c818a3d9b"),
+            CreatorId = Guid.Parse("f15ee0e3-ee98-474f-b08d-a96d42b76dc4"),
+            Name = "French Almond Croissants (Bakery Style)",
+            NumberOfViews = 21218932121,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "297d7739-22fd-4c59-a8f3-1b0c818a3d9b.png"
         },
+
+        // Korean
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Shrimp Scampi",
-            NumberOfViews = 2900,
-            PublishedDate = DateTime.Parse("2020-10-09 19:10:00").ToUniversalTime()
+            Id = Guid.Parse("cd63330c-aec2-4cd3-aea7-0fe36694577b"),
+            CreatorId = Guid.Parse("18590908-6512-4948-95ca-14ebb9b75652"),
+            Name = "Kal Bibimmyeon with Chadolbaegi Salad",
+            NumberOfViews = 23323,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "cd63330c-aec2-4cd3-aea7-0fe36694577b.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "BBQ Ribs",
-            NumberOfViews = 4105,
-            PublishedDate = DateTime.Parse("2020-10-10 15:25:00").ToUniversalTime()
+            Id = Guid.Parse("51c48c53-8299-4b52-b581-a38516effb12"),
+            CreatorId = Guid.Parse("18590908-6512-4948-95ca-14ebb9b75652"),
+            Name = "Korean Style Mala Fried Chicken",
+            NumberOfViews = 98292,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "51c48c53-8299-4b52-b581-a38516effb12.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Veggie Lasagna",
-            NumberOfViews = 1320,
-            PublishedDate = DateTime.Parse("2020-10-11 10:40:00").ToUniversalTime()
+            Id = Guid.Parse("91f71ec1-ec59-4745-93e4-2cebe4bf5d60"),
+            CreatorId = Guid.Parse("18590908-6512-4948-95ca-14ebb9b75652"),
+            Name = "Kongguksu (Soy Milk Noodle Soup)",
+            NumberOfViews = 54652,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "91f71ec1-ec59-4745-93e4-2cebe4bf5d60.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Fish and Chips",
-            NumberOfViews = 2530,
-            PublishedDate = DateTime.Parse("2020-10-12 18:55:00").ToUniversalTime()
+            Id = Guid.Parse("9fcb71bc-86b2-415c-95df-770651b05e05"),
+            CreatorId = Guid.Parse("18590908-6512-4948-95ca-14ebb9b75652"),
+            Name = "Korean Acorn Jelly (Dotorimuk Muchim)",
+            NumberOfViews = 9875,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "9fcb71bc-86b2-415c-95df-770651b05e05.png"
         },
+
+        // Asian
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Butter Chicken",
-            NumberOfViews = 3780,
-            PublishedDate = DateTime.Parse("2020-10-13 14:05:00").ToUniversalTime()
+            Id = Guid.Parse("3d056e57-6e50-4d83-8ad4-55755849a575"),
+            CreatorId = Guid.Parse("ebf82549-cfeb-4f3f-a753-21dfcc0ccb61"),
+            Name = "Baked Sweet And Sour Chicken",
+            NumberOfViews = 9875,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "3d056e57-6e50-4d83-8ad4-55755849a575.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Falafel Wrap",
-            NumberOfViews = 1625,
-            PublishedDate = DateTime.Parse("2020-10-14 09:50:00").ToUniversalTime()
+            Id = Guid.Parse("193b9092-1f68-45ce-bdb4-1c362c7f50ee"),
+            CreatorId = Guid.Parse("ebf82549-cfeb-4f3f-a753-21dfcc0ccb61"),
+            Name = "Copycat Panda Express Orange Chicken",
+            NumberOfViews = 9875,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "193b9092-1f68-45ce-bdb4-1c362c7f50ee.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Bourguignon",
-            NumberOfViews = 2975,
-            PublishedDate = DateTime.Parse("2020-10-15 20:20:00").ToUniversalTime()
+            Id = Guid.Parse("963fbaca-aaaf-4c5d-a88d-b385fb2c80ff"),
+            CreatorId = Guid.Parse("ebf82549-cfeb-4f3f-a753-21dfcc0ccb61"),
+            Name = "4-Ingredient Orange Chicken",
+            NumberOfViews = 9875,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "963fbaca-aaaf-4c5d-a88d-b385fb2c80ff.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pancakes with Maple Syrup",
-            NumberOfViews = 450,
-            PublishedDate = DateTime.Parse("2020-10-16 07:30:00").ToUniversalTime()
+            Id = Guid.Parse("771c0417-da5e-4901-809d-844fb3abfdd4"),
+            CreatorId = Guid.Parse("ebf82549-cfeb-4f3f-a753-21dfcc0ccb61"),
+            Name = "Copycat Din Tai Fung Cucumber Salad",
+            NumberOfViews = 9875,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "771c0417-da5e-4901-809d-844fb3abfdd4.png"
         },
+
+        // American
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Eggplant Parmesan",
-            NumberOfViews = 2100,
-            PublishedDate = DateTime.Parse("2020-10-17 12:35:00").ToUniversalTime()
+            Id = Guid.Parse("8abf601e-4f02-4bc8-9dba-0474723d908c"),
+            CreatorId = Guid.Parse("bd0f2bb7-001b-4990-a15d-48959bfd66dc"),
+            Name = "Slow-Cooker Brisket",
+            NumberOfViews = 323443434,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "8abf601e-4f02-4bc8-9dba-0474723d908c.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Teriyaki",
-            NumberOfViews = 3650,
-            PublishedDate = DateTime.Parse("2020-10-18 16:45:00").ToUniversalTime()
+            Id = Guid.Parse("d4d00bef-c865-495d-8c96-eec230bcf1ac"),
+            CreatorId = Guid.Parse("bd0f2bb7-001b-4990-a15d-48959bfd66dc"),
+            Name = "Banana Split",
+            NumberOfViews = 3245466512,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "d4d00bef-c865-495d-8c96-eec230bcf1ac.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Broccoli",
-            NumberOfViews = 2890,
-            PublishedDate = DateTime.Parse("2020-10-19 13:55:00").ToUniversalTime()
+            Id = Guid.Parse("10b97e4c-30f2-499d-9f8d-0c0d79af8822"),
+            CreatorId = Guid.Parse("bd0f2bb7-001b-4990-a15d-48959bfd66dc"),
+            Name = "Wisconsin Butter Burgers",
+            NumberOfViews = 3245466512,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "10b97e4c-30f2-499d-9f8d-0c0d79af8822.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Stuffed Bell Peppers",
-            NumberOfViews = 1340,
-            PublishedDate = DateTime.Parse("2020-10-20 11:10:00").ToUniversalTime()
+            Id = Guid.Parse("0a59a6e6-a583-417e-81ad-89e7cb55b8f4"),
+            CreatorId = Guid.Parse("bd0f2bb7-001b-4990-a15d-48959bfd66dc"),
+            Name = "Tater Tot Casserole",
+            NumberOfViews = 992328,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "0a59a6e6-a583-417e-81ad-89e7cb55b8f4.png"
         },
+
+        // Japanese
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Shrimp Tacos",
-            NumberOfViews = 3100,
-            PublishedDate = DateTime.Parse("2020-10-21 18:25:00").ToUniversalTime()
+            Id = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b"),
+            CreatorId = Guid.Parse("9bbbd1a5-6e07-4e82-998a-7376b3d65909"),
+            Name = "Bamboo Shoots Simmered in Bonito Flakes (Takenoko no Tosani)",
+            NumberOfViews = 9833,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "d55f4548-c2e6-4816-892e-7f520fbc311b.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Quesadillas",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2020-10-22 14:40:00").ToUniversalTime()
+            Id = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca"),
+            CreatorId = Guid.Parse("9bbbd1a5-6e07-4e82-998a-7376b3d65909"),
+            Name = "Miso Soup with Kingfish Head (Kingfish Arajiru)",
+            NumberOfViews = 992328,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Paella",
-            NumberOfViews = 980,
-            PublishedDate = DateTime.Parse("2020-10-23 09:55:00").ToUniversalTime()
+            Id = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9"),
+            CreatorId = Guid.Parse("9bbbd1a5-6e07-4e82-998a-7376b3d65909"),
+            Name = "Fried Tofu with Thick Mushroom Sauce (Mushroom Ankake)\n",
+            NumberOfViews = 992328,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png"
         },
+
+        // Egyptian
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Lamb Kebabs",
-            NumberOfViews = 3200,
-            PublishedDate = DateTime.Parse("2020-10-24 20:10:00").ToUniversalTime()
+            Id = Guid.Parse("2ec1d62e-953f-481a-a1cd-ad145deae37a"),
+            CreatorId = Guid.Parse("0fe05ee0-1254-4217-ad9b-9b8c8ba2bf46"),
+            Name = "Date Cake",
+            NumberOfViews = 7689,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "2ec1d62e-953f-481a-a1cd-ad145deae37a.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Mushroom Risotto",
-            NumberOfViews = 1505,
-            PublishedDate = DateTime.Parse("2020-10-25 07:20:00").ToUniversalTime()
+            Id = Guid.Parse("cded9fee-5057-4b91-9e50-a812248458bd"),
+            CreatorId = Guid.Parse("0fe05ee0-1254-4217-ad9b-9b8c8ba2bf46"),
+            Name = "Stuffed Roast Duck Recipe",
+            NumberOfViews = 565,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "cded9fee-5057-4b91-9e50-a812248458bd.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Enchiladas",
-            NumberOfViews = 2895,
-            PublishedDate = DateTime.Parse("2020-10-26 12:35:00").ToUniversalTime()
+            Id = Guid.Parse("17d56165-5365-4bf1-80db-3aea91f9d115"),
+            CreatorId = Guid.Parse("0fe05ee0-1254-4217-ad9b-9b8c8ba2bf46"),
+            Name = "Easy Coconut Macaroons Recipe",
+            NumberOfViews = 24334,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "17d56165-5365-4bf1-80db-3aea91f9d115.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Butternut Squash Soup",
-            NumberOfViews = 1230,
-            PublishedDate = DateTime.Parse("2020-10-27 10:50:00").ToUniversalTime()
+            Id = Guid.Parse("6c3f64a9-750a-4422-aec7-346327e9089d"),
+            CreatorId = Guid.Parse("0fe05ee0-1254-4217-ad9b-9b8c8ba2bf46"),
+            Name = "Baked Sea Bass",
+            NumberOfViews = 97687,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "6c3f64a9-750a-4422-aec7-346327e9089d.png"
         },
+
+        // Mexican
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pesto Pasta",
-            NumberOfViews = 2140,
-            PublishedDate = DateTime.Parse("2020-10-28 15:05:00").ToUniversalTime()
+            Id = Guid.Parse("2bec25d1-0d12-4445-9aee-38b18dc27c41"),
+            CreatorId = Guid.Parse("9952a929-6005-4e2f-860c-f0e018dbcd89"),
+            Name = "Chicken Chile Verde",
+            NumberOfViews = 823292,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "2bec25d1-0d12-4445-9aee-38b18dc27c41.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Biryani",
-            NumberOfViews = 3340,
-            PublishedDate = DateTime.Parse("2020-10-29 19:20:00").ToUniversalTime()
+            Id = Guid.Parse("02bb5e76-0b06-4d99-b9a9-cef5ee6bb8df"),
+            CreatorId = Guid.Parse("9952a929-6005-4e2f-860c-f0e018dbcd89"),
+            Name = "Easy Vegetarian Breakfast Burritos",
+            NumberOfViews = 823292,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "02bb5e76-0b06-4d99-b9a9-cef5ee6bb8df.png"
         },
         new RecipeModel
         {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Tuna Casserole",
-            NumberOfViews = 1780,
-            PublishedDate = DateTime.Parse("2020-10-30 08:35:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pulled Pork Sandwiches",
-            NumberOfViews = 4200,
-            PublishedDate = DateTime.Parse("2020-10-31 17:50:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Greek Salad",
-            NumberOfViews = 980,
-            PublishedDate = DateTime.Parse("2020-11-01 09:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Turkey Meatloaf",
-            NumberOfViews = 2550,
-            PublishedDate = DateTime.Parse("2020-11-02 14:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Curry",
-            NumberOfViews = 1900,
-            PublishedDate = DateTime.Parse("2020-11-03 11:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Sausage and Peppers",
-            NumberOfViews = 3100,
-            PublishedDate = DateTime.Parse("2020-11-04 16:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Ratatouille",
-            NumberOfViews = 1420,
-            PublishedDate = DateTime.Parse("2020-11-05 10:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Piccata",
-            NumberOfViews = 3250,
-            PublishedDate = DateTime.Parse("2020-11-06 18:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Baked Ziti",
-            NumberOfViews = 2675,
-            PublishedDate = DateTime.Parse("2020-11-07 13:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Stuffed Chicken Breast",
-            NumberOfViews = 1980,
-            PublishedDate = DateTime.Parse("2020-11-08 15:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Burritos",
-            NumberOfViews = 3050,
-            PublishedDate = DateTime.Parse("2020-11-09 19:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Sweet and Sour Pork",
-            NumberOfViews = 2780,
-            PublishedDate = DateTime.Parse("2020-11-10 12:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Caesar Salad",
-            NumberOfViews = 2200,
-            PublishedDate = DateTime.Parse("2020-11-11 09:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Wellington",
-            NumberOfViews = 3600,
-            PublishedDate = DateTime.Parse("2020-11-12 17:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Lentil Soup",
-            NumberOfViews = 1400,
-            PublishedDate = DateTime.Parse("2020-11-13 08:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Garlic Shrimp",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2020-11-14 14:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Baked Salmon",
-            NumberOfViews = 3100,
-            PublishedDate = DateTime.Parse("2020-11-15 19:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pork Schnitzel",
-            NumberOfViews = 1950,
-            PublishedDate = DateTime.Parse("2020-11-16 11:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Tikka Masala",
-            NumberOfViews = 3400,
-            PublishedDate = DateTime.Parse("2020-11-17 16:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Chili",
-            NumberOfViews = 2850,
-            PublishedDate = DateTime.Parse("2020-11-18 13:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Caprese Salad",
-            NumberOfViews = 1200,
-            PublishedDate = DateTime.Parse("2020-11-19 10:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Fajitas",
-            NumberOfViews = 3300,
-            PublishedDate = DateTime.Parse("2020-11-20 18:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Bean Stew",
-            NumberOfViews = 2600,
-            PublishedDate = DateTime.Parse("2020-11-21 14:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Lasagna",
-            NumberOfViews = 1600,
-            PublishedDate = DateTime.Parse("2020-11-22 09:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Honey Glazed Ham",
-            NumberOfViews = 2950,
-            PublishedDate = DateTime.Parse("2020-11-23 20:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Tostadas",
-            NumberOfViews = 2100,
-            PublishedDate = DateTime.Parse("2020-11-24 07:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pumpkin Soup",
-            NumberOfViews = 1350,
-            PublishedDate = DateTime.Parse("2020-11-25 12:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Teriyaki Beef Bowl",
-            NumberOfViews = 3450,
-            PublishedDate = DateTime.Parse("2020-11-26 16:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Stir Fry with Tofu",
-            NumberOfViews = 1750,
-            PublishedDate = DateTime.Parse("2020-11-27 10:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Marsala",
-            NumberOfViews = 3150,
-            PublishedDate = DateTime.Parse("2020-11-28 19:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Stir Fry",
-            NumberOfViews = 2800,
-            PublishedDate = DateTime.Parse("2020-11-29 14:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pork Carnitas",
-            NumberOfViews = 2300,
-            PublishedDate = DateTime.Parse("2020-11-30 09:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Shrimp Fried Rice",
-            NumberOfViews = 2950,
-            PublishedDate = DateTime.Parse("2020-12-01 17:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Noodle Soup",
-            NumberOfViews = 1850,
-            PublishedDate = DateTime.Parse("2020-12-02 12:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Pho",
-            NumberOfViews = 3100,
-            PublishedDate = DateTime.Parse("2020-12-03 20:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Dumplings",
-            NumberOfViews = 2250,
-            PublishedDate = DateTime.Parse("2020-12-04 07:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Tacos Al Pastor",
-            NumberOfViews = 3400,
-            PublishedDate = DateTime.Parse("2020-12-05 13:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Tempura",
-            NumberOfViews = 1600,
-            PublishedDate = DateTime.Parse("2020-12-06 09:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Satay",
-            NumberOfViews = 3050,
-            PublishedDate = DateTime.Parse("2020-12-07 18:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Parmesan",
-            NumberOfViews = 2900,
-            PublishedDate = DateTime.Parse("2020-12-08 14:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Mushroom Pie",
-            NumberOfViews = 2600,
-            PublishedDate = DateTime.Parse("2020-12-09 10:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Rice Casserole",
-            NumberOfViews = 2400,
-            PublishedDate = DateTime.Parse("2020-12-10 19:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef Burrito Bowl",
-            NumberOfViews = 3250,
-            PublishedDate = DateTime.Parse("2020-12-11 15:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Frittata",
-            NumberOfViews = 1550,
-            PublishedDate = DateTime.Parse("2020-12-12 08:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Spinach Lasagna",
-            NumberOfViews = 2800,
-            PublishedDate = DateTime.Parse("2020-12-13 12:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Broccoli Alfredo",
-            NumberOfViews = 3100,
-            PublishedDate = DateTime.Parse("2020-12-14 17:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Bean Chili",
-            NumberOfViews = 2950,
-            PublishedDate = DateTime.Parse("2020-12-15 14:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Stir Fry with Noodles",
-            NumberOfViews = 1700,
-            PublishedDate = DateTime.Parse("2020-12-16 10:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Kebabs",
-            NumberOfViews = 3150,
-            PublishedDate = DateTime.Parse("2020-12-17 19:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken Cacciatore",
-            NumberOfViews = 3000,
-            PublishedDate = DateTime.Parse("2020-12-18 15:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Bean Enchiladas",
-            NumberOfViews = 2700,
-            PublishedDate = DateTime.Parse("2020-12-19 11:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Mushroom Stroganoff",
-            NumberOfViews = 2450,
-            PublishedDate = DateTime.Parse("2020-12-20 20:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Potato Stew",
-            NumberOfViews = 2900,
-            PublishedDate = DateTime.Parse("2020-12-21 16:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Quiche",
-            NumberOfViews = 1500,
-            PublishedDate = DateTime.Parse("2020-12-22 09:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Kabobs",
-            NumberOfViews = 3200,
-            PublishedDate = DateTime.Parse("2020-12-23 13:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Spinach Pasta",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2020-12-24 18:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Fajitas",
-            NumberOfViews = 3050,
-            PublishedDate = DateTime.Parse("2020-12-25 14:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable Biryani",
-            NumberOfViews = 1650,
-            PublishedDate = DateTime.Parse("2020-12-26 10:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Bean Nachos",
-            NumberOfViews = 3150,
-            PublishedDate = DateTime.Parse("2020-12-27 19:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Broccoli Stir Fry",
-            NumberOfViews = 2900,
-            PublishedDate = DateTime.Parse("2020-12-28 15:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Stew",
-            NumberOfViews = 2800,
-            PublishedDate = DateTime.Parse("2020-12-29 11:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pork and Vegetable Stir Fry",
-            NumberOfViews = 2350,
-            PublishedDate = DateTime.Parse("2020-12-30 20:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Curry",
-            NumberOfViews = 3000,
-            PublishedDate = DateTime.Parse("2020-12-31 16:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Lasagna",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2021-01-01 12:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Tofu Stir Fry",
-            NumberOfViews = 1800,
-            PublishedDate = DateTime.Parse("2021-01-02 09:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Tacos",
-            NumberOfViews = 3300,
-            PublishedDate = DateTime.Parse("2021-01-03 18:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Stir Fry",
-            NumberOfViews = 2950,
-            PublishedDate = DateTime.Parse("2021-01-04 14:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Beef Stir Fry",
-            NumberOfViews = 2000,
-            PublishedDate = DateTime.Parse("2021-01-05 10:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Fettuccine",
-            NumberOfViews = 3100,
-            PublishedDate = DateTime.Parse("2021-01-06 19:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Stew",
-            NumberOfViews = 2850,
-            PublishedDate = DateTime.Parse("2021-01-07 15:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Risotto",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2021-01-08 11:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Beef Stir Fry with Rice",
-            NumberOfViews = 2450,
-            PublishedDate = DateTime.Parse("2021-01-09 20:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Pasta",
-            NumberOfViews = 3000,
-            PublishedDate = DateTime.Parse("2021-01-10 16:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Chicken Alfredo",
-            NumberOfViews = 1600,
-            PublishedDate = DateTime.Parse("2021-01-11 09:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Paella",
-            NumberOfViews = 3250,
-            PublishedDate = DateTime.Parse("2021-01-12 13:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Jambalaya",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2021-01-13 18:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Goulash",
-            NumberOfViews = 3050,
-            PublishedDate = DateTime.Parse("2021-01-14 14:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Beef Stew",
-            NumberOfViews = 2000,
-            PublishedDate = DateTime.Parse("2021-01-15 10:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Casserole",
-            NumberOfViews = 3150,
-            PublishedDate = DateTime.Parse("2021-01-16 19:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Biryani",
-            NumberOfViews = 2950,
-            PublishedDate = DateTime.Parse("2021-01-17 15:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Stir Fry with Noodles",
-            NumberOfViews = 2850,
-            PublishedDate = DateTime.Parse("2021-01-18 11:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Beef Pasta",
-            NumberOfViews = 2400,
-            PublishedDate = DateTime.Parse("2021-01-19 20:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Alfredo",
-            NumberOfViews = 3000,
-            PublishedDate = DateTime.Parse("2021-01-20 16:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Beef Fettuccine",
-            NumberOfViews = 1650,
-            PublishedDate = DateTime.Parse("2021-01-21 09:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Lasagna",
-            NumberOfViews = 3250,
-            PublishedDate = DateTime.Parse("2021-01-22 13:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Alfredo",
-            NumberOfViews = 2750,
-            PublishedDate = DateTime.Parse("2021-01-23 18:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Stir Fry",
-            NumberOfViews = 3050,
-            PublishedDate = DateTime.Parse("2021-01-24 14:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Vegetable and Beef Risotto",
-            NumberOfViews = 2000,
-            PublishedDate = DateTime.Parse("2021-01-25 10:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Casserole",
-            NumberOfViews = 3150,
-            PublishedDate = DateTime.Parse("2021-01-26 19:30:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Biryani",
-            NumberOfViews = 2950,
-            PublishedDate = DateTime.Parse("2021-01-27 15:45:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Beef and Vegetable Stir Fry with Noodles",
-            NumberOfViews = 2850,
-            PublishedDate = DateTime.Parse("2021-01-28 11:00:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Pork and Vegetable Stir Fry",
-            NumberOfViews = 2350,
-            PublishedDate = DateTime.Parse("2021-01-29 20:15:00").ToUniversalTime()
-        },
-        new RecipeModel
-        {
-            Id = Guid.NewGuid(),
-            CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
-            Name = "Chicken and Vegetable Curry",
-            NumberOfViews = 3000,
-            PublishedDate = DateTime.Parse("2021-01-30 16:30:00").ToUniversalTime()
+            Id = Guid.Parse("2769be35-6c35-47cb-8a0d-c7fb68d6cb8b"),
+            CreatorId = Guid.Parse("9952a929-6005-4e2f-860c-f0e018dbcd89"),
+            Name = "Easy Calabacitas Recipe",
+            NumberOfViews = 823292,
+            PublishedDate = DateTime.Parse("2020-09-25 10:15:30").ToUniversalTime(),
+            Cover = "2769be35-6c35-47cb-8a0d-c7fb68d6cb8b.png"
         }
     };
 

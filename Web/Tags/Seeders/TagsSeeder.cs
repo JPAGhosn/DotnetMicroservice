@@ -357,6 +357,11 @@ public static class TagsSeeder
         {
             Id = Guid.Parse("f2a3b4c5-d6e7-f890-1234-567890abcdef"),
             Name = "Comfort Food"
+        },
+        new()
+        {
+            Id = Guid.Parse("90dbff82-1720-44fa-a9ea-b109a4dc7831"),
+            Name = "Egyptian"
         }
     ];
 

@@ -1,6 +1,6 @@
-using KRK_Profiles.Data;
 using KRK_Profiles.Endpoints;
 using KRK_Profiles.Extensions;
+using Profiles.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
