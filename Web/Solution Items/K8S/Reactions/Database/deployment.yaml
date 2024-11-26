@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactions-database-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactions-database
+  template:
+    metadata:
+      labels:
+        app: reactions-database
+    spec:
+      containers:
+        - name: reactions-database
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresreactions
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
+              value: "reactions_db"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: reactionsdb
+      volumes:
+        - name: reactionsdb
+          persistentVolumeClaim:
+            claimName: reactions-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactions-database-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    app: reactions-database
+  ports:
+    - name: reactions-database
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactions-database-load-balancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: reactions-database
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

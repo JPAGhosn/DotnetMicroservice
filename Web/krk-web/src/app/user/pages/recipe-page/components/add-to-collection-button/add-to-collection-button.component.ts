@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {NavbarButtonComponent} from '../navbar-button/navbar-button.component';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'krk-add-to-collection-button',
   standalone: true,
-  imports: [],
+  imports: [
+    NavbarButtonComponent,
+    NgOptimizedImage
+  ],
   templateUrl: './add-to-collection-button.component.html',
   styleUrl: './add-to-collection-button.component.scss'
 })

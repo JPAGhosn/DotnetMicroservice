@@ -1,0 +1,23 @@
+:host {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-color-1);
+  border-radius: 50px;
+}
+
+:host-context(.with-interaction) {
+  transition: background-color 300ms;
+
+  :host-context:hover {
+    background-color: var(--button-hover-color);
+    border: solid 1px var(--button-hover-color);
+    color: var(--on-button-hover-color);
+  }
+}
+
+:host-context(.down) {
+  background-color: var(--button-down-color) !important;
+}

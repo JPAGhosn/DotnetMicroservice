@@ -15,4 +15,9 @@ public class ProfileRepository(ProfilesDbContext context)
     {
         return await context.Profiles.Where(profile => ids.Contains(profile.Id)).ToListAsync();
     }
+
+    public async Task<ProfileModel?> GetById(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await context.Profiles.FirstOrDefaultAsync(profile => profile.Id == id, cancellationToken);
+    }
 }

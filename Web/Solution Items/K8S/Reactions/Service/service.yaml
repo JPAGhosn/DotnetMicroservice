@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactions-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactions-service
+  template:
+    metadata:
+      labels:
+        app: reactions-service
+    spec:
+      containers:
+        - name: reactions-service
+          imagePullPolicy: Always
+          image: localhost:9870/kurkle/reactions-service:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactions-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: reactions-service
+  ports:
+    - name: reactions-service
+      protocol: TCP
+      port: 80
+      targetPort: 8080

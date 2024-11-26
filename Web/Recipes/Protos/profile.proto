@@ -6,14 +6,24 @@ package profiles;
 
 service Profile{
   rpc GetManyProfiles(GetManyProfilesRequest) returns (GetManyProfilesResponse) {}
+  rpc GetOne(GetOneRequest) returns (GetOneResponse) {}
 }
 
+
+// Many
 message GetManyProfilesRequest {
   repeated string ids = 1;
 }
-
 message GetManyProfilesResponse {
   repeated GrpcProfileModel profiles = 1;
+}
+
+// One
+message GetOneRequest {
+  string id = 1;
+}
+message GetOneResponse {
+  optional GrpcProfileModel profile = 1;
 }
 
 message GrpcProfileModel {

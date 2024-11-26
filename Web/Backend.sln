@@ -42,6 +42,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", 
 		Solution Items\Docker\Production\tags.sh = Solution Items\Docker\Production\tags.sh
 		Solution Items\Docker\Production\glimpses.sh = Solution Items\Docker\Production\glimpses.sh
 		Solution Items\Docker\Production\collections.sh = Solution Items\Docker\Production\collections.sh
+		Solution Items\Docker\Production\reactions.sh = Solution Items\Docker\Production\reactions.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
@@ -204,6 +205,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFr
 		Solution Items\EntityFramework\profile-ef.sh = Solution Items\EntityFramework\profile-ef.sh
 		Solution Items\EntityFramework\tag-ef.sh = Solution Items\EntityFramework\tag-ef.sh
 		Solution Items\EntityFramework\glimpse.sh = Solution Items\EntityFramework\glimpse.sh
+		Solution Items\EntityFramework\reactions-ef.sh = Solution Items\EntityFramework\reactions-ef.sh
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactions", "Reactions\Reactions.csproj", "{191400A6-4E2A-4131-BDC4-50DE9DE4053C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reactions", "Reactions", "{E2843598-B0E2-4625-92B9-A488537390E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{F3553FD5-222F-4B2A-B196-89D518AFBC34}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Reactions\Database\deployment.yaml = Solution Items\K8S\Reactions\Database\deployment.yaml
+		Solution Items\K8S\Reactions\Database\nodeport.yaml = Solution Items\K8S\Reactions\Database\nodeport.yaml
+		Solution Items\K8S\Reactions\Database\pvc.yaml = Solution Items\K8S\Reactions\Database\pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{95EE8942-2712-4320-8004-26CC81828B41}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Reactions\Service\nodeport.yaml = Solution Items\K8S\Reactions\Service\nodeport.yaml
+		Solution Items\K8S\Reactions\Service\service.yaml = Solution Items\K8S\Reactions\Service\service.yaml
 	EndProjectSection
 EndProject
 Global
@@ -244,6 +263,10 @@ Global
 		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DE53B8-9A3E-4346-8FD5-50F0896D92D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
@@ -282,5 +305,8 @@ Global
 		{4FFFD6B4-A08B-49F6-BB29-F44F99F9F36B} = {4BAE1209-7C70-4C47-9B1F-A25822B6B0C0}
 		{618D290F-3CBF-4144-ACBC-873E84C3524D} = {4BAE1209-7C70-4C47-9B1F-A25822B6B0C0}
 		{95729CB5-7F35-45AF-8DC5-A3110309C53D} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{E2843598-B0E2-4625-92B9-A488537390E2} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{F3553FD5-222F-4B2A-B196-89D518AFBC34} = {E2843598-B0E2-4625-92B9-A488537390E2}
+		{95EE8942-2712-4320-8004-26CC81828B41} = {E2843598-B0E2-4625-92B9-A488537390E2}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--surface);
+  height: 36px;
+  width: 36px;
+  border-radius: 100%;
+  transition: background-color 300ms;
+  cursor: pointer;
+}
+
+:host:hover {
+  background-color: var(--button-hover-color);
+}
+
+:host-context(.down) {
+  background-color: var(--button-down-color) !important;
+}

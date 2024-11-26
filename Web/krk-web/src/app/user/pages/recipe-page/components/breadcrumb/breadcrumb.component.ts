@@ -12,7 +12,7 @@ export class BreadcrumbComponent {
   service = inject(RecipePageService);
 
   userName = computed(() => {
-    return this.service.profile()?.userName
+    return this.service.recipe()?.creator.userName
   })
 
   recipeSlug = computed(() => {

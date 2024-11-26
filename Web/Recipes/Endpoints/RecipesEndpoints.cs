@@ -21,11 +21,12 @@ public static class RecipesEndpoints
         ProfileDataClient profilesClient,
         CancellationToken cancellationToken)
     {
-        return Results.NotFound();
         var recipe = await recipesRepository.GetById(recipeId, cancellationToken);
         if (recipe is null) return Results.NotFound();
 
         var recipeDto = new RecipeReadDto(recipe);
+
+        recipeDto.Creator = await profilesClient.GetOne(recipe.CreatorId, cancellationToken);
 
         return Results.Ok(recipeDto);
     }

@@ -22,12 +22,12 @@ public class RecipesRepository(RecipesDbContext context)
         if (tagId.HasValue)
             query = query.Where(recipe => recipe.Tags.Any(tag => tag.Id == tagId.Value));
 
-
         return await PaginationHelper.Pagination(query, pageNumber, pageSize, cancellationToken);
     }
 
     public async Task<RecipeModel?> GetById(Guid id, CancellationToken cancellationToken)
     {
-        return await context.Recipes.FirstOrDefaultAsync(recipe => recipe.Id == id, cancellationToken);
+        return await context.Recipes
+            .FirstOrDefaultAsync(recipe => recipe.Id == id, cancellationToken);
     }
 }

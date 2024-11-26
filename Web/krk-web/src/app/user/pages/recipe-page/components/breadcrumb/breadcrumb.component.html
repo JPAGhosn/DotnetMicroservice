@@ -1,7 +1,7 @@
 @if (userName() && recipeSlug()) {
   <div class="breadcrumb">
     <span>{{ userName() }}</span>
-    <span>/</span>
-    <span>{{ recipeSlug() }}</span>
+    <span> / </span>
+    <span class="recipe-name">{{ recipeSlug() }}</span>
   </div>
 }
