@@ -1,1 +1,4 @@
-<ng-content/>
+<button (keydown.enter)="onDown()" (keyup.enter)="onUp()" (mousedown)="onDown()"
+        (mouseup)="onUp()" [class.down]="down()">
+  <ng-content/>
+</button>

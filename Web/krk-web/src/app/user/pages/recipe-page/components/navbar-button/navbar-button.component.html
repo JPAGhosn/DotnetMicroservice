@@ -1,1 +1,6 @@
-<ng-content/>
+<button (keydown.enter)="onMouseDown()" (keydown.space)="onMouseDown()" (keyup.enter)="onMouseUp()" (keyup.space)="onMouseUp()"
+        (mousedown)="onMouseDown()" (mouseup)="onMouseUp()"
+        [class.down]="down()"
+        [class.with-interaction]="showInteraction">
+  <ng-content/>
+</button>

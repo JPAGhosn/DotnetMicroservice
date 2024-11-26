@@ -1,4 +1,8 @@
 :host {
+  display: block;
+}
+
+button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,12 +14,17 @@
   border-radius: 100%;
   transition: background-color 300ms;
   cursor: pointer;
+  border: none;
 }
 
-:host:hover {
+button:focus-visible {
+  outline: var(--input-border-focused);
+}
+
+button:hover {
   background-color: var(--button-hover-color);
 }
 
-:host-context(.down) {
+button.down {
   background-color: var(--button-down-color) !important;
 }

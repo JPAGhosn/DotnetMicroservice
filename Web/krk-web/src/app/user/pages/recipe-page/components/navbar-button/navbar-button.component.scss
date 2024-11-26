@@ -1,4 +1,8 @@
 :host {
+  display: block;
+}
+
+button {
   padding: 10px 15px;
   display: flex;
   flex-direction: row;
@@ -6,18 +10,38 @@
   justify-content: center;
   border: var(--border-color-1);
   border-radius: 50px;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  gap: inherit;
+  cursor: pointer;
 }
 
-:host-context(.with-interaction) {
+button:focus-visible {
+  outline: var(--input-border-focused);
+}
+
+:host ::ng-deep button svg {
+  fill: var(--on-surface);
+}
+
+button.with-interaction {
   transition: background-color 300ms;
-
-  :host-context:hover {
-    background-color: var(--button-hover-color);
-    border: solid 1px var(--button-hover-color);
-    color: var(--on-button-hover-color);
-  }
 }
 
-:host-context(.down) {
+button.with-interaction:hover {
+  background-color: var(--button-hover-color);
+  border: solid 1px var(--button-hover-color);
+  color: var(--on-button-hover-color);
+}
+
+:host ::ng-deep button.with-interaction:hover span {
+  color: var(--on-button-hover-color);
+}
+
+:host ::ng-deep button.with-interaction:hover svg {
+  fill: var(--on-button-hover-color);
+}
+
+button.with-interaction.down {
   background-color: var(--button-down-color) !important;
 }

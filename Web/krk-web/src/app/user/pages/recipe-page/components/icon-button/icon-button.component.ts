@@ -1,4 +1,4 @@
-import {Component, effect, HostBinding, HostListener, signal} from '@angular/core';
+import {Component, signal} from '@angular/core';
 
 @Component({
   selector: 'krk-icon-button',
@@ -9,26 +9,13 @@ import {Component, effect, HostBinding, HostListener, signal} from '@angular/cor
 })
 export class IconButtonComponent {
 
-  isDown = signal(false);
+  down = signal(false);
 
-  @HostBinding("class.down")
-  _isDown = false;
-
-  constructor() {
-    effect(() => {
-      this._isDown = this.isDown();
-    });
+  onDown() {
+    this.down.set(true)
   }
 
-  @HostListener("mousedown", ['$event'])
-  onDown(event: MouseEvent) {
-    console.log(".")
-    this.isDown.set(true)
-  }
-
-  @HostListener("mouseup", ['$event'])
-  onUp(event: MouseEvent) {
-    console.log("...")
-    this.isDown.set(false)
+  onUp() {
+    this.down.set(false)
   }
 }
