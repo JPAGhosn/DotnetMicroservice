@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
-import {IconButtonComponent} from '../icon-button/icon-button.component';
+import {IconButtonComponent} from '../../../../components/icon-button/icon-button.component';
 
 @Component({
   selector: 'krk-others-button',

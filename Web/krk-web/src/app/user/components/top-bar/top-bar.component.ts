@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
-import {SearchBarComponent} from './components/search-bar/search-bar.component';
+import {SearchBarComponent} from '../search-bar/search-bar.component';
 import {MessageButtonComponent} from './components/message-button/message-button.component';
 import {NotificationButtonComponent} from './components/notification-button/notification-button.component';
 import {ProfileButtonComponent} from './components/profile-button/profile-button.component';
