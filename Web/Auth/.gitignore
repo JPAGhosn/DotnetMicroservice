@@ -1,5 +1,3 @@
-appsettings.Production.json
-
 obj/*
 bin/*
 Migrations/*

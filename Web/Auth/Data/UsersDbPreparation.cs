@@ -1,3 +1,4 @@
+using Auth.Data;
 using KRK_Auth.Models;
 using Microsoft.EntityFrameworkCore;
 

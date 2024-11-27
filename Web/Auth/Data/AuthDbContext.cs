@@ -3,7 +3,7 @@ using KRK_Auth.ModelsConfiguration;
 using KRK_Auth.Seeders;
 using Microsoft.EntityFrameworkCore;
 
-namespace KRK_Auth.Data;
+namespace Auth.Data;
 
 public class AuthDbContext : DbContext
 {

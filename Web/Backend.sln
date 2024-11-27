@@ -206,6 +206,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFr
 		Solution Items\EntityFramework\tag-ef.sh = Solution Items\EntityFramework\tag-ef.sh
 		Solution Items\EntityFramework\glimpse.sh = Solution Items\EntityFramework\glimpse.sh
 		Solution Items\EntityFramework\reactions-ef.sh = Solution Items\EntityFramework\reactions-ef.sh
+		Solution Items\EntityFramework\auth-ef.sh = Solution Items\EntityFramework\auth-ef.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactions", "Reactions\Reactions.csproj", "{191400A6-4E2A-4131-BDC4-50DE9DE4053C}"

@@ -6,20 +6,20 @@ cd ../.. || exit;
 
 rm -r ${FOLDER_NAME}/Migrations;
 
-/usr/local/share/dotnet/dotnet ef database \
+dotnet ef database \
   drop --project ${FOLDER_NAME}/${FOLDER_NAME}.csproj \
   --startup-project ${FOLDER_NAME}/${FOLDER_NAME}.csproj \
   --context ${FOLDER_NAME}.Data.${FOLDER_NAME}DbContext \
   --configuration Debug --force;
   
-/usr/local/share/dotnet/dotnet ef migrations \
+dotnet ef migrations \
   add --project ${FOLDER_NAME}/${FOLDER_NAME}.csproj \
   --startup-project ${FOLDER_NAME}/${FOLDER_NAME}.csproj \
   --context ${FOLDER_NAME}.Data.${FOLDER_NAME}DbContext \
   --configuration Debug Initial \
   --output-dir Migrations;
   
-/usr/local/share/dotnet/dotnet ef database update \
+dotnet ef database update \
   --project ${FOLDER_NAME}/${FOLDER_NAME}.csproj \
   --startup-project ${FOLDER_NAME}/${FOLDER_NAME}.csproj \
   --context ${FOLDER_NAME}.Data.${FOLDER_NAME}DbContext;
