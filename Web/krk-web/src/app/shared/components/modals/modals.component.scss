@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.curtain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(black, 0.55);
+}

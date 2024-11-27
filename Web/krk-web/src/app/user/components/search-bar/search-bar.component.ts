@@ -1,4 +1,4 @@
-import {Component, computed, signal} from '@angular/core';
+import {Component, computed, Input, signal} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {placeholderAnimation} from '@shared/animations/placeholder.animation';
 import {FormControl} from '@angular/forms';
@@ -31,6 +31,8 @@ import {getComputedState} from '@shared/helpers/get-computed.state';
   ]
 })
 export class SearchBarComponent {
+  @Input() placeholder = "Search for anything"
+
   control = new FormControl("");
   loading = signal(false);
 
