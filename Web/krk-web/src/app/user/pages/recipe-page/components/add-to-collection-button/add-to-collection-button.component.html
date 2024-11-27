@@ -1,4 +1,4 @@
-<krk-navbar-button>
+<krk-navbar-button (click)="onCLick()">
 
   <!--  ICON -->
   <svg height="22" id="add-to-collection-icon" viewBox="0 0 22 22" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -19,3 +19,7 @@
 
   <span>Collection</span>
 </krk-navbar-button>
+
+<ng-template #addToCollection>
+  <krk-recipe-to-collections-modal/>
+</ng-template>
