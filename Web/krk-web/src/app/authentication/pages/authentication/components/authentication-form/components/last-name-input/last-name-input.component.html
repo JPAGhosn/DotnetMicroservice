@@ -1,0 +1,4 @@
+<ng-container [formGroup]="form.formGroup">
+  <krk-input #input @inputAnimation [control]="form.formGroup.controls.lastName" [errorsMap]="errorsMap"
+             formControlName="lastName" placeholder="Last name"/>
+</ng-container>

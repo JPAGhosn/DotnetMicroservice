@@ -11,7 +11,7 @@ import {
   signal,
   ViewChild
 } from '@angular/core';
-import {SubmitButtonComponent} from "./components/submit-button/submit-button.component";
+import {SubmitButtonComponent} from "@shared/components/input/components";
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subscription, tap} from 'rxjs';
 import {ErrorButtonComponent} from "./components/error-button/error-button.component";

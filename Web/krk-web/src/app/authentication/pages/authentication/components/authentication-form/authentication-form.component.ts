@@ -12,11 +12,17 @@ import {getHttpErrorMessage} from '@shared/helpers/get-http-error-message';
 import {HttpErrorResponse} from '@angular/common/http';
 import {CredentialsService} from '@shared/services/credentials.service';
 import {Router} from '@angular/router';
+import {
+  FirstNameInputComponent
+} from '@authentication/pages/authentication/components/authentication-form/components/first-name-input/first-name-input.component';
+import {
+  LastNameInputComponent
+} from '@authentication/pages/authentication/components/authentication-form/components/last-name-input/last-name-input.component';
 
 @Component({
   selector: 'krk-authentication-form',
   standalone: true,
-  imports: [EmailInputComponent, PasswordInputComponent, ConfirmPasswordInputComponent, ReactiveFormsModule, SubmitButtonComponent],
+  imports: [EmailInputComponent, PasswordInputComponent, ConfirmPasswordInputComponent, ReactiveFormsModule, SubmitButtonComponent, FirstNameInputComponent, LastNameInputComponent],
   templateUrl: './authentication-form.component.html',
   styleUrl: './authentication-form.component.scss',
 })
@@ -38,6 +44,10 @@ export class AuthenticationFormComponent {
     return ["sign-up", "sign-in"].includes(screen)
   })
   confirmPasswordVisible = computed(() => {
+    const screen = this.service.authenticationScreen();
+    return ["sign-up"].includes(screen)
+  })
+  userInformationVisible = computed(() => {
     const screen = this.service.authenticationScreen();
     return ["sign-up"].includes(screen)
   })
@@ -139,5 +149,23 @@ export class AuthenticationFormComponent {
   }
 
   signUp() {
+    const {firstName, lastName, emailOrPhone, password} = this.form.formGroup.controls;
+    if (firstName.invalid || lastName.invalid || emailOrPhone.invalid || password.invalid) {
+      return;
+    }
+
+    this.loading.set(true);
+    this.remote.signUp(firstName.value!, lastName.value!, emailOrPhone.value!, password.value!).pipe(
+      tap(response => {
+        this.errorMessage.set("")
+        this.credentialsService.setCredentials(response.authentication);
+        this.router.navigate(["/"]);
+      }),
+      catchError(err => {
+        const errorMessage = getHttpErrorMessage(err);
+        this.errorMessage.set(errorMessage)
+        return throwError(() => err);
+      })
+    ).subscribe()
   }
 }

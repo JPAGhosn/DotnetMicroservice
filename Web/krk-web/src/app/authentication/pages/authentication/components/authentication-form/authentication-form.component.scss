@@ -17,3 +17,14 @@ form {
   color: var(--error);
   text-align: center;
 }
+
+.user-information-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-information-container > * {
+  flex-grow: 1;
+}

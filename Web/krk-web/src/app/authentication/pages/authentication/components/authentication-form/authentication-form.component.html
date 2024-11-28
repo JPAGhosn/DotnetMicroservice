@@ -1,15 +1,22 @@
-<form [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="form.formGroup">
   <krk-email-input [loading]="emailLoading"/>
 
-  @if(passwordVisible()) {
+  @if (userInformationVisible()) {
+    <div class="user-information-container">
+      <krk-first-name-input #firstName/>
+      <krk-last-name-input #lastName/>
+    </div>
+  }
+
+  @if (passwordVisible()) {
     <krk-password-input #password/>
   }
 
-  @if(confirmPasswordVisible()) {
+  @if (confirmPasswordVisible()) {
     <krk-confirm-password-input #confirmPassword/>
   }
 
-  @if(submitButtonVisible()) {
+  @if (submitButtonVisible()) {
     <krk-submit-button class="submit-button"/>
   }
 

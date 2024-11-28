@@ -3,6 +3,8 @@ import {inject, Injectable} from "@angular/core";
 import {environment} from "environments/environment";
 import {map} from "rxjs";
 import {CredentialsModel} from '@shared/models/credentials.model';
+import {ProfileModel} from '../../user/components/side-bar/components/subscribtions/models/profile.model';
+import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
 
 @Injectable()
 export class RemoteService {
@@ -20,5 +22,17 @@ export class RemoteService {
       emailOrPhone: emailOrPhone,
       password: password
     })
+  }
+
+  signUp(firstName: string, lastName: string, emailOrPhone: string, password: string) {
+    return this.http.post<{
+      user: ProfileModel,
+      authentication: CredentialsModel
+    }>(`${environment.authApi}/sign-up`, {
+      firstName,
+      lastName,
+      emailOrPhone,
+      password
+    }).pipe(handleRemoteError())
   }
 }
