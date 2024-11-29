@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form.formGroup">
-  <krk-email-input [loading]="emailLoading"/>
+  <krk-email-input [loading]="authenticationService.emailLoading"/>
 
   @if (userInformationVisible()) {
     <div class="user-information-container">
@@ -20,7 +20,7 @@
     <krk-submit-button class="submit-button"/>
   }
 
-  @if (errorMessage()) {
-    <span class="error-message">{{ errorMessage() }}</span>
+  @if (authenticationService.errorMessage()) {
+    <span class="error-message">{{ authenticationService.errorMessage() }}</span>
   }
 </form>

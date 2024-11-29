@@ -18,6 +18,15 @@ import {
 import {
   LastNameInputComponent
 } from '@authentication/pages/authentication/components/authentication-form/components/last-name-input/last-name-input.component';
+import {
+  SignInService
+} from '@authentication/pages/authentication/components/authentication-form/services/sign-in.service';
+import {
+  SignUpService
+} from '@authentication/pages/authentication/components/authentication-form/services/sign-up.service';
+import {
+  CheckEmailExistService
+} from '@authentication/pages/authentication/components/authentication-form/services/check-email-exist.service';
 
 @Component({
   selector: 'krk-authentication-form',
@@ -25,41 +34,45 @@ import {
   imports: [EmailInputComponent, PasswordInputComponent, ConfirmPasswordInputComponent, ReactiveFormsModule, SubmitButtonComponent, FirstNameInputComponent, LastNameInputComponent],
   templateUrl: './authentication-form.component.html',
   styleUrl: './authentication-form.component.scss',
+  providers: [
+    SignInService,
+    SignUpService,
+    CheckEmailExistService
+  ]
 })
 export class AuthenticationFormComponent {
-  service = inject(AuthenticationService)
   form = inject(AuthenticationForm)
   remote = inject(RemoteService)
-  credentialsService = inject(CredentialsService)
   router = inject(Router);
+  signInService = inject(SignInService);
+  signUpService = inject(SignUpService);
+  checkEmailExists = inject(CheckEmailExistService);
+  authenticationService = inject(AuthenticationService)
 
   @ViewChild("password") passwordElementRef!: ElementRef;
   @ViewChild("confirmPassword") confirmPasswordElementRef!: ElementRef;
 
-  errorMessage = signal("");
-  emailLoading = signal(false)
-  loading = signal(false)
   passwordVisible = computed(() => {
-    const screen = this.service.authenticationScreen();
+    const screen = this.authenticationService.authenticationScreen();
     return ["sign-up", "sign-in"].includes(screen)
   })
   confirmPasswordVisible = computed(() => {
-    const screen = this.service.authenticationScreen();
+    const screen = this.authenticationService.authenticationScreen();
     return ["sign-up"].includes(screen)
   })
   userInformationVisible = computed(() => {
-    const screen = this.service.authenticationScreen();
+    const screen = this.authenticationService.authenticationScreen();
     return ["sign-up"].includes(screen)
   })
   submitButtonVisible = computed(() => {
-    const screen = this.service.authenticationScreen();
+    const screen = this.authenticationService.authenticationScreen();
     return ["sign-up", "sign-in"].includes(screen)
   })
 
   constructor() {
     effect(() => {
 
-      const screen = this.service.authenticationScreen();
+      const screen = this.authenticationService.authenticationScreen();
 
       const emailDisabled = ["sign-up", "sign-in"].includes(screen);
 
@@ -72,100 +85,20 @@ export class AuthenticationFormComponent {
   }
 
   onSubmit() {
-    const screen = this.service.authenticationScreen();
+    const screen = this.authenticationService.authenticationScreen();
     switch (screen) {
       case "sign-in":
         console.log("Sign In")
-        this.signIn();
+        this.signInService.signIn();
         break;
       case "sign-up":
-        this.signUp();
+        this.signUpService.signUp();
         break;
       case "starter":
-        this.checkEmailExists();
+        this.checkEmailExists.checkEmailExists();
         break;
       default:
         throw "Screen not handled";
     }
-  }
-
-  checkEmailExists() {
-    console.log("checkEmailExists")
-    this.emailLoading.set(true)
-    this.service.checkUserExists().pipe(
-      tap(exists => {
-        this.errorMessage.set("");
-        if (exists) {
-          this.service.authenticationScreen.set("sign-in");
-        } else {
-          this.service.authenticationScreen.set("sign-up");
-        }
-      }),
-      catchError(err => {
-        const errorMessage = getHttpErrorMessage(err);
-        this.errorMessage.set(errorMessage);
-        return throwError(() => err)
-      }),
-      finalize(() => {
-        this.emailLoading.set(false)
-      })
-    ).subscribe();
-  }
-
-  signIn() {
-    const emailOrPhoneControl = this.form.formGroup.controls.emailOrPhone;
-    const passwordControl = this.form.formGroup.controls.password;
-
-    emailOrPhoneControl.markAsTouched();
-    passwordControl.markAsTouched();
-
-    if (emailOrPhoneControl.invalid || passwordControl.invalid) {
-      return;
-    }
-
-    const emailOrPhone = emailOrPhoneControl.value!;
-    const password = passwordControl.value!;
-
-    this.loading.set(true)
-    this.remote.signIn(emailOrPhone, password).pipe(
-      tap(response => {
-        this.errorMessage.set("")
-        this.credentialsService.setCredentials(response);
-        this.router.navigate(["/"]);
-      }),
-      catchError((err: HttpErrorResponse) => {
-        if (err.status === 401) {
-          this.errorMessage.set("Wrong email or password");
-        } else {
-          const errorMessage = getHttpErrorMessage(err);
-          this.errorMessage.set(errorMessage)
-        }
-        return throwError(() => err);
-      }),
-      finalize(() => {
-        this.loading.set(false);
-      })
-    ).subscribe();
-  }
-
-  signUp() {
-    const {firstName, lastName, emailOrPhone, password} = this.form.formGroup.controls;
-    if (firstName.invalid || lastName.invalid || emailOrPhone.invalid || password.invalid) {
-      return;
-    }
-
-    this.loading.set(true);
-    this.remote.signUp(firstName.value!, lastName.value!, emailOrPhone.value!, password.value!).pipe(
-      tap(response => {
-        this.errorMessage.set("")
-        this.credentialsService.setCredentials(response.authentication);
-        this.router.navigate(["/"]);
-      }),
-      catchError(err => {
-        const errorMessage = getHttpErrorMessage(err);
-        this.errorMessage.set(errorMessage)
-        return throwError(() => err);
-      })
-    ).subscribe()
   }
 }

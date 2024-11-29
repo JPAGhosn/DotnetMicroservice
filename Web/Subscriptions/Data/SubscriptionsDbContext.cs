@@ -2,7 +2,7 @@ using KRK_Subscriptions.Models;
 using KRK_Subscriptions.Seeders;
 using Microsoft.EntityFrameworkCore;
 
-namespace KRK_Subscriptions.Data;
+namespace Subscriptions.Data;
 
 public class SubscriptionsDbContext : DbContext
 {

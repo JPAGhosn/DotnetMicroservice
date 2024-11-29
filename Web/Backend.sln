@@ -43,6 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", 
 		Solution Items\Docker\Production\glimpses.sh = Solution Items\Docker\Production\glimpses.sh
 		Solution Items\Docker\Production\collections.sh = Solution Items\Docker\Production\collections.sh
 		Solution Items\Docker\Production\reactions.sh = Solution Items\Docker\Production\reactions.sh
+		Solution Items\Docker\Production\all.sh = Solution Items\Docker\Production\all.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
@@ -207,6 +208,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFr
 		Solution Items\EntityFramework\glimpse.sh = Solution Items\EntityFramework\glimpse.sh
 		Solution Items\EntityFramework\reactions-ef.sh = Solution Items\EntityFramework\reactions-ef.sh
 		Solution Items\EntityFramework\auth-ef.sh = Solution Items\EntityFramework\auth-ef.sh
+		Solution Items\EntityFramework\subscriptions-ef.sh = Solution Items\EntityFramework\subscriptions-ef.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactions", "Reactions\Reactions.csproj", "{191400A6-4E2A-4131-BDC4-50DE9DE4053C}"

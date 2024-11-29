@@ -2,6 +2,7 @@ using KRK_Subscriptions.Client.Grpc;
 using KRK_Subscriptions.Data;
 using KRK_Subscriptions.Models;
 using Microsoft.EntityFrameworkCore;
+using Subscriptions.Data;
 
 namespace KRK_Subscriptions.Endpoints;
 

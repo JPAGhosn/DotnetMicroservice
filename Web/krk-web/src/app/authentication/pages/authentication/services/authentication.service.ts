@@ -9,6 +9,10 @@ export class AuthenticationService {
   form = inject(AuthenticationForm);
   remote = inject(RemoteService);
 
+  loading = signal(false)
+  errorMessage = signal("");
+  emailLoading = signal(false)
+
   authenticationScreen = signal<"starter" | "sign-in" | "sign-up">("starter");
 
   checkUserExists() {

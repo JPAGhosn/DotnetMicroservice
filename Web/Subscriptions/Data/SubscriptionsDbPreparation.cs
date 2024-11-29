@@ -1,5 +1,6 @@
 using KRK_Subscriptions.Seeders;
 using Microsoft.EntityFrameworkCore;
+using Subscriptions.Data;
 
 namespace KRK_Subscriptions.Data;
 
