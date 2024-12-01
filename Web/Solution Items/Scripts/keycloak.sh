@@ -2,7 +2,7 @@ kubectl delete secret postgreskeycloak ;
 kubectl create secret generic postgreskeycloak --from-literal=POSTGRES_PASSWORD=admin ;
 
 kubectl delete deployments keycloak-service keycloak-database ;
-kubectl delete services keycloak-database-nodeport keycloak-database-cluster-ip keycloak-service-nodeport keycloak-load-balancer ;
+kubectl delete services keycloak-database-nodeport keycloak-database-cluster-ip keycloak-service-nodeport keycloak-load-balancer keycloak-cluster-ip-service;
 kubectl delete configmap keycloak-realm-config ;
 
 kubectl create configmap keycloak-realm-config --from-file=../Configurations ;

@@ -14,8 +14,13 @@ html, body {
   background-color: var(--surface);
   color: var(--on-surface);
   fill: var(--on-surface);
+  //font: unset !important;
   font-size: 13px;
-  font-family: "instrument-sans", sans-serif;
+  font-family: "instrument-sans", sans-serif !important;
+  //font-family: "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
 :root {
@@ -62,6 +67,5 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 

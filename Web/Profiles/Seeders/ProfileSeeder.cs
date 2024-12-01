@@ -145,12 +145,12 @@ public static class ProfileSeeder
         },
         new ProfileModel
         {
-            Id = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            Id = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             FirstName = "Jean Paul",
             LastName = "Abi Ghosn",
             UserName = "jeanpaulabighosn",
-            ProfilePicture = "7ba9ebed-b82e-4327-be48-33d2ea5f35b7.jpg",
-            CoverPicture = "7ba9ebed-b82e-4327-be48-33d2ea5f35b7.jpeg"
+            ProfilePicture = "34814847-360e-439e-83cf-d8ee775f547d.jpg",
+            CoverPicture = "34814847-360e-439e-83cf-d8ee775f547d.jpeg"
         },
 
         // Fake

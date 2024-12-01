@@ -4,7 +4,8 @@
   flex-direction: column;
   align-items: stretch;
   gap: 11px;
-  width: 250px;
+  width: var(--sidebar-width);
   padding: 12px 0 12px 20px;
   overflow: auto;
+  box-sizing: border-box;
 }

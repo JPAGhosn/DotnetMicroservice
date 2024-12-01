@@ -51,6 +51,8 @@ public class KeycloakClient(HttpClient httpClient, KeycloakOptions keycloakOptio
             $"{keycloakOptions.Url}/realms/{keycloakOptions.Realm}/protocol/openid-connect/token", content,
             cancellationToken);
 
+        Console.WriteLine(response);
+
         if (!response.IsSuccessStatusCode) throw new UnauthorizedAccessException();
 
         var responseData = await response.Content.ReadAsStringAsync(cancellationToken);

@@ -7,6 +7,8 @@
     'side-bar body';
   grid-template-rows: auto 1fr;
   grid-template-columns: auto 1fr;
+
+  --sidebar-width: 270px;
 }
 
 #body {

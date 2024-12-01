@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'krk-title',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './title.component.html',
   styleUrl: './title.component.scss'
 })
-export class TitleComponent {
+export class TitleComponent implements OnInit {
+  ngOnInit(): void {
+  }
 
 }

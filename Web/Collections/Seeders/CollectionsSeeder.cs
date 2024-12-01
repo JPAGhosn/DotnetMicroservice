@@ -106,7 +106,7 @@ public static class CollectionsSeeder
             CoverPath1 = "2bec25d1-0d12-4445-9aee-38b18dc27c41.png",
             CoverPath2 = "02bb5e76-0b06-4d99-b9a9-cef5ee6bb8df.png",
             CoverPath3 = "2769be35-6c35-47cb-8a0d-c7fb68d6cb8b.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 30,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -117,7 +117,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png",
             CoverPath2 = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png",
             CoverPath3 = "c7494117-5946-4efe-a26d-ee3a6d380d15.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 78,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -128,7 +128,7 @@ public static class CollectionsSeeder
             CoverPath1 = "10b97e4c-30f2-499d-9f8d-0c0d79af8822.png",
             CoverPath2 = "d4d00bef-c865-495d-8c96-eec230bcf1ac.png",
             CoverPath3 = "0a59a6e6-a583-417e-81ad-89e7cb55b8f4.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 78,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -139,7 +139,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 78,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -150,7 +150,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 1002,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -161,7 +161,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 1002,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -172,7 +172,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 1002,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -183,7 +183,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 1002,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -194,7 +194,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 1002,
             PublishedDate = DateTime.Now.ToUniversalTime()
         },
@@ -205,7 +205,7 @@ public static class CollectionsSeeder
             CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
             CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
             CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
-            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            CreatorId = Guid.Parse("34814847-360e-439e-83cf-d8ee775f547d"),
             NumberOfFollowers = 1002,
             PublishedDate = DateTime.Now.ToUniversalTime()
         }

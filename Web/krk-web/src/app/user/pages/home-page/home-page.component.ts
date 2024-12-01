@@ -96,6 +96,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   contentLoading = signal(true)
   tagsLoading = signal(true)
   isLoadingMore = signal(false)
+
   @HostBinding("style.overflow")
   private _loading = "hidden";
 
