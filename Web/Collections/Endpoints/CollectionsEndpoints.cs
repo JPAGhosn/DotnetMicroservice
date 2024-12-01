@@ -123,19 +123,30 @@ public static class CollectionsEndpoints
 
         // Fill profile information
         if (paginationValue.Data.Count > 0)
-        {
-            // get the profile information to fill
-            // Do it once because this the user own collections
-            // Get the pictures url
-            var profile = await profileClient.GetOne(userId, cancellationToken);
-
-            paginationValue.Data = paginationValue.Data.Select(collection =>
+            try
             {
-                collection.Creator = profile;
-                HydrateCollectionImages(picturesBasePath, collection);
-                return collection;
-            }).ToList();
-        }
+                // get the profile information to fill
+                // Do it once because this the user own collections
+                // Get the pictures url
+                var profile = await profileClient.GetOne(userId, cancellationToken);
+
+                paginationValue.Data = paginationValue.Data.Select(collection =>
+                {
+                    collection.Creator = profile;
+                    return collection;
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                // do nothing to keep the service usable.
+            }
+
+        paginationValue.Data = paginationValue.Data.Select(collection =>
+        {
+            HydrateCollectionImages(picturesBasePath, collection);
+            return collection;
+        }).ToList();
 
         // Convert to DTO
         var paginationValueDto =
