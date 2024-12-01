@@ -3,6 +3,7 @@ using KRK_Shared.Middlewares;
 using Recipes.Data;
 using Recipes.Endpoints;
 using Recipes.Extensions;
+using Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
 
 builder.Services.AddWebCors();
-builder.Services.AddBindings(builder.Configuration);
+builder.Services.AddSharedBindings(builder.Configuration);
 
 // Choose the right appsettings based on env variable
 builder.Configuration

@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.krk-footer {
+  padding: 7px 30px;
+  box-sizing: border-box;
+  border-top: var(--border-color-1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}
+
+.krk-recipe-cover {
+  height: 36px;
+  width: 60px;
+  border-radius: 6px;
+}
+
+.krk-recipe-name {
+  font-weight: bold;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}

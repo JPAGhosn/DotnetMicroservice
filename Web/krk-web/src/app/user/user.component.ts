@@ -26,6 +26,7 @@ const stores = [
   ],
   providers: [
     stores,
+
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'

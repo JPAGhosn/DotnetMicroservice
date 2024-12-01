@@ -33,7 +33,7 @@ spec:
       volumes:
         - name: collectionsdb
           persistentVolumeClaim:
-            claimName: collections-persistent-volume-claim
+            claimName: collections-pvc
 ---
 apiVersion: v1
 kind: Service

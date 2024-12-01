@@ -9,6 +9,30 @@ namespace KRK_Auth.Clients;
 
 public class KeycloakClient(HttpClient httpClient, KeycloakOptions keycloakOptions)
 {
+    public async Task<dynamic> RefreshToken(string refreshToken, CancellationToken cancellationToken)
+    {
+        var postData = new List<KeyValuePair<string, string>>
+        {
+            new("grant_type", "refresh_token"),
+            new("client_id", keycloakOptions.ClientId),
+            new("client_secret", keycloakOptions.ClientSecret),
+            new("refresh_token", refreshToken)
+        };
+
+        var content = new FormUrlEncodedContent(postData);
+
+        var response = await httpClient.PostAsync(
+            $"{keycloakOptions.Url}/realms/{keycloakOptions.Realm}/protocol/openid-connect/token", content,
+            cancellationToken);
+
+        if (!response.IsSuccessStatusCode) throw new UnauthorizedAccessException();
+
+        var responseData = await response.Content.ReadAsStringAsync(cancellationToken);
+        var result = JsonSerializer.Deserialize<SignInKeycloakResponse>(responseData)!;
+
+        return result;
+    }
+
     public async Task<SignInKeycloakResponse> SignIn(string emailOrPhone, string password,
         CancellationToken cancellationToken)
     {

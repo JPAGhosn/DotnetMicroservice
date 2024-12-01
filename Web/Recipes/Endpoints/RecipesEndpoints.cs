@@ -1,8 +1,9 @@
 using KRK_Shared.Models;
-using Recipes.Bindings;
-using Recipes.Clients.Grpc;
 using Recipes.Dtos.Recipe;
+using Recipes.Models;
 using Recipes.Repositories;
+using Shared.Bindings;
+using Shared.Clients;
 
 namespace Recipes.Endpoints;
 
@@ -24,9 +25,12 @@ public static class RecipesEndpoints
         var recipe = await recipesRepository.GetById(recipeId, cancellationToken);
         if (recipe is null) return Results.NotFound();
 
+        HydrateRecipeCoverImage(ref recipe, picturesBasePath);
+
         var recipeDto = new RecipeReadDto(recipe);
 
         recipeDto.Creator = await profilesClient.GetOne(recipe.CreatorId, cancellationToken);
+
 
         return Results.Ok(recipeDto);
     }
@@ -50,7 +54,7 @@ public static class RecipesEndpoints
         paginatedResponse.Data = paginatedResponse.Data.Select(recipe =>
         {
             if (recipe.Cover is not null)
-                recipe.Cover = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" + recipe.Cover;
+                HydrateRecipeCoverImage(ref recipe, picturesBasePath);
             return recipe;
         }).ToList();
 
@@ -67,7 +71,6 @@ public static class RecipesEndpoints
 
         var recipesDtos = paginatedResponse.Data.Select(recipe => new RecipeViewDto(recipe)).ToList();
 
-
         return Results.Ok(new PaginationResponse<RecipeViewDto>
         {
             Data = recipesDtos,
@@ -75,5 +78,10 @@ public static class RecipesEndpoints
             PageSize = paginatedResponse.PageSize,
             TotalPages = paginatedResponse.TotalPages
         });
+    }
+
+    private static void HydrateRecipeCoverImage(ref RecipeModel recipe, PicturesBasePath picturesBasePath)
+    {
+        recipe.Cover = picturesBasePath.SeaweedFS + "/" + picturesBasePath.Recipes + "/" + recipe.Cover;
     }
 }

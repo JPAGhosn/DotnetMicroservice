@@ -3,6 +3,7 @@ using Auth.Payloads;
 using KRK_Auth.Clients;
 using KRK_Auth.Models;
 using KRK_Auth.Responses;
+using KRK_Shared.Helpers;
 using KRK_Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,8 @@ public static class AuthenticationEndpoint
             .WithOpenApi()
             ;
 
+        app.MapPost("/api/auth/refresh-token", RefreshToken);
+
         app
             .MapPost("/api/auth/sign-up", SignUp);
 
@@ -36,6 +39,14 @@ public static class AuthenticationEndpoint
 
         app
             .MapGet("/api/auth/request-reset-password", () => { });
+    }
+
+    private static async Task<IResult> RefreshToken(HttpContext httpContext, RefreshTokenPayload payload,
+        KeycloakClient keycloakClient, CancellationToken cancellationToken)
+    {
+        var tokens = await keycloakClient.RefreshToken(payload.RefreshToken, cancellationToken);
+
+        return Results.Ok(tokens);
     }
 
     private static async Task<IResult> SignUp([FromBody] SignUpPayload payload, AuthDbContext context,
@@ -65,19 +76,25 @@ public static class AuthenticationEndpoint
         // Create a new user in keycloak
         await keycloakClient.CreateUser(payload, cancellationToken);
 
-        // Create a user in our database
-        user = new UserModel
-        {
-            FirstName = payload.FirstName,
-            LastName = payload.LastName,
-            Email = payload.EmailOrPhone,
-            PhoneNumber = null
-        };
-        await context.Users.AddAsync(user, cancellationToken);
-
+        // Sign in to get the id of the user in keycloak and use it in the db
         try
         {
-            var keycloakUser = await keycloakClient.SignIn(user.Email, payload.Password, cancellationToken);
+            var keycloakUser = await keycloakClient.SignIn(payload.EmailOrPhone, payload.Password, cancellationToken);
+
+            // Decode the access token to get the id
+            var id = JwtHelper.GetIdFromToken(keycloakUser.access_token);
+
+            // Create a user in our database
+            user = new UserModel
+            {
+                Id = Guid.Parse(id),
+                FirstName = payload.FirstName,
+                LastName = payload.LastName,
+                Email = payload.EmailOrPhone,
+                PhoneNumber = null
+            };
+            await context.Users.AddAsync(user, cancellationToken);
+
             return Results.Ok(new
             {
                 User = user,

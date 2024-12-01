@@ -1,4 +1,5 @@
 using Collections.Models;
+using Shared.Models;
 
 namespace Collections.Dtos;
 

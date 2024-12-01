@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: collections-persistent-volume-claim
+  name: collections-pvc
 spec:
   accessModes:
     - ReadWriteMany

@@ -1,0 +1,54 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 120px;
+  width: 90px;
+}
+
+svg {
+  fill: var(--primary);
+}
+
+@keyframes rotateFork {
+  0%, 100% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes rotateKnife {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+}
+
+.loader-container {
+  position: relative;
+  width: 100px; /* adjust size as needed */
+  height: 100px;
+}
+
+#fork, #knife {
+  position: absolute;
+  transform-origin: bottom center;
+  transform: translateY(-50%);
+}
+
+#fork {
+  left: 0px; /* adjust spacing */
+  animation: rotateFork 1470ms infinite ease-in-out;
+}
+
+#knife {
+  right: 0px; /* adjust spacing */
+  animation: rotateKnife 1470ms infinite ease-in-out;
+}
+

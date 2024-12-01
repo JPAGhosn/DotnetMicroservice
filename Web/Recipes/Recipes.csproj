@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Google.Protobuf" Version="3.29.0-rc2"/>
-        <PackageReference Include="Grpc.Net.Client" Version="2.67.0-pre1"/>
+        <PackageReference Include="Google.Protobuf" Version="3.29.0"/>
+        <PackageReference Include="Grpc.Net.Client" Version="2.67.0"/>
         <PackageReference Include="grpc.tools" Version="2.67.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -31,12 +31,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Shared\Shared.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Protobuf Include="Protos\profile.proto">
-            <Generator>MSBuild:Compile</Generator>
-        </Protobuf>
     </ItemGroup>
 
 </Project>

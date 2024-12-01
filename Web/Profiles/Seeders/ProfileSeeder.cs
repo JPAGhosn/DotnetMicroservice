@@ -143,6 +143,15 @@ public static class ProfileSeeder
             ProfilePicture = "4d4aba40-d0c3-4cdf-9d86-10a92c08b8a2.jpg",
             CoverPicture = "4d4aba40-d0c3-4cdf-9d86-10a92c08b8a2.jpeg"
         },
+        new ProfileModel
+        {
+            Id = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            FirstName = "Jean Paul",
+            LastName = "Abi Ghosn",
+            UserName = "jeanpaulabighosn",
+            ProfilePicture = "7ba9ebed-b82e-4327-be48-33d2ea5f35b7.jpg",
+            CoverPicture = "7ba9ebed-b82e-4327-be48-33d2ea5f35b7.jpeg"
+        },
 
         // Fake
         new ProfileModel

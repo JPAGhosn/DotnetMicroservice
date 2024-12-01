@@ -26,8 +26,6 @@ export function handleRemoteError<T>() {
               error.title = "Unknown error";
             }
           }
-
-          return error;
         });
       })
     );

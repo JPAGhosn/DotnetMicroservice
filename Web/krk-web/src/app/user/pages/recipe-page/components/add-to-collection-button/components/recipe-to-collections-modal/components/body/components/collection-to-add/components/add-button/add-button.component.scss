@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+krk-icon-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.add-to-collection-icon {
+  fill: var(--on-surface);
+  transition: fill 100ms;
+}
+
+.circle-behind-add-icon {
+  fill: var(--surface);
+  transition: fill 200ms;
+}
+
+krk-icon-button:hover {
+  .add-to-collection-icon {
+    fill: var(--on-button-hover-color);
+  }
+
+  & .circle-behind-add-icon {
+    fill: var(--button-hover-color);
+  }
+
+  & .check-background {
+    fill: var(--button-hover-color);
+  }
+}
+
+.krk-fill-primary {
+  fill: var(--primary);
+}
+
+.check-background {
+  fill: var(--surface);
+}

@@ -1,5 +1,5 @@
-using KRK_Shared.Models;
 using Recipes.Models;
+using Shared.Models;
 
 namespace Recipes.Dtos.Recipe;
 

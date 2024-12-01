@@ -1,0 +1,32 @@
+:host {
+  flex-grow: 1;
+  display: block;
+  position: relative;
+}
+
+.krk-body {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.krk-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  row-gap: 30px;
+}
+
+:host ::ng-deep krk-collection .image-container {
+  width: 310px;
+}
+
+.krk-loading-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

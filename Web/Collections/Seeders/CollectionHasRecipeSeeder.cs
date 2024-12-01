@@ -171,6 +171,176 @@ public static class CollectionHasRecipeSeeder
         {
             CollectionId = Guid.Parse("967aa6eb-2372-42b8-bf06-338cfb196b04"),
             RecipeId = Guid.Parse("2769be35-6c35-47cb-8a0d-c7fb68d6cb8b")
+        },
+
+        // My favorites
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("295fe31c-3fc8-485a-a878-75ac57616a43"),
+            RecipeId = Guid.Parse("2bec25d1-0d12-4445-9aee-38b18dc27c41")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("295fe31c-3fc8-485a-a878-75ac57616a43"),
+            RecipeId = Guid.Parse("02bb5e76-0b06-4d99-b9a9-cef5ee6bb8df")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("295fe31c-3fc8-485a-a878-75ac57616a43"),
+            RecipeId = Guid.Parse("2769be35-6c35-47cb-8a0d-c7fb68d6cb8b")
+        },
+
+        // Night dishes
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            RecipeId = Guid.Parse("d7c4877c-bfc3-4519-b21d-f8d01da3d729")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            RecipeId = Guid.Parse("738f7ad7-4060-4a74-bcc7-c29ca4e23ce2")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            RecipeId = Guid.Parse("c7494117-5946-4efe-a26d-ee3a6d380d15")
+        },
+
+        // Morning Ideas
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            RecipeId = Guid.Parse("10b97e4c-30f2-499d-9f8d-0c0d79af8822")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            RecipeId = Guid.Parse("d4d00bef-c865-495d-8c96-eec230bcf1ac")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            RecipeId = Guid.Parse("0a59a6e6-a583-417e-81ad-89e7cb55b8f4")
+        },
+
+        // Dinner Ideas for my GF
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("9b1a30a1-9f0d-4fe8-a897-9f67a850d51b"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("9b1a30a1-9f0d-4fe8-a897-9f67a850d51b"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("9b1a30a1-9f0d-4fe8-a897-9f67a850d51b"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
+        },
+
+        // Family Dinner ideas
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("85bf1878-470d-4331-ad05-4c632cb1cde3"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("85bf1878-470d-4331-ad05-4c632cb1cde3"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("85bf1878-470d-4331-ad05-4c632cb1cde3"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
+        },
+
+        // High in Protein
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("89ad74a5-faac-4d23-a239-b5262775041f"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("89ad74a5-faac-4d23-a239-b5262775041f"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("89ad74a5-faac-4d23-a239-b5262775041f"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
+        },
+
+        // Low in calories
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("05cf846a-6a2b-423e-830b-c707bbb478c6"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("05cf846a-6a2b-423e-830b-c707bbb478c6"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("05cf846a-6a2b-423e-830b-c707bbb478c6"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
+        },
+
+        // Ready in less than 5 minutes
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("1c48d37c-906e-49b6-aecc-306354f61caa"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("1c48d37c-906e-49b6-aecc-306354f61caa"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("1c48d37c-906e-49b6-aecc-306354f61caa"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
+        },
+
+        // 3 stars michelin
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("4d08f121-b318-4956-b4a9-d4c21c619994"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("4d08f121-b318-4956-b4a9-d4c21c619994"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("4d08f121-b318-4956-b4a9-d4c21c619994"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
+        },
+
+        // For my korean GF
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("ff8a52c6-7898-4062-aeb4-550797177b06"),
+            RecipeId = Guid.Parse("d55f4548-c2e6-4816-892e-7f520fbc311b")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("ff8a52c6-7898-4062-aeb4-550797177b06"),
+            RecipeId = Guid.Parse("c7cbd853-5d60-4096-bd82-a33191cdd2ca")
+        },
+        new CollectionHasRecipe
+        {
+            CollectionId = Guid.Parse("ff8a52c6-7898-4062-aeb4-550797177b06"),
+            RecipeId = Guid.Parse("f656c46f-eb2b-4808-93b8-78f8c85ddbe9")
         }
     };
 

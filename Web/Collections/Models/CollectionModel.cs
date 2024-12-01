@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Collections.Models.Pivots;
 using KRK_Shared.Models;
+using Shared.Models;
 
 namespace Collections.Models;
 

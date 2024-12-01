@@ -4,12 +4,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\docker-compose.yaml = Solution Items\docker-compose.yaml
 		Solution Items\README.md = Solution Items\README.md
 		Solution Items\technical-README.md = Solution Items\technical-README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Scripts\elasticsearch.sh = Solution Items\Scripts\elasticsearch.sh
+		Solution Items\Scripts\all.sh = Solution Items\Scripts\all.sh
+		Solution Items\Scripts\reactions.sh = Solution Items\Scripts\reactions.sh
+		Solution Items\Scripts\auth.sh = Solution Items\Scripts\auth.sh
+		Solution Items\Scripts\collections.sh = Solution Items\Scripts\collections.sh
+		Solution Items\Scripts\glimpses.sh = Solution Items\Scripts\glimpses.sh
+		Solution Items\Scripts\ingress.sh = Solution Items\Scripts\ingress.sh
+		Solution Items\Scripts\recipes.sh = Solution Items\Scripts\recipes.sh
+		Solution Items\Scripts\seaweed-fs.sh = Solution Items\Scripts\seaweed-fs.sh
+		Solution Items\Scripts\tags.sh = Solution Items\Scripts\tags.sh
+		Solution Items\Scripts\profiles.sh = Solution Items\Scripts\profiles.sh
+		Solution Items\Scripts\subscriptions.sh = Solution Items\Scripts\subscriptions.sh
+		Solution Items\Scripts\frontend.sh = Solution Items\Scripts\frontend.sh
+		Solution Items\Scripts\keycloak.sh = Solution Items\Scripts\keycloak.sh
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{143592C5-9A4C-45DE-B9F7-85270CA1D01A}"
 	ProjectSection(SolutionItems) = preProject
@@ -25,31 +40,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{85B066D7-4AA3-470D-B68D-CAAB2D9F349D}"
 	ProjectSection(SolutionItems) = preProject
 		Solution Items\K8S\ingress-service.yaml = Solution Items\K8S\ingress-service.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{ED4416CF-E23F-4290-9B30-E0DF891A7140}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", "{51680D01-CFB5-427D-AB1C-14408CD888C6}"
-	ProjectSection(SolutionItems) = preProject
-		Solution Items\Docker\Production\profiles-service.Production.sh = Solution Items\Docker\Production\profiles-service.Production.sh
-		Solution Items\Docker\Production\keycloak-service.Production.sh = Solution Items\Docker\Production\keycloak-service.Production.sh
-		Solution Items\Docker\Production\subscriptions-service.Production.sh = Solution Items\Docker\Production\subscriptions-service.Production.sh
-		Solution Items\Docker\Production\frontend-service.sh = Solution Items\Docker\Production\frontend-service.sh
-		Solution Items\Docker\Production\ingress.sh = Solution Items\Docker\Production\ingress.sh
-		Solution Items\Docker\Production\auth.sh = Solution Items\Docker\Production\auth.sh
-		Solution Items\Docker\Production\seaweed-fs.sh = Solution Items\Docker\Production\seaweed-fs.sh
-		Solution Items\Docker\Production\recipes.sh = Solution Items\Docker\Production\recipes.sh
-		Solution Items\Docker\Production\tags.sh = Solution Items\Docker\Production\tags.sh
-		Solution Items\Docker\Production\glimpses.sh = Solution Items\Docker\Production\glimpses.sh
-		Solution Items\Docker\Production\collections.sh = Solution Items\Docker\Production\collections.sh
-		Solution Items\Docker\Production\reactions.sh = Solution Items\Docker\Production\reactions.sh
-		Solution Items\Docker\Production\all.sh = Solution Items\Docker\Production\all.sh
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{EA8A992F-E3EB-431C-9E0D-F395FC64DC37}"
-	ProjectSection(SolutionItems) = preProject
-		Solution Items\Docker\Dockerfiles\ProfilesDatabaseDockerfile = Solution Items\Docker\Dockerfiles\ProfilesDatabaseDockerfile
-		Solution Items\Docker\Dockerfiles\KeycloakDockerfile = Solution Items\Docker\Dockerfiles\KeycloakDockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiles", "Profiles", "{A6EB157D-7C30-4F85-8A91-E2421FAD8136}"
@@ -228,6 +218,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{95EE
 		Solution Items\K8S\Reactions\Service\service.yaml = Solution Items\K8S\Reactions\Service\service.yaml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElasticSearch", "ElasticSearch", "{999D5823-DF8B-4666-8B1D-42CBE6BA2212}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\ElasticSearch\service.yaml = Solution Items\K8S\ElasticSearch\service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{D476AEB7-8154-4517-96C6-B1B96C134C79}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Dockerfiles\KeycloakDockerfile = Solution Items\Dockerfiles\KeycloakDockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -275,9 +275,6 @@ Global
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 		{143592C5-9A4C-45DE-B9F7-85270CA1D01A} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 		{85B066D7-4AA3-470D-B68D-CAAB2D9F349D} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
-		{ED4416CF-E23F-4290-9B30-E0DF891A7140} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
-		{51680D01-CFB5-427D-AB1C-14408CD888C6} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
-		{EA8A992F-E3EB-431C-9E0D-F395FC64DC37} = {ED4416CF-E23F-4290-9B30-E0DF891A7140}
 		{A6EB157D-7C30-4F85-8A91-E2421FAD8136} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{0B0851A5-5989-4A11-9804-61BD8BC78DE4} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{38FD7833-E584-4A17-B005-EE31FA794607} = {A6EB157D-7C30-4F85-8A91-E2421FAD8136}
@@ -311,5 +308,7 @@ Global
 		{E2843598-B0E2-4625-92B9-A488537390E2} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{F3553FD5-222F-4B2A-B196-89D518AFBC34} = {E2843598-B0E2-4625-92B9-A488537390E2}
 		{95EE8942-2712-4320-8004-26CC81828B41} = {E2843598-B0E2-4625-92B9-A488537390E2}
+		{999D5823-DF8B-4666-8B1D-42CBE6BA2212} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{D476AEB7-8154-4517-96C6-B1B96C134C79} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 	EndGlobalSection
 EndGlobal

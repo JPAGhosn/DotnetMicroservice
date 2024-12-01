@@ -1,6 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {catchError, finalize, tap, throwError} from 'rxjs';
-import {HttpErrorResponse} from '@angular/common/http';
+import {catchError, tap, throwError} from 'rxjs';
 import {getHttpErrorMessage} from '@shared/helpers/get-http-error-message';
 import {AuthenticationForm} from '@authentication/pages/authentication/forms/authentication-form';
 import {AuthenticationService} from '@authentication/pages';
@@ -23,17 +22,17 @@ export class SignUpService {
     }
 
     this.authenticationService.loading.set(true);
-    // this.remote.signUp(firstName.value!, lastName.value!, emailOrPhone.value!, password.value!).pipe(
-    //   tap(response => {
-    //     this.authenticationService.errorMessage.set("")
-    //     this.credentialsService.setCredentials(response.authentication);
-    //     this.router.navigate(["/"]);
-    //   }),
-    //   catchError(err => {
-    //     const errorMessage = getHttpErrorMessage(err);
-    //     this.authenticationService.errorMessage.set(errorMessage)
-    //     return throwError(() => err);
-    //   })
-    // ).subscribe()
+    this.remote.signUp(firstName.value!, lastName.value!, emailOrPhone.value!, password.value!).pipe(
+      tap(response => {
+        this.authenticationService.errorMessage.set("")
+        this.credentialsService.setCredentials(response.authentication);
+        this.router.navigate(["/"]);
+      }),
+      catchError(err => {
+        const errorMessage = getHttpErrorMessage(err);
+        this.authenticationService.errorMessage.set(errorMessage)
+        return throwError(() => err);
+      })
+    ).subscribe()
   }
 }

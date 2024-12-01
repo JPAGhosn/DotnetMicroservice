@@ -1,4 +1,15 @@
-import {Component, EventEmitter, HostBinding, Input, OnInit, Output, signal, TemplateRef} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  signal,
+  SimpleChanges,
+  TemplateRef
+} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {ImageLoaderComponent} from '@shared/components/image/components/image-loader/image-loader.component';
 
@@ -12,7 +23,7 @@ import {ImageLoaderComponent} from '@shared/components/image/components/image-lo
   templateUrl: './image.component.html',
   styleUrl: './image.component.scss'
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent implements OnInit, OnChanges {
   @Input({required: true}) image?: string;
 
   @Input() alt: string = "";
@@ -27,8 +38,14 @@ export class ImageComponent implements OnInit {
 
   @HostBinding('style.height.px') hostHeight!: number;
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    this.state.set("loading");
+    if (!this.image) {
+      this.state.set("error")
+    }
+  }
 
+  ngOnInit() {
     // If image is null or empty show error no image placeholder
     if (!this.image) {
       this.state.set("error")

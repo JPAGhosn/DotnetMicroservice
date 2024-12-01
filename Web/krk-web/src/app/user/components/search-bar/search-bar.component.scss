@@ -31,7 +31,8 @@
 }
 
 #search-wrapper:has(#search:focus-visible) {
-  border: var(--input-border-focused);
+  outline: var(--input-border-focused);
+  border: solid 1px var(--surface);
 }
 
 #search-icon {
@@ -44,7 +45,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   padding: 0 3px;
   position: absolute;
   left: 49px;

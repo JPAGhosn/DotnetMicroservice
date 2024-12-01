@@ -96,6 +96,118 @@ public static class CollectionsSeeder
             CreatorId = Guid.Parse("30f10c25-ab78-452e-82cc-11861c9750a3"),
             NumberOfFollowers = 4354,
             PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+
+        // Mine
+        new CollectionModel
+        {
+            Id = Guid.Parse("295fe31c-3fc8-485a-a878-75ac57616a43"),
+            Name = "My Favorites",
+            CoverPath1 = "2bec25d1-0d12-4445-9aee-38b18dc27c41.png",
+            CoverPath2 = "02bb5e76-0b06-4d99-b9a9-cef5ee6bb8df.png",
+            CoverPath3 = "2769be35-6c35-47cb-8a0d-c7fb68d6cb8b.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 30,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("78cc9495-9628-4a34-8121-4e179a61954e"),
+            Name = "Night Dishes",
+            CoverPath1 = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png",
+            CoverPath2 = "d7c4877c-bfc3-4519-b21d-f8d01da3d729.png",
+            CoverPath3 = "c7494117-5946-4efe-a26d-ee3a6d380d15.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 78,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("b9df8866-2c0b-47bd-a9fe-07ffff2f1664"),
+            Name = "Morning Ideas",
+            CoverPath1 = "10b97e4c-30f2-499d-9f8d-0c0d79af8822.png",
+            CoverPath2 = "d4d00bef-c865-495d-8c96-eec230bcf1ac.png",
+            CoverPath3 = "0a59a6e6-a583-417e-81ad-89e7cb55b8f4.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 78,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("9b1a30a1-9f0d-4fe8-a897-9f67a850d51b"),
+            Name = "Dinner Ideas for my GF",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 78,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("85bf1878-470d-4331-ad05-4c632cb1cde3"),
+            Name = "Family Dinner Ideas",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 1002,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("89ad74a5-faac-4d23-a239-b5262775041f"),
+            Name = "High in Protein",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 1002,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("05cf846a-6a2b-423e-830b-c707bbb478c6"),
+            Name = "Low in calories",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 1002,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("1c48d37c-906e-49b6-aecc-306354f61caa"),
+            Name = "Ready in less than 5 minutes",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 1002,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("4d08f121-b318-4956-b4a9-d4c21c619994"),
+            Name = "3 stars Michelin",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 1002,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        },
+        new CollectionModel
+        {
+            Id = Guid.Parse("ff8a52c6-7898-4062-aeb4-550797177b06"),
+            Name = "For my Korean GF",
+            CoverPath1 = "d55f4548-c2e6-4816-892e-7f520fbc311b.png",
+            CoverPath2 = "c7cbd853-5d60-4096-bd82-a33191cdd2ca.png",
+            CoverPath3 = "f656c46f-eb2b-4808-93b8-78f8c85ddbe9.png",
+            CreatorId = Guid.Parse("7ba9ebed-b82e-4327-be48-33d2ea5f35b7"),
+            NumberOfFollowers = 1002,
+            PublishedDate = DateTime.Now.ToUniversalTime()
         }
     };
 

@@ -1,8 +1,8 @@
 using Collections.Endpoints;
 using Collections.Extensions;
 using Glimpses.Data;
-using Glimpses.Extensions;
 using KRK_Shared.Extensions;
+using Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDatabase(builder.Configuration);
-builder.Services.AddServices();
+builder.Services.AddServices(builder.Configuration);
+builder.Services.AddSharedBindings(builder.Configuration);
 builder.Services.AddWebCors();
-builder.Services.AddBindings(builder.Configuration);
+builder.Services.SetupAuthentication(builder.Configuration);
 
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -31,6 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.SetupAuthentication(builder.Configuration);
 app.UseWebCors();
 app.MapCollectionsEndpoints();
 

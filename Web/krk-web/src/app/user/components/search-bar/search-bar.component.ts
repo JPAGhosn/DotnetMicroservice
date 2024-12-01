@@ -16,7 +16,7 @@ import {getComputedState} from '@shared/helpers/get-computed.state';
     placeholderAnimation({
       focused: {
         fontSize: "10px",
-        top: "-6px",
+        top: "-8px",
         color: "var(--primary)"
       },
       blurred: {

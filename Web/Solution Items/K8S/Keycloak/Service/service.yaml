@@ -53,18 +53,3 @@ spec:
         - name: realm-config-volume
           configMap:
             name: keycloak-realm-config
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: keycloak-load-balancer
-  labels:
-    app: keycloak-service
-spec:
-  ports:
-    - name: http
-      port: 80
-      targetPort: 8080
-  selector:
-    app: keycloak-service
-  type: LoadBalancer

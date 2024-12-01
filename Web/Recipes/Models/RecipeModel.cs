@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using KRK_Shared.Models;
 using Recipes.Models.Pivots;
+using Shared.Models;
 
 namespace Recipes.Models;
 

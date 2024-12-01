@@ -8,6 +8,7 @@ namespace Collections.Data;
 public class CollectionsDbContext(DbContextOptions<CollectionsDbContext> options) : DbContext(options)
 {
     public DbSet<CollectionModel> Collections { get; set; }
+    public DbSet<RecipeModel> Recipes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -15,7 +15,7 @@ import {ModalsService} from '@shared/components/modals/services/modals.service';
   providers: [
     LoaderService,
     SnackbarService,
-    ModalsService
+    ModalsService,
   ]
 })
 export class AppComponent {

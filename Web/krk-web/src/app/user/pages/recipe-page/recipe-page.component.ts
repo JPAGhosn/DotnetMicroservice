@@ -60,6 +60,7 @@ export class RecipePageComponent implements OnInit {
         this.router.navigate(["user"]);
       }
 
+      this.service.recipeId.set(recipeId);
       this.service.fetch(recipeId).pipe(
         showSnackbarOnError(this.injector)
       ).subscribe();
