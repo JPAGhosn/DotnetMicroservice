@@ -102,6 +102,8 @@ public static class CollectionsEndpoints
     {
         var userId = user.GetUserId()!.Value;
 
+        // Search from ElasticSearch
+
         var query = context
                 .Collections
                 .Where(collection => collection.CreatorId == userId)

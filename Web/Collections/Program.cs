@@ -1,6 +1,6 @@
+using Collections.Data;
 using Collections.Endpoints;
 using Collections.Extensions;
-using Glimpses.Data;
 using KRK_Shared.Extensions;
 using Shared.Extensions;
 
@@ -15,6 +15,7 @@ builder.Services.AddServices(builder.Configuration);
 builder.Services.AddSharedBindings(builder.Configuration);
 builder.Services.AddWebCors();
 builder.Services.SetupAuthentication(builder.Configuration);
+builder.Services.SetupElasticSearch(builder.Configuration);
 
 builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -36,6 +37,6 @@ app.SetupAuthentication(builder.Configuration);
 app.UseWebCors();
 app.MapCollectionsEndpoints();
 
-CollectionsDataPreparation.GenerateData(app, app.Environment.IsProduction());
+CollectionsDataPreparation.GenerateData(app, app.Environment.IsProduction()).Wait();
 
 app.Run();

@@ -1,4 +1,5 @@
 using Collections.Repositories;
+using Collections.Repositories.ElasticSearch;
 using Shared.Clients;
 using Shared.Extensions;
 
@@ -12,5 +13,6 @@ public static class ServicesExtension
         services.AddScoped<CollectionsRepository>();
         services.AddScoped<RecipesRepository>();
         services.AddScoped<ProfileDataClient>();
+        services.AddSingleton<CollectionElasticSearchRepository>();
     }
 }

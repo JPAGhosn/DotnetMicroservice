@@ -1,24 +1,28 @@
-using Collections.Data;
+using Collections.Repositories.ElasticSearch;
 using Collections.Seeders;
 using Microsoft.EntityFrameworkCore;
 
-namespace Glimpses.Data;
+namespace Collections.Data;
 
 public static class CollectionsDataPreparation
 {
-    public static void GenerateData(IApplicationBuilder app, bool isProd)
+    public static async Task GenerateData(IApplicationBuilder app, bool isProd)
     {
         using var serviceScope = app.ApplicationServices.CreateScope();
-        SeedData(serviceScope.ServiceProvider.GetService<CollectionsDbContext>()!, isProd);
+        await SeedData(app, serviceScope.ServiceProvider.GetService<CollectionsDbContext>()!, isProd);
     }
 
-    private static void SeedData(CollectionsDbContext context, bool isProd)
+    private static async Task SeedData(IApplicationBuilder app, CollectionsDbContext context, bool isProd)
     {
+        using var serviceScope = app.ApplicationServices.CreateScope();
+        await serviceScope.ServiceProvider.GetService<CollectionElasticSearchRepository>()!
+            .CreateIndexIfNotExistsAsync();
+
         if (isProd)
             try
             {
                 Console.WriteLine("Building the database...");
-                context.Database.Migrate();
+                await context.Database.MigrateAsync();
             }
             catch (Exception ex)
             {
