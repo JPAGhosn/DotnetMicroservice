@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana-service
+  labels:
+    app: kibana-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana-service
+  template:
+    metadata:
+      labels:
+        app: kibana-service
+    spec:
+      containers:
+        - name: kibana
+          image: kibana:8.15.0
+          env:
+            - name: ELASTICSEARCH_URL
+              value: "elasticsearch-cluster-ip-service"
+          ports:
+            - name: http
+              containerPort: 5601
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: kibana-service
+  ports:
+    - name: kibana-service
+      protocol: TCP
+      port: 80
+      targetPort: 5601

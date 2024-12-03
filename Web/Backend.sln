@@ -220,7 +220,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{95EE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElasticSearch", "ElasticSearch", "{999D5823-DF8B-4666-8B1D-42CBE6BA2212}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\K8S\ElasticSearch\service.yaml = Solution Items\K8S\ElasticSearch\service.yaml
+		Solution Items\K8S\ElasticSearch\kibana.yaml = Solution Items\K8S\ElasticSearch\kibana.yaml
+		Solution Items\K8S\ElasticSearch\elasticsearch.yaml = Solution Items\K8S\ElasticSearch\elasticsearch.yaml
+		Solution Items\K8S\ElasticSearch\elasticsearch-nodeport.yaml = Solution Items\K8S\ElasticSearch\elasticsearch-nodeport.yaml
+		Solution Items\K8S\ElasticSearch\kibana-nodeport.yaml = Solution Items\K8S\ElasticSearch\kibana-nodeport.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles", "{D476AEB7-8154-4517-96C6-B1B96C134C79}"
