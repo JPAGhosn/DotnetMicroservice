@@ -1,6 +1,9 @@
 <div class="krk-header">
   <span class="krk-header-title">Add to Collections</span>
-  <krk-search-bar placeholder="Search in collections"/>
+  <krk-search-bar
+    (input)="OnSearchChange()"
+    [formControl]="modalService.searchControl"
+    placeholder="Search in collections"/>
   <krk-icon-button>
     <!--  Create Icon (+) -->
     <svg height="15" id="create-icon" viewBox="0 0 14 15" width="14" xmlns="http://www.w3.org/2000/svg">

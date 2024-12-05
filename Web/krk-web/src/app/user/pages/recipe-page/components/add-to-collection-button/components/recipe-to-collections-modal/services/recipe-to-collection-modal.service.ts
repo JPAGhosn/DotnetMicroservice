@@ -5,6 +5,7 @@ import {BaseError} from '@shared/models/base/base-error';
 import {CollectionsStore} from '../../../../../../../stores/collections.store';
 import {RecipesStore} from '../../../../../../../stores/recipes.store';
 import {RecipePageService} from '../../../../../services/recipe-page.service';
+import {FormBuilder} from '@angular/forms';
 
 @Injectable()
 export class RecipeToCollectionModalService {
@@ -12,6 +13,9 @@ export class RecipeToCollectionModalService {
   recipesStore = inject(RecipesStore)
   remote = inject(RecipeToCollectionModalRemote);
   pageService = inject(RecipePageService);
+  fb = inject(FormBuilder);
+
+  searchControl = this.fb.control("");
 
   loading = signal(false);
 
@@ -33,7 +37,9 @@ export class RecipeToCollectionModalService {
 
   fetchCollections() {
     this.loading.set(true);
-    return this.remote.fetchCollections(this.pageService.recipeId()!).pipe(
+    return this.remote.fetchCollections(this.pageService.recipeId()!, {
+      search: this.searchControl.value ?? "",
+    }).pipe(
       tap(response => {
         this.errorMessage.set("");
         this.collectionsStore.addMany(response.data);

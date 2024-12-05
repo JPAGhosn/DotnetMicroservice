@@ -4,6 +4,7 @@ using Collections.Dtos;
 using Collections.Models;
 using Collections.Payloads;
 using Collections.Repositories;
+using Collections.Repositories.ElasticSearch;
 using KRK_Shared.Helpers;
 using KRK_Shared.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -98,30 +99,67 @@ public static class CollectionsEndpoints
         CollectionsDbContext context,
         ProfileDataClient profileClient,
         PicturesBasePath picturesBasePath,
+        CollectionElasticSearchRepository collectionElasticSearchRepository,
         CancellationToken cancellationToken)
     {
         var userId = user.GetUserId()!.Value;
 
-        // Search from ElasticSearch
-
-        var query = context
+        IQueryable<CollectionModel> query = context
                 .Collections
-                .Where(collection => collection.CreatorId == userId)
                 .Include(collection => collection.Recipes)
             ;
 
         var paginationValue = new PaginationResponse<CollectionModel>();
         var pageNumber = queryParams.PageNumber;
         var pageSize = queryParams.PageSize;
-        if (pageNumber.HasValue && pageSize.HasValue)
-            paginationValue =
-                await PaginationHelper.Pagination(query, pageNumber.Value, pageSize.Value,
-                    cancellationToken);
-        else
+
+        if (pageNumber.HasValue && pageSize.HasValue && queryParams.Search != null)
+        {
+            // Search from ElasticSearch
+            var elasticSearchResponse = await collectionElasticSearchRepository.AdvancedSearchAsync(queryParams.Search,
+                userId,
+                pageNumber.Value,
+                pageSize.Value,
+                cancellationToken
+            );
+
+            // Ids of the collections to display
+            var ids = elasticSearchResponse.Documents.Select(x => x.Id).ToList();
+
+            query = query.Where(collection => ids.Contains(collection.Id));
+
+            var data = await query.ToListAsync(cancellationToken);
+
+            var totalPages = (int)Math.Ceiling(elasticSearchResponse.Total / (double)pageSize);
+
             paginationValue = new PaginationResponse<CollectionModel>
             {
-                Data = await query.ToListAsync(cancellationToken)
+                PageNumber = pageNumber.Value,
+                PageSize = pageSize.Value,
+                Data = data,
+                TotalPages = totalPages
             };
+        }
+        else
+        {
+            // Search from ElasticSearch
+            var elasticSearchResponse =
+                await collectionElasticSearchRepository.SearchCollectionsAsync(queryParams.Search ?? "",
+                    userId,
+                    cancellationToken);
+
+            // Ids of the collections to display
+            var ids = elasticSearchResponse.Documents.Select(x => x.Id).ToList();
+
+            query = query.Where(collection => ids.Contains(collection.Id));
+
+            var data = await query.Where(collection => ids.Contains(collection.Id)).ToListAsync(cancellationToken);
+
+            paginationValue = new PaginationResponse<CollectionModel>
+            {
+                Data = data
+            };
+        }
 
         // Fill profile information
         if (paginationValue.Data.Count > 0)

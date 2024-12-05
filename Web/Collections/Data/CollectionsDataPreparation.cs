@@ -1,3 +1,4 @@
+using Collections.Models.ElasticSearch;
 using Collections.Repositories.ElasticSearch;
 using Collections.Seeders;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +16,27 @@ public static class CollectionsDataPreparation
     private static async Task SeedData(IApplicationBuilder app, CollectionsDbContext context, bool isProd)
     {
         using var serviceScope = app.ApplicationServices.CreateScope();
-        await serviceScope.ServiceProvider.GetService<CollectionElasticSearchRepository>()!
+        var collectionsElasticSearchRepository =
+            serviceScope.ServiceProvider.GetService<CollectionElasticSearchRepository>()!;
+
+        try
+        {
+            await collectionsElasticSearchRepository.DeleteAllDocumentsAsync();
+        }
+        catch (Exception e)
+        {
+        }
+
+        await collectionsElasticSearchRepository
             .CreateIndexIfNotExistsAsync();
+
+        await collectionsElasticSearchRepository.BulkIndexCollectionsAsync(
+            CollectionsSeeder.Data.Select(collection => new CollectionEksModel
+            {
+                Id = collection.Id,
+                Name = collection.Name,
+                CreatorId = collection.CreatorId
+            }));
 
         if (isProd)
             try

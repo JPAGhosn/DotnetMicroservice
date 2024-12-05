@@ -14,17 +14,53 @@ public class CollectionElasticSearchRepository
         // CreateIndexIfNotExistsAsync().Wait();
     }
 
+    public async Task DeleteAllDocumentsAsync()
+    {
+        var indexName = "collections-index";
+        await _elasticClient.DeleteByQueryAsync<object>(d => d
+            .Index(indexName)
+            .Query(q => q.MatchAll())
+        );
+    }
+
     public async Task CreateIndexIfNotExistsAsync()
     {
-        var indexName = "collections";
+        var indexName = "collections-index";
         var existsResponse = await _elasticClient.Indices.ExistsAsync(indexName);
         if (!existsResponse.Exists)
         {
-            var createIndexResponse = await _elasticClient.Indices.CreateAsync(indexName, c => c
+            var createIndexResponse = await _elasticClient.Indices.CreateAsync("collections-index", c => c
+                .Settings(s => s
+                    .Analysis(a => a
+                        .Tokenizers(t => t
+                            .EdgeNGram("edge_ngram", e => e
+                                .MinGram(2)
+                                .MaxGram(10)
+                                .TokenChars(TokenChar.Letter, TokenChar.Digit)
+                            )
+                        )
+                        .Analyzers(an => an
+                            .Custom("autocomplete", ca => ca
+                                .Tokenizer("edge_ngram")
+                                .Filters("lowercase")
+                            )
+                        )
+                    )
+                )
                 .Map<CollectionEksModel>(m => m
-                    .AutoMap()
+                    .Properties(p => p
+                        .Text(t => t
+                                .Name(n => n.Name)
+                                .Analyzer("autocomplete") // Use the custom analyzer
+                                .SearchAnalyzer("standard") // Use standard analyzer for search
+                        )
+                        .Keyword(k => k
+                            .Name(n => n.CreatorId)
+                        )
+                    )
                 )
             );
+
 
             if (!createIndexResponse.IsValid)
                 throw new Exception($"Failed to create index: {createIndexResponse.ServerError.Error.Reason}");
@@ -37,12 +73,14 @@ public class CollectionElasticSearchRepository
         if (!response.IsValid) throw new Exception($"Failed to index document: {response.ServerError.Error.Reason}");
     }
 
-    public async Task BulkIndexCollectionsAsync(IEnumerable<CollectionEksModel> articles)
+    public async Task BulkIndexCollectionsAsync(IEnumerable<CollectionEksModel> collections)
     {
-        var response = await _elasticClient.BulkAsync(b => b
-                .IndexMany(articles)
-                .Refresh(Refresh.WaitFor) // Ensures documents are searchable immediately
-        );
+        var response = await _elasticClient
+            .BulkAsync(b => b
+                    .Index("collections-index")
+                    .IndexMany(collections)
+                    .Refresh(Refresh.WaitFor) // Ensures documents are searchable immediately
+            );
 
         if (response.Errors)
         {
@@ -54,15 +92,27 @@ public class CollectionElasticSearchRepository
         }
     }
 
-    public async Task<ISearchResponse<CollectionEksModel>> SearchCollectionsAsync(string keyword)
+    public async Task<ISearchResponse<CollectionEksModel>> SearchCollectionsAsync(string search, Guid creatorId,
+        CancellationToken cancellationToken)
     {
         var response = await _elasticClient.SearchAsync<CollectionEksModel>(s => s
-            .Query(q => q
-                .Match(m => m
-                    .Field(f => f.Name)
-                    .Query(keyword)
-                )
-            )
+                .Index("collections-index")
+                .Query(q => q
+                    .Bool(b => b
+                        .Must(
+                            bs => bs.Match(m => m
+                                .Field(f => f.Name)
+                                .Query(search)
+                                .Fuzziness(Fuzziness.Auto)
+                            ),
+                            bs => bs.Term(t => t
+                                .Field(f => f.CreatorId)
+                                .Value(creatorId.ToString())
+                            )
+                        )
+                    )
+                ),
+            cancellationToken
         );
 
         if (!response.IsValid) throw new Exception($"Search failed: {response.ServerError.Error.Reason}");
@@ -70,42 +120,60 @@ public class CollectionElasticSearchRepository
         return response;
     }
 
-    public async Task<ISearchResponse<CollectionEksModel>> AdvancedSearchAsync(string search, Guid creatorId, int page,
-        int pageSize)
+    public async Task<ISearchResponse<CollectionEksModel>> AdvancedSearchAsync(
+        string search,
+        Guid creatorId,
+        int page,
+        int pageSize,
+        CancellationToken cancellationToken
+    )
     {
+        // Ensure page number is at least 1
+        if (page < 1) page = 1;
+
+        // Calculate the number of documents to skip
+        var from = (page - 1) * pageSize;
+
         var response = await _elasticClient.SearchAsync<CollectionEksModel>(s => s
-            .From((page - 1) * pageSize)
+            .Index("collections-index") // Ensure this index name is correct
+            .From(from)
             .Size(pageSize)
             .Query(q => q
                 .Bool(b => b
                     .Must(
-                        bs => bs.Match(m => m.Field(f => f.Name).Query(search))
-                        // Add more
-                    )
-                    .Filter(
-                        f => f.DateRange(r => r
-                            .Field(fld => fld.Name)
+                        bs => bs.Match(m => m
+                            .Field(f => f.Name)
+                            .Query(search)
+                            .Fuzziness(Fuzziness.Auto)
+                        ),
+                        bs => bs.Term(t => t
+                            .Field(f => f.CreatorId)
+                            .Value(creatorId)
                         )
                     )
                 )
             )
-            .Sort(so => so
-                .Descending(f => f.Name)
-            )
         );
 
-        if (!response.IsValid) throw new Exception($"Advanced search failed: {response.ServerError.Error.Reason}");
+        // Improved error handling with more detailed information
+        if (!response.IsValid)
+        {
+            var errorReason = response.ServerError?.Error?.Reason ?? "Unknown error";
+            var errorType = response.ServerError?.Error?.Type;
+            throw new Exception($"Advanced search failed: {errorReason} (Type: {errorType})");
+        }
 
         return response;
     }
 
+
     public async Task DeleteIndexAsync()
     {
-        var indexName = "collections";
+        var indexName = "collections-index";
 
         try
         {
-            var response = await _elasticClient.Indices.DeleteAsync("collections");
+            var response = await _elasticClient.Indices.DeleteAsync(indexName);
 
             if (response.IsValid)
             {

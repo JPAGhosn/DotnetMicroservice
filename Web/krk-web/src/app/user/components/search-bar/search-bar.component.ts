@@ -1,7 +1,7 @@
-import {Component, computed, Input, signal} from '@angular/core';
+import {Component, computed, forwardRef, Input, signal} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {placeholderAnimation} from '@shared/animations/placeholder.animation';
-import {FormControl} from '@angular/forms';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {getComputedState} from '@shared/helpers/get-computed.state';
 
 @Component({
@@ -12,6 +12,13 @@ import {getComputedState} from '@shared/helpers/get-computed.state';
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SearchBarComponent),
+      multi: true
+    }
+  ],
   animations: [
     placeholderAnimation({
       focused: {
@@ -30,14 +37,14 @@ import {getComputedState} from '@shared/helpers/get-computed.state';
     }),
   ]
 })
-export class SearchBarComponent {
+export class SearchBarComponent implements ControlValueAccessor {
   @Input() placeholder = "Search for anything"
 
-  control = new FormControl("");
   loading = signal(false);
 
   focused = signal(false);
   value = signal("");
+  disabled = signal(false);
 
   placeholderAnimationState = getComputedState(this.focused, this.value);
   searchIconPath = computed(() => {
@@ -49,6 +56,35 @@ export class SearchBarComponent {
     }
   })
 
+  // from inner to outer
+  public onChange: (value: string) => void = () => {
+  };
+  public onTouched: () => void = () => {
+  };
+
+  // inner
+  onInputChange(input: string): void {
+    this.value.set(input);
+    this.onChange(this.value());
+  }
+
+  // outer
+  writeValue(value: string): void {
+    this.value.set(value || '');
+  }
+
+  registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled.set(isDisabled);
+  }
+
   onInputFocus() {
     this.focused.set(true);
   }
@@ -57,7 +93,4 @@ export class SearchBarComponent {
     this.focused.set(false);
   }
 
-  onInputChange(value: string) {
-    this.value.set(value);
-  }
 }

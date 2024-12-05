@@ -2,10 +2,12 @@ using Nest;
 
 namespace Collections.Models.ElasticSearch;
 
-[ElasticsearchType(Name = "collections")]
+[ElasticsearchType(RelationName = "collections-index")]
 public class CollectionEksModel
 {
-    [Text(Name = "id")] public string Id { get; set; }
+    [Text(Name = "id")] public Guid Id { get; set; }
 
     [Text(Name = "name")] public string Name { get; set; }
+
+    [Text(Name = "creatorId")] public Guid CreatorId { get; set; }
 }
