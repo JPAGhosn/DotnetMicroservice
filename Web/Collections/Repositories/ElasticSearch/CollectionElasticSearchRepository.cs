@@ -35,7 +35,7 @@ public class CollectionElasticSearchRepository
                         .Tokenizers(t => t
                             .EdgeNGram("edge_ngram", e => e
                                 .MinGram(2)
-                                .MaxGram(10)
+                                .MaxGram(30)
                                 .TokenChars(TokenChar.Letter, TokenChar.Digit)
                             )
                         )
@@ -67,10 +67,19 @@ public class CollectionElasticSearchRepository
         }
     }
 
-    public async Task IndexCollectionAsync(CollectionEksModel collection)
+    public async Task IndexCollectionAsync(CollectionEksModel collection,
+        CancellationToken cancellationToken)
     {
-        var response = await _elasticClient.IndexDocumentAsync(collection);
-        if (!response.IsValid) throw new Exception($"Failed to index document: {response.ServerError.Error.Reason}");
+        var response = await _elasticClient.IndexAsync(collection, idx => idx
+                .Index("collections-index")
+                .Id(collection.Id)
+                .Refresh(Refresh.WaitFor)
+            ,
+            cancellationToken
+        );
+
+        if (!response.IsValid)
+            throw new Exception($"Failed to index document: {response.ServerError?.Error?.Reason}");
     }
 
     public async Task BulkIndexCollectionsAsync(IEnumerable<CollectionEksModel> collections)
@@ -97,6 +106,7 @@ public class CollectionElasticSearchRepository
     {
         var response = await _elasticClient.SearchAsync<CollectionEksModel>(s => s
                 .Index("collections-index")
+                .Size(100)
                 .Query(q => q
                     .Bool(b => b
                         .Must(

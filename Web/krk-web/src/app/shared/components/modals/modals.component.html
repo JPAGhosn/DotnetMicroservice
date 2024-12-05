@@ -1,5 +1,7 @@
 @if (modalsService.modalTemplate()) {
-  <div class="curtain">
-    <ng-container *ngTemplateOutlet="modalsService.modalTemplate()"/>
+  <div class="curtain" (click)="onModalOutsideClicked()">
+    <div (click)="onModalInsideClicked($event)">
+      <ng-container *ngTemplateOutlet="modalsService.modalTemplate()"/>
+    </div>
   </div>
 }

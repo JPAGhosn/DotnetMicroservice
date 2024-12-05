@@ -27,4 +27,10 @@ export class HeaderComponent {
       takeUntil(this.cancellationSubject$)
     ).subscribe();
   }
+
+  onAddIconClicked() {
+    this.modalService.createNewUnknownCollection().pipe(
+      takeUntil(this.cancellationSubject$)
+    ).subscribe()
+  }
 }

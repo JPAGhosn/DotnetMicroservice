@@ -4,6 +4,7 @@ import {environment} from '../../../../../../../../../environments/environment';
 import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
 import {PaginationResponse} from '@shared/response/pagination.response';
 import {CollectionOwnerViewDto} from '../models/collection-owner-view.dto';
+import {CollectionModel} from '../../../../../../home-page/models/collection.model';
 
 @Injectable()
 export class RecipeToCollectionModalRemote {
@@ -18,6 +19,13 @@ export class RecipeToCollectionModalRemote {
 
     return this.http.get<PaginationResponse<CollectionOwnerViewDto>>(`${environment.collectionsApi}/collections-to-add-recipe/${recipeId}`, {
       params: params
+    }).pipe(handleRemoteError())
+  }
+
+  createCollection(recipeId: string) {
+    return this.http.post<CollectionModel>(`${environment.collectionsApi}/create`, {
+      name: "Unknown",
+      recipeId: recipeId,
     }).pipe(handleRemoteError())
   }
 }

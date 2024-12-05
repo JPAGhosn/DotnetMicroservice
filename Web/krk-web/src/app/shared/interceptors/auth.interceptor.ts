@@ -1,19 +1,23 @@
 import {HttpInterceptorFn} from '@angular/common/http';
 import {inject} from '@angular/core';
 import {CredentialsService} from '@shared/services/credentials.service';
-import {switchMap} from 'rxjs';
+import {catchError, of, switchMap} from 'rxjs';
 
 let isRequesting = false;
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const credentialsService = inject(CredentialsService)
+  const credentialsService = inject(CredentialsService);
 
   if (credentialsService.isTokenExpired() && !isRequesting) {
     isRequesting = true;
+
     return credentialsService.refreshToken().pipe(
       switchMap(response => {
-        credentialsService.setCredentials(response)
-        req = req.clone({
+        credentialsService.setCredentials(response);
+        isRequesting = false;
+
+        // Clone the original request with updated token
+        const clonedRequest = req.clone({
           setHeaders: {
             'Content-Type': 'application/json; charset=utf-8',
             'Accept': 'application/json',
@@ -21,11 +25,20 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           },
         });
 
-        return next(req)
+        // Retry the original request
+        return next(clonedRequest);
+      }),
+      catchError(error => {
+        isRequesting = false;
+        // Handle refresh token errors (e.g., redirect to login)
+        console.error('Token refresh failed', error);
+        credentialsService.clearTokens()
+        return of(error); // Or handle as appropriate
       })
-    )
+    );
   }
 
+  // Proceed with the original request if no refresh needed
   req = req.clone({
     setHeaders: {
       'Content-Type': 'application/json; charset=utf-8',
@@ -35,4 +48,3 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   });
   return next(req);
 };
-

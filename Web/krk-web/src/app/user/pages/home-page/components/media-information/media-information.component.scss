@@ -24,6 +24,18 @@
   -webkit-box-orient: vertical; /* Specifies the box orientation */
   overflow: hidden; /* Hides the overflowing text */
   text-overflow: ellipsis; /* Adds the ellipsis (...) */
+  border: none;
+  color: var(--on-surface);
+  background-color: var(--surface);
+}
+
+.media-title.edit-mode {
+  padding-right: 50px;
+}
+
+.media-title:focus-visible {
+  outline: var(--input-border-focused);
+  border-radius: 5px;
 }
 
 

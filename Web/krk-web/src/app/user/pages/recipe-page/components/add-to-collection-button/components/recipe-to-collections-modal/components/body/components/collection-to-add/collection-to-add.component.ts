@@ -21,4 +21,6 @@ import {NgTemplateOutlet} from '@angular/common';
 })
 export class CollectionToAddComponent {
   @Input({required: true}) collection!: CollectionModel;
+
+  @Input() mode: "read" | "edit" = "read";
 }

@@ -15,4 +15,6 @@ import {MediaInformationComponent} from '../../../media-information/media-inform
 })
 export class CollectionComponent {
   @Input({required: true}) collection!: CollectionModel;
+  @Input() mode: "read" | "edit" = "read"
+
 }

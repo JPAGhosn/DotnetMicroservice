@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Collections.Data;
 using Collections.Dtos;
 using Collections.Models;
+using Collections.Models.ElasticSearch;
 using Collections.Payloads;
 using Collections.Repositories;
 using Collections.Repositories.ElasticSearch;
@@ -29,6 +30,48 @@ public static class CollectionsEndpoints
 
         app.MapPost("/api/collections/{collectionId}/remove-recipe", RemoveRecipeToCollection)
             .RequireAuthorization();
+
+        app.MapPost("/api/collections/create", CreateCollection)
+            .RequireAuthorization();
+    }
+
+    private static async Task<IResult> CreateCollection(
+        CreateCollectionPayload payload,
+        ClaimsPrincipal user,
+        CollectionsRepository collectionsRepository,
+        CollectionElasticSearchRepository collectionElasticSearchRepository,
+        RecipesRepository recipesRepository,
+        CancellationToken cancellationToken
+    )
+    {
+        var userId = user.GetUserId()!.Value;
+
+        var collection = new CollectionModel
+        {
+            Name = payload.Name,
+            CreatorId = userId,
+            NumberOfFollowers = 0,
+            PublishedDate = new DateTime().ToUniversalTime()
+        };
+
+        var recipe = await recipesRepository.GetById(payload.recipeId, cancellationToken);
+        if (recipe == null) return Results.NotFound();
+
+        await collectionsRepository.Create(collection, cancellationToken);
+        await collectionsRepository.SaveChanges(cancellationToken);
+
+        recipe.Collections.Add(collection);
+        await recipesRepository.SaveChanges(cancellationToken);
+
+        // Add to elastic search
+        await collectionElasticSearchRepository.IndexCollectionAsync(new CollectionEksModel
+        {
+            Id = collection.Id,
+            Name = collection.Name,
+            CreatorId = collection.CreatorId
+        }, cancellationToken);
+
+        return Results.Ok(new CollectionViewDto(collection));
     }
 
     private static async Task<IResult> RemoveRecipeToCollection(HttpContext httpContext, Guid collectionId,

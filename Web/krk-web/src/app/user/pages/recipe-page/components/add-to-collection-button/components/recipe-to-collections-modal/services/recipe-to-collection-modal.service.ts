@@ -1,4 +1,4 @@
-import {computed, inject, Injectable, signal} from '@angular/core';
+import {computed, inject, Injectable, Injector, signal} from '@angular/core';
 import {RecipeToCollectionModalRemote} from '../remotes/recipe-to-collection-modal.remote';
 import {catchError, finalize, tap, throwError} from 'rxjs';
 import {BaseError} from '@shared/models/base/base-error';
@@ -6,6 +6,7 @@ import {CollectionsStore} from '../../../../../../../stores/collections.store';
 import {RecipesStore} from '../../../../../../../stores/recipes.store';
 import {RecipePageService} from '../../../../../services/recipe-page.service';
 import {FormBuilder} from '@angular/forms';
+import {showSnackbarOnError} from '@shared/operators/show-snackbar-on-error.operator';
 
 @Injectable()
 export class RecipeToCollectionModalService {
@@ -14,10 +15,13 @@ export class RecipeToCollectionModalService {
   remote = inject(RecipeToCollectionModalRemote);
   pageService = inject(RecipePageService);
   fb = inject(FormBuilder);
+  injector = inject(Injector);
 
   searchControl = this.fb.control("");
 
   loading = signal(false);
+
+  firstCollectionMode = signal<"read" | "edit">("read")
 
   myCollectionsIds = signal<string[]>([]);
 
@@ -30,7 +34,7 @@ export class RecipeToCollectionModalService {
   })
 
   myCollections = computed(() => {
-    return this.collectionsStore.data().filter(collection => this.myCollectionsIds().includes(collection.id));
+    return this.myCollectionsIds().map(collectionId => this.collectionsStore.data().find(collection => collection.id === collectionId)!)
   });
 
   errorMessage = signal("");
@@ -59,4 +63,22 @@ export class RecipeToCollectionModalService {
       })
     );
   }
+
+  createNewUnknownCollection() {
+    const loaderId = "createNewUnknownCollection";
+    this.loading.set(true);
+    return this.remote.createCollection(this.recipe()!.id).pipe(
+      tap(collection => {
+        this.collectionsStore.addOne(collection);
+        this.chosenCollectionIds.set([...this.chosenCollectionIds(), collection.id]);
+        this.myCollectionsIds.set([collection.id, ...this.myCollectionsIds()]);
+        this.firstCollectionMode.set("edit")
+      }),
+      showSnackbarOnError(this.injector),
+      finalize(() => {
+        this.loading.set(false);
+      })
+    )
+  }
+
 }

@@ -15,5 +15,4 @@ import {LoaderComponent} from '@shared/components/loader/loader.component';
 })
 export class BodyComponent {
   service = inject(RecipeToCollectionModalService)
-
 }

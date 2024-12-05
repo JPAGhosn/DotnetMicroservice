@@ -4,8 +4,9 @@
   </div>
 } @else {
   <div class="krk-body">
-    @for (collection of service.myCollections(); track collection.id) {
-      <krk-collection-to-add [collection]="collection"/>
+    @for (collection of service.myCollections(); track $index) {
+      <krk-collection-to-add [collection]="collection"
+                             [mode]="$index === 0 && service.firstCollectionMode() === 'edit' ? 'edit' : 'read'"/>
     }
   </div>
 }

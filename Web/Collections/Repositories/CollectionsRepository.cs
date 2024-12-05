@@ -26,4 +26,14 @@ public class CollectionsRepository(CollectionsDbContext context)
             .Include(collection => collection.Recipes)
             .FirstOrDefaultAsync(cancellationToken);
     }
+
+    public async Task Create(CollectionModel collection, CancellationToken cancellationToken)
+    {
+        await context.Collections.AddAsync(collection, cancellationToken);
+    }
+
+    public async Task SaveChanges(CancellationToken cancellationToken = default)
+    {
+        await context.SaveChangesAsync(cancellationToken);
+    }
 }

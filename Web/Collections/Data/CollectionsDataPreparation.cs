@@ -22,6 +22,7 @@ public static class CollectionsDataPreparation
         try
         {
             await collectionsElasticSearchRepository.DeleteAllDocumentsAsync();
+            await collectionsElasticSearchRepository.DeleteIndexAsync();
         }
         catch (Exception e)
         {

@@ -13,4 +13,12 @@ import {ModalsService} from '@shared/components/modals/services/modals.service';
 })
 export class ModalsComponent {
   modalsService = inject(ModalsService)
+
+  onModalOutsideClicked() {
+    this.modalsService.hideModal();
+  }
+
+  onModalInsideClicked(event: MouseEvent) {
+    event.stopPropagation();
+  }
 }

@@ -4,7 +4,7 @@
     (input)="OnSearchChange()"
     [formControl]="modalService.searchControl"
     placeholder="Search in collections"/>
-  <krk-icon-button>
+  <krk-icon-button (click)="onAddIconClicked()">
     <!--  Create Icon (+) -->
     <svg height="15" id="create-icon" viewBox="0 0 14 15" width="14" xmlns="http://www.w3.org/2000/svg">
       <path
