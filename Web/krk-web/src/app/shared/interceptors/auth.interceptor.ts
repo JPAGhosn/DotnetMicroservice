@@ -2,11 +2,13 @@ import {HttpInterceptorFn} from '@angular/common/http';
 import {inject} from '@angular/core';
 import {CredentialsService} from '@shared/services/credentials.service';
 import {catchError, of, switchMap} from 'rxjs';
+import {Router} from '@angular/router';
 
 let isRequesting = false;
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const credentialsService = inject(CredentialsService);
+  const router = inject(Router);
 
   if (credentialsService.isTokenExpired() && !isRequesting) {
     isRequesting = true;
@@ -32,7 +34,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
         isRequesting = false;
         // Handle refresh token errors (e.g., redirect to login)
         console.error('Token refresh failed', error);
-        credentialsService.clearTokens()
+        credentialsService.clearTokens();
+        router.navigate(['/']);
         return of(error); // Or handle as appropriate
       })
     );

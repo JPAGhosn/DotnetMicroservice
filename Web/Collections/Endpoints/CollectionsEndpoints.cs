@@ -41,6 +41,7 @@ public static class CollectionsEndpoints
         CollectionsRepository collectionsRepository,
         CollectionElasticSearchRepository collectionElasticSearchRepository,
         RecipesRepository recipesRepository,
+        ProfileDataClient profileDataClient,
         CancellationToken cancellationToken
     )
     {
@@ -53,6 +54,18 @@ public static class CollectionsEndpoints
             NumberOfFollowers = 0,
             PublishedDate = new DateTime().ToUniversalTime()
         };
+
+        // Hydrate the user
+        // I don't want this to be a blocker. It will display @unknown on the frontend
+        try
+        {
+            var profile = await profileDataClient.GetOne(userId, cancellationToken);
+            collection.Creator = profile;
+        }
+        catch (Exception e)
+        {
+            // Do nothing
+        }
 
         var recipe = await recipesRepository.GetById(payload.recipeId, cancellationToken);
         if (recipe == null) return Results.NotFound();
