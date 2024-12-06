@@ -12,6 +12,7 @@ export function handleRemoteError<T>() {
             code: err.error?.code,
             description: err.error?.description,
             title: err.error?.title,
+            statusCode: err.error.statusCode,
           }
 
           // Handle on device errors
@@ -26,6 +27,8 @@ export function handleRemoteError<T>() {
               error.title = "Unknown error";
             }
           }
+
+          return error;
         });
       })
     );

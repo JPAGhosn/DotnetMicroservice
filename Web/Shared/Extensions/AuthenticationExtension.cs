@@ -30,7 +30,8 @@ public static class AuthenticationExtension
                     ValidIssuer = configuration["JwtSettings:Authority"],
                     ValidateAudience = true,
                     ValidAudience = configuration["JwtSettings:Audience"],
-                    ValidateLifetime = true
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero // Be strict on the exp
                 };
             });
 
