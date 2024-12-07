@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild} from '@angular/core';
-import {AvatarComponent} from '../../../../components/avatar/avatar.component';
-import {MediaModel} from '../../models/media.model';
+import {AvatarComponent} from '../avatar/avatar.component';
+import {MediaModel} from '../../pages/home-page/models/media.model';
 import {DatePipe} from '@angular/common';
 import {Subject} from 'rxjs';
 
@@ -20,16 +20,12 @@ export class MediaInformationComponent implements AfterViewInit, OnDestroy {
 
   @Input({required: true}) minimalInformation1?: string;
 
-  @Input() mode: "read" | "edit" = "read"
-
   @ViewChild("titleSpan") titleSpan!: ElementRef;
 
   destroyed$: Subject<void> = new Subject();
 
   ngAfterViewInit(): void {
-    if (this.mode === "edit") {
-      this.titleSpan.nativeElement.focus()
-    }
+
   }
 
   ngOnDestroy() {

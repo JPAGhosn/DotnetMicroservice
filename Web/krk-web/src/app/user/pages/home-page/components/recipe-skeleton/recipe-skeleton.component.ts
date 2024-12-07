@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ImageComponent} from "@shared/components/image/image.component";
-import {MediaInformationComponent} from "../media-information/media-information.component";
+import {MediaInformationComponent} from "../../../../components/media-information/media-information.component";
 
 @Component({
   selector: 'krk-recipe-skeleton',

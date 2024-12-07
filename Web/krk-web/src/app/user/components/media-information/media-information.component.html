@@ -1,8 +1,7 @@
 <div class="krk-information">
   <krk-avatar [image]="media.creator?.profilePicture"/>
   <div class="krk-text-information">
-    <input #titleSpan [class.edit-mode]="mode === 'edit'" [contentEditable]="mode === 'edit'" [disabled]="mode === 'read'"
-           [value]="media.name" class="media-title"/>
+    <span #titleSpan class="media-title">{{ media.name }}</span>
     <span class="creator-user-name">&#64;{{ media.creator?.userName ?? "Unknown" }}</span>
     <div class="minimal-information">
       <span>{{ minimalInformation1 }}</span>

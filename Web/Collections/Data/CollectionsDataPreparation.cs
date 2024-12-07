@@ -13,7 +13,7 @@ public static class CollectionsDataPreparation
         await SeedData(app, serviceScope.ServiceProvider.GetService<CollectionsDbContext>()!, isProd);
     }
 
-    private static async Task SeedData(IApplicationBuilder app, CollectionsDbContext context, bool isProd)
+    private static async Task GenerateElasticData(IApplicationBuilder app)
     {
         using var serviceScope = app.ApplicationServices.CreateScope();
         var collectionsElasticSearchRepository =
@@ -38,6 +38,11 @@ public static class CollectionsDataPreparation
                 Name = collection.Name,
                 CreatorId = collection.CreatorId
             }));
+    }
+
+    private static async Task SeedData(IApplicationBuilder app, CollectionsDbContext context, bool isProd)
+    {
+        // await GenerateElasticData(app);
 
         if (isProd)
             try

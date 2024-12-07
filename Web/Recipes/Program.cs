@@ -1,9 +1,9 @@
 using KRK_Shared.Extensions;
-using KRK_Shared.Middlewares;
 using Recipes.Data;
 using Recipes.Endpoints;
 using Recipes.Extensions;
 using Shared.Extensions;
+using Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 

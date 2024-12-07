@@ -4,7 +4,6 @@ import {environment} from '../../../../../environments/environment';
 import {RecipeModel} from '../models/recipe.model';
 import {PayloadHelper} from '@shared/helpers/payload.helper';
 import {PaginationResponse} from '@shared/response/pagination.response';
-import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
 
 @Injectable()
 export class RecipesRemote {
@@ -21,6 +20,6 @@ export class RecipesRemote {
 
     return this.http.get<PaginationResponse<RecipeModel>>(`${environment.recipesApi}`, {
       params: httpParams
-    }).pipe(handleRemoteError());
+    })
   }
 }

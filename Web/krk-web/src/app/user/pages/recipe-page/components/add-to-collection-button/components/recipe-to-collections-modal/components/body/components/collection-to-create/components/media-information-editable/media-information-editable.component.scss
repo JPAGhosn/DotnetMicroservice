@@ -1,0 +1,65 @@
+:host {
+  display: block;
+}
+
+.krk-information {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.krk-text-information {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.media-title {
+  font-size: 16px;
+  font-weight: bold;
+  display: -webkit-box; /* Required for line-clamp */
+  -webkit-line-clamp: 2; /* Limits text to 2 lines */
+  -webkit-box-orient: vertical; /* Specifies the box orientation */
+  overflow: hidden; /* Hides the overflowing text */
+  text-overflow: ellipsis; /* Adds the ellipsis (...) */
+  border: none;
+  color: var(--on-surface);
+  background-color: var(--surface);
+  padding-right: 50px;
+}
+
+.media-title.edit-mode {
+  padding-right: 50px;
+}
+
+.media-title:focus-visible {
+  outline: var(--input-border-focused);
+  border-radius: 5px;
+}
+
+
+.minimal-information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+
+.minimal-information span {
+  color: var(--on-surface-light);
+}
+
+.separator {
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: var(--on-surface-light);
+}
+
+.creator-user-name {
+  font-weight: bold;
+  color: var(--on-surface-light);
+}

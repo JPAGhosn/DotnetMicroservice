@@ -1,0 +1,14 @@
+<div class="krk-information">
+  <krk-avatar [image]="''"/>
+  <div class="krk-text-information">
+    <input #input (blur)="onBlurInput()" (input)="onValueChange($event)" (keyup.enter)="onEnterKeyUpInput()"
+           [value]="value()"
+           class="media-title"/>
+    <span class="creator-user-name">&#64; {{ userName() }}</span>
+    <div class="minimal-information">
+      <span>{{ minimalInformation1 }}</span>
+      <div class="separator"></div>
+      <span>{{ publishedDate() | date: 'dd/MM/yyyy' }}</span>
+    </div>
+  </div>
+</div>

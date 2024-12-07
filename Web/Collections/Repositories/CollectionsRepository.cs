@@ -36,4 +36,9 @@ public class CollectionsRepository(CollectionsDbContext context)
     {
         await context.SaveChangesAsync(cancellationToken);
     }
+
+    public async Task Add(CollectionModel collection, CancellationToken cancellationToken)
+    {
+        await context.Collections.AddAsync(collection, cancellationToken);
+    }
 }

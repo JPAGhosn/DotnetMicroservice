@@ -1,11 +1,11 @@
 import {Component, CUSTOM_ELEMENTS_SCHEMA, inject} from '@angular/core';
-import {TitledContainerComponent} from '../titled-container/titled-container.component';
-import {GlimpseComponent} from '../glimpses/components/glimpse/glimpse.component';
+import {TitledContainerComponent} from '../../pages/home-page/components/titled-container/titled-container.component';
+import {GlimpseComponent} from '../../pages/home-page/components/glimpses/components/glimpse/glimpse.component';
 import {SwiperDirective} from '@shared/directives/swiper.directive';
 import {SwiperProps} from 'swiper/react';
-import {CollectionComponent} from './components/collection/collection.component';
-import {CollectionsStore} from '../../../../stores/collections.store';
-import {HomeService} from '../../services/home.service';
+import {CollectionComponent} from '../collection/collection.component';
+import {CollectionsStore} from '../../stores/collections.store';
+import {HomeService} from '../../pages/home-page/services/home.service';
 
 @Component({
   selector: 'krk-collections',

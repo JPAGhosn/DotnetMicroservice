@@ -23,7 +23,7 @@ import {GlimpsesRemote} from './remotes/glimpses.remote';
 import {GlimpsesComponent} from './components/glimpses/glimpses.component';
 import {RecipesStore} from '../../stores/recipes.store';
 import {RecipeComponent} from './components/recipe/recipe.component';
-import {CollectionsComponent} from './components/collections/collections.component';
+import {CollectionsComponent} from '../../components/collections/collections.component';
 import {GlimpsesStore} from '../../stores/glimpses.store';
 import {CollectionsStore} from '../../stores/collections.store';
 import {CollectionsRemote} from './remotes/collections.remote';

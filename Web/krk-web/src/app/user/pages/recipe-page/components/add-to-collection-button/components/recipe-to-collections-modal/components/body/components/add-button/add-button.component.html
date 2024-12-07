@@ -1,7 +1,11 @@
 <!-- Collection -->
 <krk-icon-button (click)="onIconButtonClicked()">
-  <ng-container *ngTemplateOutlet="addedToCollection() ? addedToCollectionIcon :addToCollectionIcon"/>
+  <ng-container *ngTemplateOutlet="addedToCollection() ? addedToCollectionIcon : addToCollectionIcon"/>
 </krk-icon-button>
+
+@if (!clickable) {
+  <div class="propagation-preventer"></div>
+}
 
 <!--Add to collection icon-->
 <ng-template #addToCollectionIcon>

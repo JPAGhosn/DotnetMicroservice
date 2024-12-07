@@ -3,7 +3,6 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../../../environments/environment';
 import {CollectionModel} from '../models/collection.model';
 import {PayloadHelper} from '@shared/helpers/payload.helper';
-import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
 
 @Injectable()
 export class CollectionsRemote {
@@ -18,6 +17,6 @@ export class CollectionsRemote {
     })
     return this.http.get<CollectionModel[]>(`${environment.collectionsApi}`, {
       params: httpParams
-    }).pipe(handleRemoteError());
+    });
   }
 }

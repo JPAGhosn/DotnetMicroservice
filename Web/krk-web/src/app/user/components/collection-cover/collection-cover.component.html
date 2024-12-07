@@ -1,0 +1,17 @@
+<div class="images-group">
+  <div class="image-container">
+    <krk-image [image]="coverPath1 ?? ''"/>
+  </div>
+
+  <div class="image-container image-container-2">
+    @if (coverPath2) {
+      <krk-image [image]="coverPath2"/>
+    }
+  </div>
+
+  <div class="image-container image-container-3">
+    @if (coverPath3) {
+      <krk-image [image]="coverPath3"/>
+    }
+  </div>
+</div>

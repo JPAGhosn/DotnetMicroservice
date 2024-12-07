@@ -1,7 +1,7 @@
 using Grpc.Net.Client;
-using KRK_Shared.Exceptions;
 using KRKProfiles;
 using Shared.Bindings;
+using Shared.Exceptions;
 using Shared.Models;
 
 namespace Shared.Clients;

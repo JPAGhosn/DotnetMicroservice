@@ -14,7 +14,9 @@ public static class CorsExtension
                 policyBuilder
                     .WithOrigins("http://localhost:4200", "https://kurkle.com")
                     .AllowAnyHeader()
-                    .AllowAnyMethod();
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    ;
             });
         });
     }

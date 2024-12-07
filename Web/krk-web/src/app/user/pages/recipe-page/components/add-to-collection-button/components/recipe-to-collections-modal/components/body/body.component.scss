@@ -19,7 +19,7 @@
   row-gap: 30px;
 }
 
-:host ::ng-deep krk-collection .image-container {
+:host ::ng-deep krk-collection-cover .image-container {
   width: 310px;
 }
 
@@ -29,4 +29,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.no-collections-curtain {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-collections-curtain span {
+  max-width: 400px;
+  text-align: center;
 }

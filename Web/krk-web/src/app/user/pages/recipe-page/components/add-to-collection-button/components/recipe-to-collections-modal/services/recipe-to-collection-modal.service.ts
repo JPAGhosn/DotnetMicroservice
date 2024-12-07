@@ -1,12 +1,12 @@
-import {computed, inject, Injectable, Injector, signal} from '@angular/core';
+import {computed, DestroyRef, inject, Injectable, Injector, signal} from '@angular/core';
 import {RecipeToCollectionModalRemote} from '../remotes/recipe-to-collection-modal.remote';
-import {catchError, finalize, tap, throwError} from 'rxjs';
+import {catchError, finalize, tap} from 'rxjs';
 import {BaseError} from '@shared/models/base/base-error';
 import {CollectionsStore} from '../../../../../../../stores/collections.store';
 import {RecipesStore} from '../../../../../../../stores/recipes.store';
 import {RecipePageService} from '../../../../../services/recipe-page.service';
 import {FormBuilder} from '@angular/forms';
-import {showSnackbarOnError} from '@shared/operators/show-snackbar-on-error.operator';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Injectable()
 export class RecipeToCollectionModalService {
@@ -16,10 +16,16 @@ export class RecipeToCollectionModalService {
   pageService = inject(RecipePageService);
   fb = inject(FormBuilder);
   injector = inject(Injector);
+  destroyRef = inject(DestroyRef)
 
   searchControl = this.fb.control("");
 
+  createCollectionDisplayed = signal(false);
+
   loading = signal(false);
+
+  // Message displayed in the center of the screen
+  modalBodyMessage = signal("")
 
   firstCollectionMode = signal<"read" | "edit">("read")
 
@@ -37,15 +43,17 @@ export class RecipeToCollectionModalService {
     return this.myCollectionsIds().map(collectionId => this.collectionsStore.data().find(collection => collection.id === collectionId)!)
   });
 
-  errorMessage = signal("");
-
   fetchCollections() {
     this.loading.set(true);
     return this.remote.fetchCollections(this.pageService.recipeId()!, {
       search: this.searchControl.value ?? "",
     }).pipe(
+      takeUntilDestroyed(this.destroyRef),
       tap(response => {
-        this.errorMessage.set("");
+        this.modalBodyMessage.set("");
+        if (response.data.length > 0) {
+          this.modalBodyMessage.set("No collections")
+        }
         this.collectionsStore.addMany(response.data);
         this.myCollectionsIds.set(response.data.map(collection => collection.id));
         this.chosenCollectionIds.set(
@@ -55,8 +63,8 @@ export class RecipeToCollectionModalService {
       }),
       catchError(err => {
         const error = err as BaseError;
-        this.errorMessage.set(error.description)
-        return throwError(() => err)
+        this.modalBodyMessage.set(error.description)
+        throw err;
       }),
       finalize(() => {
         this.loading.set(false)
@@ -64,21 +72,12 @@ export class RecipeToCollectionModalService {
     );
   }
 
-  createNewUnknownCollection() {
-    const loaderId = "createNewUnknownCollection";
-    this.loading.set(true);
-    return this.remote.createCollection(this.recipe()!.id).pipe(
-      tap(collection => {
-        this.collectionsStore.addOne(collection);
-        this.chosenCollectionIds.set([...this.chosenCollectionIds(), collection.id]);
-        this.myCollectionsIds.set([collection.id, ...this.myCollectionsIds()]);
-        this.firstCollectionMode.set("edit")
-      }),
-      showSnackbarOnError(this.injector),
-      finalize(() => {
-        this.loading.set(false);
-      })
-    )
+  showCollectionCreateTemplate() {
+    this.createCollectionDisplayed.set(true)
+  }
+
+  hideCollectionCreateTemplate() {
+    this.createCollectionDisplayed.set(false)
   }
 
 }

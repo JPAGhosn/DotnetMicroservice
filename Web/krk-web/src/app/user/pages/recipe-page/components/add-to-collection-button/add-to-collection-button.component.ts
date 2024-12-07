@@ -31,10 +31,9 @@ export class AddToCollectionButtonComponent implements AfterViewInit {
   addToCollectionModal!: TemplateRef<any>;
 
   ngAfterViewInit() {
-    this.modalsService.showModal(this.addToCollectionModal)
   }
 
-  onCLick() {
+  onClick() {
     this.showCollectionsModal();
   }
 
@@ -43,6 +42,6 @@ export class AddToCollectionButtonComponent implements AfterViewInit {
   }
 
   addToCollection() {
-    // this.service.addRecipeToCollection().subscribe();
+    // this.remotes.addRecipeToCollection().subscribe();
   }
 }

@@ -3,6 +3,7 @@ using Collections.Endpoints;
 using Collections.Extensions;
 using KRK_Shared.Extensions;
 using Shared.Extensions;
+using Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,9 +34,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.SetupAuthentication(builder.Configuration);
 app.UseWebCors();
+app.UseGlobalExceptionMiddleware();
+app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseRouting();
+app.SetupAuthentication(builder.Configuration);
+
 app.MapCollectionsEndpoints();
+
 
 CollectionsDataPreparation.GenerateData(app, app.Environment.IsProduction()).Wait();
 

@@ -6,6 +6,7 @@ using Collections.Models.ElasticSearch;
 using Collections.Payloads;
 using Collections.Repositories;
 using Collections.Repositories.ElasticSearch;
+using Collections.Services;
 using KRK_Shared.Helpers;
 using KRK_Shared.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,40 @@ public static class CollectionsEndpoints
 
         app.MapPost("/api/collections/create", CreateCollection)
             .RequireAuthorization();
+
+        app.MapPost("/api/collections/create-simple-to-add-to-recipe/{recipeId}", CreateSimpleCollectionToAddToRecipe)
+            .RequireAuthorization();
+    }
+
+    private static async Task<IResult> CreateSimpleCollectionToAddToRecipe(
+        Guid recipeId,
+        CreateSimpleCollectionToAddToRecipePayload payload,
+        ClaimsPrincipal user,
+        CollectionElasticSearchRepository collectionElasticSearchRepository,
+        CollectionsService collectionsService,
+        CollectionsRepository collectionsRepository, CancellationToken cancellationToken)
+    {
+        var collection = new CollectionModel
+        {
+            Name = payload.Name,
+            CreatorId = user.GetUserId()!.Value,
+            PublishedDate = DateTime.Now.ToUniversalTime()
+        };
+
+        await collectionsRepository.Add(collection, cancellationToken);
+        await collectionsRepository.SaveChanges(cancellationToken);
+
+        await collectionsService.AddRecipe(user.GetUserId()!.Value, collection.Id, recipeId, cancellationToken);
+
+        // Add to elastic search
+        await collectionElasticSearchRepository.IndexCollectionAsync(new CollectionEksModel
+        {
+            Id = collection.Id,
+            Name = collection.Name,
+            CreatorId = collection.CreatorId
+        }, cancellationToken);
+
+        return Results.Created();
     }
 
     private static async Task<IResult> CreateCollection(
@@ -116,35 +151,11 @@ public static class CollectionsEndpoints
         ClaimsPrincipal user,
         CollectionsDbContext context,
         CollectionsRepository collectionsRepository,
+        CollectionsService collectionsService,
         CancellationToken cancellationToken
     )
     {
-        // Check if collection exists and current user is the one who created
-        var collection = await collectionsRepository.GetById(collectionId, cancellationToken);
-        if (collection == null) return Results.NotFound();
-        if (collection.CreatorId != user.GetUserId()) return Results.Unauthorized();
-
-        // check if recipe exists
-        var recipe = await context.Recipes.Where(recipe => recipe.ExternalId == payload.RecipeId)
-            .FirstOrDefaultAsync(cancellationToken);
-        // If the recipe is null, add a new reference in the collections database
-        if (recipe is null)
-        {
-            recipe = new RecipeModel
-            {
-                Id = payload.RecipeId,
-                ExternalId = payload.RecipeId
-            };
-
-            await context.Recipes.AddAsync(recipe, cancellationToken);
-            await context.SaveChangesAsync(cancellationToken);
-        }
-
-        // Add the recipe to the collection
-        // This won't throw any error if the recipe is already added. It won't adding it again.
-        collection.Recipes.Add(recipe);
-        await context.SaveChangesAsync(cancellationToken);
-
+        await collectionsService.AddRecipe(user.GetUserId()!.Value, collectionId, payload.RecipeId, cancellationToken);
         return Results.Ok();
     }
 

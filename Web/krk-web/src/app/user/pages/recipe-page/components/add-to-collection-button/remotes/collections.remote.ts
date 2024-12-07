@@ -1,7 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../../../../environments/environment';
-import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
 
 @Injectable()
 export class CollectionsRemote {
@@ -11,6 +10,6 @@ export class CollectionsRemote {
     return this.http.post(`${environment.collectionsApi}/add-recipe`, {
       recipeId: recipeId,
       collectionId: collectionId
-    }).pipe(handleRemoteError());
+    })
   }
 }

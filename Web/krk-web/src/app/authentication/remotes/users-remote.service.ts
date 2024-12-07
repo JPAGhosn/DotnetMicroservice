@@ -4,7 +4,6 @@ import {environment} from "environments/environment";
 import {map} from "rxjs";
 import {CredentialsModel} from '@shared/models/credentials.model';
 import {ProfileModel} from '../../user/components/side-bar/components/subscribtions/models/profile.model';
-import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
 
 @Injectable()
 export class RemoteService {
@@ -33,6 +32,6 @@ export class RemoteService {
       lastName,
       emailOrPhone,
       password
-    }).pipe(handleRemoteError())
+    })
   }
 }

@@ -4,9 +4,17 @@
   </div>
 } @else {
   <div class="krk-body">
-    @for (collection of service.myCollections(); track $index) {
-      <krk-collection-to-add [collection]="collection"
-                             [mode]="$index === 0 && service.firstCollectionMode() === 'edit' ? 'edit' : 'read'"/>
+    @if (service.createCollectionDisplayed()) {
+      <krk-collection-to-create/>
+    }
+    @for (collection of service.myCollections(); track collection.id) {
+      <krk-collection-to-add [collection]="collection"/>
+    } @empty {
+      @if (!service.createCollectionDisplayed() && service.modalBodyMessage()) {
+        <div class="no-collections-curtain">
+          <span>{{ service.modalBodyMessage() }}</span>
+        </div>
+      }
     }
   </div>
 }

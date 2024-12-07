@@ -1,4 +1,4 @@
-namespace KRK_Shared.Exceptions;
+namespace Shared.Exceptions;
 
 public class BaseException : Exception
 {

@@ -8,9 +8,17 @@ export class SnackbarService {
   type = signal<"" | "error" | "success">("");
 
   showError(error: BaseError) {
+    this.hide();
     this.type = signal("error");
     this.title.set(error.title ?? "Unknown error")
     this.message.set(error.description ?? "")
+  }
+
+  showSuccess(title: string, message: string) {
+    this.hide();
+    this.type = signal("success");
+    this.title.set(title)
+    this.message.set(message)
   }
 
   hide() {

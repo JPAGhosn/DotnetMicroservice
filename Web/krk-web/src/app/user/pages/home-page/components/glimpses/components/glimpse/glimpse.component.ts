@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {GlimpseModel} from '../../../../models/glimpse.model';
-import {MediaInformationComponent} from '../../../media-information/media-information.component';
+import {MediaInformationComponent} from '../../../../../../components/media-information/media-information.component';
 import {ImageComponent} from '@shared/components/image/image.component';
 import {NgOptimizedImage} from '@angular/common';
 

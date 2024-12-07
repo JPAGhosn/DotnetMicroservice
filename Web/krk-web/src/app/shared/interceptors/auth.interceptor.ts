@@ -1,7 +1,7 @@
 import {HttpInterceptorFn} from '@angular/common/http';
 import {inject} from '@angular/core';
 import {CredentialsService} from '@shared/services/credentials.service';
-import {catchError, of, switchMap} from 'rxjs';
+import {catchError, switchMap, throwError} from 'rxjs';
 import {Router} from '@angular/router';
 import {BaseError} from '@shared/models/base/base-error';
 import {handleRemoteError} from '@shared/operators/handle-remote-error.operator';
@@ -49,11 +49,11 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
             console.error('Token refresh failed', error);
             credentialsService.clearTokens();
             router.navigate(['/']);
-            return of(error); // Or handle as appropriate
+            return throwError(() => err)
           })
         );
       }
-      throw err;
+      return throwError(() => err)
     })
   );
 };

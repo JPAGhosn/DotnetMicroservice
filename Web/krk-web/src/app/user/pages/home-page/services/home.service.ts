@@ -12,10 +12,10 @@ import {TagModel} from '../models/tag.model';
 import {GlimpsesRemote} from '../remotes/glimpses.remote';
 import {GlimpseModel} from '../models/glimpse.model';
 import {GlimpsesStore} from '../../../stores/glimpses.store';
-import {CollectionModel} from '../models/collection.model';
 import {CollectionsStore} from '../../../stores/collections.store';
 import {CollectionsRemote} from '../remotes/collections.remote';
 import {emptyPaginationResponse, PaginationResponse} from '@shared/response/pagination.response';
+import {CollectionModel} from '../models/collection.model';
 
 @Injectable()
 export class HomeService {
@@ -78,7 +78,8 @@ export class HomeService {
 
       glimpses: this.glimpsesRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<GlimpseModel[]>([])),
 
-      collections: this.collectionsRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<CollectionModel[]>([])),
+      collections: this.collectionsRemote.fetch({tagId: this.filterTagId(),})
+        .pipe(preventErrorPropagation<CollectionModel[]>([])),
     }).pipe(
       tap(({recipes, tags, glimpses, collections}) => {
         this.tagsStore.addMany(tags)

@@ -1,4 +1,4 @@
-import {Component, inject, Injector, OnInit} from '@angular/core';
+import {Component, DestroyRef, inject, Injector, OnInit} from '@angular/core';
 import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
 import {NotificationButtonComponent} from './components/notification-button/notification-button.component';
 import {ForkButtonComponent} from './components/fork-button/fork-button.component';
@@ -14,6 +14,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {GuidHelper} from '@shared/helpers/guid.helper';
 import {showSnackbarOnError} from '@shared/operators/show-snackbar-on-error.operator';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'krk-recipe-page',
@@ -47,12 +48,16 @@ export class RecipePageComponent implements OnInit {
 
   subs = new Subscription()
 
+  destroyRef = inject(DestroyRef)
+
   ngOnInit() {
     this.listenToRecipeIdChange();
   }
 
   listenToRecipeIdChange() {
-    const sub = this.route.params.subscribe(params => {
+    const sub = this.route.params.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(params => {
       const recipeId = params['id'] as string;
 
       // return to user home page if recipe id is not guid
@@ -62,6 +67,7 @@ export class RecipePageComponent implements OnInit {
 
       this.service.recipeId.set(recipeId);
       this.service.fetch(recipeId).pipe(
+        takeUntilDestroyed(this.destroyRef),
         showSnackbarOnError(this.injector)
       ).subscribe();
     })
