@@ -2,6 +2,7 @@ using Glimpses.Data;
 using Glimpses.Endpoints;
 using Glimpses.Extensions;
 using KRK_Shared.Extensions;
+using Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,11 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Configuration
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", false, true)
-    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
-    .AddEnvironmentVariables();
+builder.Configuration.SetupAppSettings(builder.Environment);
 
 builder.Services.AddServices();
 builder.Services.AddDatabase(builder.Configuration);

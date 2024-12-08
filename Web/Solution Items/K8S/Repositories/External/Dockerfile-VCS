@@ -1,0 +1,39 @@
+# Use the official Ubuntu base image
+FROM ubuntu:latest
+
+# Set environment variable to suppress interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update package list, install required packages, and clean up
+RUN apt-get update && \
+    apt-get install -y git openssh-server && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the root password
+RUN echo "root:Pa55w0rd!" | chpasswd
+
+# Set up SSH directory and keys
+RUN mkdir /var/run/sshd && \
+    mkdir -p /root/.ssh && \
+    chmod 700 /root/.ssh
+
+# Add a Git user for managing repositories
+RUN useradd -m -s /bin/bash git && \
+    echo "git:Pa55w0rd!" | chpasswd
+
+# Set up the Git user environment
+RUN mkdir -p /home/git/.ssh && \
+    chmod 700 /home/git/.ssh && \
+    chown git:git /home/git/.ssh 
+
+WORKDIR /home/git
+
+RUN git init --bare myrepo.git
+
+RUN chown -R git:git /home/git/myrepo.git
+
+# Expose SSH port
+EXPOSE 22
+
+# Start the SSH service
+CMD ["/usr/sbin/sshd", "-D"]

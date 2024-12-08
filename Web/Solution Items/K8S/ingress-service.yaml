@@ -53,6 +53,13 @@ spec:
                 name: glimpses-cluster-ip-service
                 port:
                   number: 80
+          - path: /api/repositories
+            pathType: Prefix
+            backend:
+              service:
+                name: repositories-cluster-ip-service
+                port:
+                  number: 80
           - path: /Profiles
             pathType: Prefix
             backend:

@@ -231,6 +231,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dockerfiles", "Dockerfiles"
 		Solution Items\Dockerfiles\KeycloakDockerfile = Solution Items\Dockerfiles\KeycloakDockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{67263756-895C-478F-A84D-22CD91743A23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{7EBBC99F-169A-4B85-9D6F-029FD67DCC40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{743FF767-4996-40C5-AE1B-A873F48AAD1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{E9324C1B-920E-4A1D-8BDE-F77846AA1BA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{946A5FA4-4A8A-407B-AB12-9B0E42639B64}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Repositories\External\service.yaml = Solution Items\K8S\Repositories\External\service.yaml
+		Solution Items\K8S\Repositories\External\Dockerfile-VCS = Solution Items\K8S\Repositories\External\Dockerfile-VCS
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -273,6 +287,10 @@ Global
 		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{191400A6-4E2A-4131-BDC4-50DE9DE4053C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67263756-895C-478F-A84D-22CD91743A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67263756-895C-478F-A84D-22CD91743A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67263756-895C-478F-A84D-22CD91743A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67263756-895C-478F-A84D-22CD91743A23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6994EE6-FCDB-4691-A332-EF6A2FA1CE50} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
@@ -313,5 +331,9 @@ Global
 		{95EE8942-2712-4320-8004-26CC81828B41} = {E2843598-B0E2-4625-92B9-A488537390E2}
 		{999D5823-DF8B-4666-8B1D-42CBE6BA2212} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{D476AEB7-8154-4517-96C6-B1B96C134C79} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
+		{7EBBC99F-169A-4B85-9D6F-029FD67DCC40} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
+		{743FF767-4996-40C5-AE1B-A873F48AAD1D} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
+		{E9324C1B-920E-4A1D-8BDE-F77846AA1BA1} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
+		{946A5FA4-4A8A-407B-AB12-9B0E42639B64} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
 	EndGlobalSection
 EndGlobal

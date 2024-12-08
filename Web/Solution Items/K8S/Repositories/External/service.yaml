@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vcs-service
+  labels:
+    app: vcs-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vcs-service
+  template:
+    metadata:
+      labels:
+        app: vcs-service
+    spec:
+      containers:
+        - name: 
