@@ -14,7 +14,7 @@ import {GlimpseModel} from '../models/glimpse.model';
 import {GlimpsesStore} from '../../../stores/glimpses.store';
 import {CollectionsStore} from '../../../stores/collections.store';
 import {CollectionsRemote} from '../remotes/collections.remote';
-import {emptyPaginationResponse, PaginationResponse} from '@shared/response/pagination.response';
+import {PaginationResponse} from '@shared/response/pagination.response';
 import {CollectionModel} from '../models/collection.model';
 
 @Injectable()
@@ -71,29 +71,29 @@ export class HomeService {
         tagId: this.filterTagId(),
         pageNumber: this.pageNumber(),
         pageSize: this.pageSize
-      }).pipe(preventErrorPropagation<PaginationResponse<RecipeModel>>(emptyPaginationResponse<RecipeModel>(this.pageNumber(), this.pageSize))),
+      }).pipe(preventErrorPropagation<PaginationResponse<RecipeModel>>()),
 
       // Prevent loading the tags twice
-      tags: this.tagsLoaded() ? of([]) : this.tagsRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<TagModel[]>([])),
+      tags: this.tagsLoaded() ? of([]) : this.tagsRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<TagModel[]>()),
 
-      glimpses: this.glimpsesRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<GlimpseModel[]>([])),
+      glimpses: this.glimpsesRemote.fetch({tagId: this.filterTagId(),}).pipe(preventErrorPropagation<GlimpseModel[]>()),
 
       collections: this.collectionsRemote.fetch({tagId: this.filterTagId(),})
-        .pipe(preventErrorPropagation<CollectionModel[]>([])),
+        .pipe(preventErrorPropagation<CollectionModel[]>()),
     }).pipe(
       tap(({recipes, tags, glimpses, collections}) => {
-        this.tagsStore.addMany(tags)
+        this.tagsStore.addMany(tags ?? [])
         this.tagsLoaded.set(true)
 
-        this.recipesStore.addMany(recipes.data);
-        this.recipesIds.set(recipes.data.map(recipe => recipe.id));
-        this.totalPages.set(recipes.totalPages)
+        this.recipesStore.addMany(recipes?.data ?? []);
+        this.recipesIds.set(recipes?.data.map(recipe => recipe.id) ?? []);
+        this.totalPages.set(recipes?.totalPages ?? 0)
 
-        this.glimpsesStore.addMany(glimpses)
-        this.glimpsesIds.set(glimpses.map(glimpse => glimpse.id));
+        this.glimpsesStore.addMany(glimpses ?? [])
+        this.glimpsesIds.set(glimpses?.map(glimpse => glimpse.id) ?? []);
 
-        this.collectionsStore.addMany(collections)
-        this.collectionsIds.set(collections.map(collection => collection.id));
+        this.collectionsStore.addMany(collections ?? [])
+        this.collectionsIds.set(collections?.map(collection => collection.id) ?? []);
       })
     )
   }

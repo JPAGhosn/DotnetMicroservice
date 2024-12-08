@@ -8,4 +8,5 @@ export const environment: EnvironmentModel = {
   tagsApi: 'https://localhost:7205/api/tags',
   glimpsesApi: 'https://localhost:7206/api/glimpses',
   collectionsApi: 'https://localhost:7207/api/collections',
+  repositoriesApi: 'https://localhost:7209/api/repositories',
 };

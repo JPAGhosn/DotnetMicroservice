@@ -7,10 +7,12 @@ import {RecipesStore} from './stores/recipes.store';
 import {TagsStore} from './stores/tags.store';
 import {GlimpsesStore} from './stores/glimpses.store';
 import {CollectionsStore} from './stores/collections.store';
+import {RepositoriesStore} from './stores/repositories.store';
 
 const stores = [
   SubscriptionsStore,
   RecipesStore,
+  RepositoriesStore,
   TagsStore,
   GlimpsesStore,
   CollectionsStore

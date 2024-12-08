@@ -1,3 +1,4 @@
+using KRK_Shared.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Bindings;
 using Shared.Clients;
@@ -10,5 +11,6 @@ public static class SharedServicesExtension
     {
         services.AddScoped<ProfileDataClient>();
         services.AddScoped<ProfilesServiceBinding>();
+        services.AddSingleton<ImageHydrationHelper>();
     }
 }

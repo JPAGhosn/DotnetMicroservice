@@ -6,4 +6,5 @@ export interface EnvironmentModel {
   tagsApi: string;
   glimpsesApi: string;
   collectionsApi: string;
+  repositoriesApi: string;
 }

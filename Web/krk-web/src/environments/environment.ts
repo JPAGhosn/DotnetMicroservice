@@ -8,4 +8,5 @@ export const environment: EnvironmentModel = {
   tagsApi: 'https://kurkle.com/api/tags',
   glimpsesApi: 'https://kurkle.com/api/glimpses',
   collectionsApi: 'https://kurkle.com/api/collections',
+  repositoriesApi: 'https://kurkle.com/api/repositories',
 };
