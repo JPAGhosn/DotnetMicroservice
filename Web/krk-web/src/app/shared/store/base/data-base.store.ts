@@ -50,4 +50,9 @@ export abstract class BaseDataStore<T extends BaseModel> {
     data.splice(index, 1);
     this.cachedData.set(data);
   }
+
+  findById(id: string): T | null {
+    const data = this.data();
+    return data.find(m => m.id === id) ?? null;
+  }
 }

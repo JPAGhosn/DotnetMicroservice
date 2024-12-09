@@ -1,0 +1,23 @@
+:host {
+  grid-area: krk-recipe-page-tabular-descriptions;
+  border-radius: 10px;
+  border: var(--border-color-1);
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.krk-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: var(--border-color-1);
+}
+
+.krk-navigations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

@@ -1,4 +1,13 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   grid-area: krk-recipe-page-cover;
+  position: relative;
+  padding-bottom: 11px;
+}
+
+krk-image {
+  aspect-ratio: var(--recipe-aspect-ratio);
+  border-radius: 20px;
 }

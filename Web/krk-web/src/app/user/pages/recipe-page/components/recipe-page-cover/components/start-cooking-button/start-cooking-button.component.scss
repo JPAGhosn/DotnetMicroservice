@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  align-self: center;
+}
+
+:host ::ng-deep krk-button .krk-button {
+  --padding-horizontal: 48px;
+  padding-left: var(--padding-horizontal);
+  padding-right: var(--padding-horizontal);
+}

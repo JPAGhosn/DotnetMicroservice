@@ -1,17 +1,17 @@
-import {Component, computed, inject, signal} from '@angular/core';
+import {Component, computed, inject} from '@angular/core';
 import {ButtonComponent} from '@shared/components/button/button.component';
 import {AuthenticationService} from '@authentication/pages';
 
 @Component({
-  selector: 'krk-submit-button',
+  selector: 'krk-authentication-submit-button',
   standalone: true,
   imports: [
     ButtonComponent
   ],
-  templateUrl: './submit-button.component.html',
-  styleUrl: './submit-button.component.scss'
+  templateUrl: './authentication-submit-button.component.html',
+  styleUrl: './authentication-submit-button.component.scss'
 })
-export class SubmitButtonComponent {
+export class AuthenticationSubmitButtonComponent {
   service = inject(AuthenticationService);
 
   text = computed(() => {

@@ -1,16 +1,12 @@
-import {Component, computed, effect, ElementRef, inject, signal, ViewChild} from '@angular/core';
+import {Component, computed, effect, ElementRef, inject, ViewChild} from '@angular/core';
 import {ConfirmPasswordInputComponent, EmailInputComponent, PasswordInputComponent} from './components';
 import {AuthenticationForm} from '../../forms/authentication-form';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthenticationService} from '@authentication/pages';
 import {
-  SubmitButtonComponent
-} from '@authentication/pages/authentication/components/authentication-form/components/submit-button/submit-button.component';
-import {catchError, finalize, tap, throwError} from 'rxjs';
+  AuthenticationSubmitButtonComponent
+} from '@authentication/components/submit-button/authentication-submit-button.component';
 import {RemoteService} from '@authentication/remotes';
-import {getHttpErrorMessage} from '@shared/helpers/get-http-error-message';
-import {HttpErrorResponse} from '@angular/common/http';
-import {CredentialsService} from '@shared/services/credentials.service';
 import {Router} from '@angular/router';
 import {
   FirstNameInputComponent
@@ -31,7 +27,7 @@ import {
 @Component({
   selector: 'krk-authentication-form',
   standalone: true,
-  imports: [EmailInputComponent, PasswordInputComponent, ConfirmPasswordInputComponent, ReactiveFormsModule, SubmitButtonComponent, FirstNameInputComponent, LastNameInputComponent],
+  imports: [EmailInputComponent, PasswordInputComponent, ConfirmPasswordInputComponent, ReactiveFormsModule, AuthenticationSubmitButtonComponent, FirstNameInputComponent, LastNameInputComponent],
   templateUrl: './authentication-form.component.html',
   styleUrl: './authentication-form.component.scss',
   providers: [

@@ -1,14 +1,14 @@
-import { NgClass } from '@angular/common';
-import { Component, computed, ElementRef, HostListener, signal, ViewChild } from '@angular/core';
+import {NgClass} from '@angular/common';
+import {Component, computed, ElementRef, HostListener, signal, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'krk-submit-button',
+  selector: 'krk-icon-submit-button',
   standalone: true,
   imports: [NgClass],
-  templateUrl: './submit-button.component.html',
-  styleUrl: './submit-button.component.scss'
+  templateUrl: './icon-submit-button.component.html',
+  styleUrl: './icon-submit-button.component.scss'
 })
-export class SubmitButtonComponent {
+export class IconSubmitButtonComponent {
   @ViewChild("button") button!: ElementRef;
 
   state = signal<"none" | "hover" | "down">("none")

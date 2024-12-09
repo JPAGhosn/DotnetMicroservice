@@ -1,1 +1,1 @@
-export * from './submit-button.component';
+export * from './icon-submit-button.component';

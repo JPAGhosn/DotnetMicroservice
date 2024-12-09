@@ -6,7 +6,7 @@
 }
 
 .recipe-cover {
-  aspect-ratio: 341 / 192;
+  aspect-ratio: var(--recipe-aspect-ratio);
   border-radius: 10px;
   overflow: hidden;
 }

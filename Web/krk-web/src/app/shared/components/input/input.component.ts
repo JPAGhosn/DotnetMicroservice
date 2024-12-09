@@ -11,7 +11,7 @@ import {
   signal,
   ViewChild
 } from '@angular/core';
-import {SubmitButtonComponent} from "@shared/components/input/components";
+import {IconSubmitButtonComponent} from "@shared/components/input/components";
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subscription, tap} from 'rxjs';
 import {ErrorButtonComponent} from "./components/error-button/error-button.component";
@@ -23,7 +23,7 @@ import {getComputedState} from '@shared/helpers/get-computed.state';
 @Component({
   selector: 'krk-input',
   standalone: true,
-  imports: [SubmitButtonComponent, ErrorButtonComponent, LoaderComponent],
+  imports: [IconSubmitButtonComponent, ErrorButtonComponent, LoaderComponent],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   animations: [

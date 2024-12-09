@@ -1,23 +1,22 @@
-<div class="input-wrapper" [class.error]="!!error()">
+<div [class.error]="!!error()" class="input-wrapper">
   <input
     #input
-    [id]="inputId"
-    [type]="type"
-    (focus)="onInputFocus()"
     (blur)="onInputBlur()"
-    [value]="value()"
+    (focus)="onInputFocus()"
+    (input)="onInputChange(input.value)"
     [class.padding-right]="error() || (withSubmitButton && !error()) || loading()"
     [disabled]="isDisabled"
-    (input)="onInputChange(input.value)">
-  <span class="placeholder" [@placeholderAnimation]="placeholderAnimationState()">{{ error() !== "" ? error() : placeholder }}</span>
+    [id]="inputId"
+    [type]="type"
+    [value]="value()">
+  <span [@placeholderAnimation]="placeholderAnimationState()"
+        class="placeholder">{{ error() !== "" ? error() : placeholder }}</span>
 
-  @if(loading()) {
+  @if (loading()) {
     <krk-loader/>
-  }
-  @else if((withSubmitButton && !error()) && !isDisabled) {
-    <krk-submit-button (click)="onSubmit.emit()"/>
-  }
-  @else if (error()) {
+  } @else if ((withSubmitButton && !error()) && !isDisabled) {
+    <krk-icon-submit-button (click)="onSubmit.emit()"/>
+  } @else if (error()) {
     <krk-error-button [error]="error"/>
   }
 </div>
