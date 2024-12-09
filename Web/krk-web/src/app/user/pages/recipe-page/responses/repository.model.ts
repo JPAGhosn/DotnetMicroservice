@@ -6,6 +6,6 @@ export interface RepositoryModel extends BaseModel {
   index: IndexModel;
   indexMd: string;
   instructions: InstructionsModel;
-  License: string;
+  license: string;
   codeOfConduct: string;
 }

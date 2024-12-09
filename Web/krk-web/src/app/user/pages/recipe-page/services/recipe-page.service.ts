@@ -9,8 +9,10 @@ import {RepositoriesStore} from '../../../stores/repositories.store';
 export class RecipePageService {
   recipeId = signal<string | null>(null);
   branchName = signal<string>("main");
+  fileName = signal<string | null>(null);
   recipesStore = inject(RecipesStore)
-  repositoriesStore = inject(RepositoriesStore)
+  repositoriesStore = inject(RepositoriesStore);
+  repositoryId = signal<string | null>(null);
 
   recipe = computed(() => {
     return this.recipesStore.data().find(recipe => recipe.id === this.recipeId())

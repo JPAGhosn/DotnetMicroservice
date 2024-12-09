@@ -11,6 +11,7 @@ import {collectionsRoute} from './pages/collections-page/collections.route';
 import {settingsRoute} from './pages/settings-page/settings.route';
 import {helpRoute} from './pages/help-page/help.route';
 import {feedbackRoute} from './pages/feedback-page/feedback.route';
+import {recipeRoute} from './pages/recipe-page/recipe.route';
 
 export const userRoute: Route = {
   path: 'user',
@@ -27,10 +28,7 @@ export const userRoute: Route = {
     settingsRoute,
     helpRoute,
     feedbackRoute,
-    {
-      path: "recipes/:id",
-      loadComponent: () => import("./pages/recipe-page/recipe-page.component").then(m => m.RecipePageComponent),
-    },
+    recipeRoute,
     {
       path: '**',
       redirectTo: 'home',

@@ -1,2 +1,5 @@
-<krk-image [image]="selectedRepository().index.recipe.cover"/>
-<krk-start-cooking-button/>
+@if (selectedRepository()) {
+  <krk-image [image]="selectedRepository().index.recipe.cover"/>
+  <krk-start-cooking-button/>
+}
+

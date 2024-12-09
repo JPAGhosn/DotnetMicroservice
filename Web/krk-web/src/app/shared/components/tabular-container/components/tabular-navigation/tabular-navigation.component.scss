@@ -1,0 +1,45 @@
+:host {
+  --padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-sizing: border-box;
+  padding: 0 var(--padding);
+  height: 60px;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.navigation-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+}
+
+span {
+  font-weight: bold;
+}
+
+.under {
+  height: 3px;
+  position: absolute;
+  right: var(--padding);
+  left: var(--padding);
+  bottom: 10px;
+}
+
+:host-context(.active) .under {
+  background-color: var(--primary);
+}
+
+:host-context(.active) ::ng-deep svg {
+  fill: var(--primary);
+}
+
+:host-context(.active) ::ng-deep span {
+  color: var(--primary);
+}
