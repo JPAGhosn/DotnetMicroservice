@@ -25,8 +25,8 @@
   overflow: hidden; /* Hides the overflowing text */
   text-overflow: ellipsis; /* Adds the ellipsis (...) */
   border: none;
-  color: var(--on-surface);
-  background-color: var(--surface);
+  color: var(--krk-on-surface);
+  background-color: var(--krk-surface);
   padding-right: 50px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .media-title:focus-visible {
-  outline: var(--input-border-focused);
+  outline: var(--krk-input-border-focused);
   border-radius: 5px;
 }
 
@@ -49,17 +49,17 @@
 }
 
 .minimal-information span {
-  color: var(--on-surface-light);
+  color: var(--krk-on-surface-light);
 }
 
 .separator {
   width: 4px;
   height: 4px;
   border-radius: 100%;
-  background-color: var(--on-surface-light);
+  background-color: var(--krk-on-surface-light);
 }
 
 .creator-user-name {
   font-weight: bold;
-  color: var(--on-surface-light);
+  color: var(--krk-on-surface-light);
 }

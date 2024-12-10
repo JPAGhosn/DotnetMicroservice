@@ -5,7 +5,7 @@
 .krk-header {
   padding: 15px 30px;
   box-sizing: border-box;
-  background-color: var(--surface);
+  background-color: var(--krk-surface);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,5 +25,5 @@ krk-search-bar {
 }
 
 #create-icon {
-  fill: var(--on-surface);
+  fill: var(--krk-on-surface);
 }

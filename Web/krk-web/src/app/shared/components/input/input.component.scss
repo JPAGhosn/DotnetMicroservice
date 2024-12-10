@@ -19,17 +19,17 @@ input {
   inset: 0;
   border-radius: 15px;
   border: none;
-  outline: var(--input-border);
+  outline: var(--krk-input-border);
   padding: 0 var(--text-padding);
   animation: outline 1s ease-in-out 0 1 normal both;
 }
 
 .error input {
-  outline-color: var(--error);
+  outline-color: var(--krk-error);
 }
 
 input:focus-visible {
-  outline: var(--input-border-focused);
+  outline: var(--krk-input-border-focused);
 }
 
 .input-wrapper {
@@ -45,7 +45,7 @@ input:focus-visible {
   cursor: text;
   background-color: white;
   padding: 0 3px 0 1px;
-  color: var(--placeholder);
+  color: var(--krk-placeholder);
 }
 
 .padding-right {

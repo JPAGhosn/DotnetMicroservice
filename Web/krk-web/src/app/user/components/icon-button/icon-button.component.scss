@@ -8,7 +8,7 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: var(--surface);
+  background-color: var(--krk-surface);
   height: 36px;
   width: 36px;
   border-radius: 100%;
@@ -18,13 +18,17 @@ button {
 }
 
 button:focus-visible {
-  outline: var(--input-border-focused);
+  outline: var(--krk-input-border-focused);
 }
 
 button:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--krk-button-hover-color);
 }
 
 button.down {
-  background-color: var(--button-down-color) !important;
+  background-color: var(--krk-button-down-color) !important;
+}
+
+:host ::ng-deep button.down svg {
+  fill: var(--krk-on-button-hover-color);
 }

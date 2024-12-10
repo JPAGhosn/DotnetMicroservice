@@ -1,8 +1,8 @@
 :host {
   display: block;
   position: absolute;
-  bottom: 0;
   align-self: center;
+  bottom: -10px;
 }
 
 :host ::ng-deep krk-button .krk-button {

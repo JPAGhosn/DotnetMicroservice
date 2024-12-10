@@ -33,13 +33,13 @@ span {
 }
 
 :host-context(.active) .under {
-  background-color: var(--primary);
+  background-color: var(--krk-primary);
 }
 
 :host-context(.active) ::ng-deep svg {
-  fill: var(--primary);
+  fill: var(--krk-primary);
 }
 
 :host-context(.active) ::ng-deep span {
-  color: var(--primary);
+  color: var(--krk-primary);
 }

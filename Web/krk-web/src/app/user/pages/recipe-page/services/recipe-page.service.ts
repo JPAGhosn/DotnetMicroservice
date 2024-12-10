@@ -14,6 +14,8 @@ export class RecipePageService {
   repositoriesStore = inject(RepositoriesStore);
   repositoryId = signal<string | null>(null);
 
+  editMode = signal(false)
+
   recipe = computed(() => {
     return this.recipesStore.data().find(recipe => recipe.id === this.recipeId())
   });

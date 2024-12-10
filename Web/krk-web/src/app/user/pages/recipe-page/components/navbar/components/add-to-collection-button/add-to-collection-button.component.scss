@@ -8,21 +8,21 @@ krk-navbar-button {
 }
 
 #add-to-collection-icon {
-  fill: var(--on-surface);
+  fill: var(--krk-on-surface);
   transition: fill 100ms;
 }
 
 #circle-behind-add-icon {
-  fill: var(--surface);
+  fill: var(--krk-surface);
   transition: fill 200ms;
 }
 
 krk-navbar-button:hover {
   #add-to-collection-icon {
-    fill: var(--on-button-hover-color);
+    fill: var(--krk-on-button-hover-color);
   }
 
   & #circle-behind-add-icon {
-    fill: var(--button-hover-color);
+    fill: var(--krk-button-hover-color);
   }
 }

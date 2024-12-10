@@ -20,11 +20,11 @@
   z-index: 10;
 
   &.error {
-    background-color: var(--snackbar-background-error);
+    background-color: var(--krk-snackbar-background-error);
   }
 
   &.success {
-    background-color: var(--snackbar-background-success);
+    background-color: var(--krk-snackbar-background-success);
   }
 }
 
@@ -55,7 +55,7 @@
 }
 
 .close-button:focus-visible {
-  outline: var(--input-border-focused);
+  outline: var(--krk-input-border-focused);
 }
 
 .close-button:hover {

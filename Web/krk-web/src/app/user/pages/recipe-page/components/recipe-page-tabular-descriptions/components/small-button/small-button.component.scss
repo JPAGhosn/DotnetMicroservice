@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+button {
+  width: 59px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+button.submit {
+  background-color: var(--krk-primary);
+  color: var(--krk-on-primary);
+}
+
+button.cancel {
+  background-color: var(--krk-secondary);
+  color: var(--on-krk-secondary);
+}

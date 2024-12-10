@@ -1,4 +1,4 @@
-import {Component, computed, DestroyRef, inject, OnInit} from '@angular/core';
+import {Component, computed, DestroyRef, effect, inject, OnInit, signal} from '@angular/core';
 import {TabularContainerComponent} from '@shared/components/tabular-container/tabular-container.component';
 import {
   TabularNavigationComponent
@@ -7,10 +7,13 @@ import {ActivatedRoute, Router, RouterLink, RouterLinkActive} from '@angular/rou
 import {RecipePageService} from '../../services/recipe-page.service';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {GuidHelper} from '@shared/helpers/guid.helper';
-import {distinctUntilChanged, Subject, takeUntil} from 'rxjs';
+import {catchError, distinctUntilChanged, from, Subject, takeUntil, tap} from 'rxjs';
 import {RepositoriesRemote} from '../../remotes/repositories.remote';
 import {RepositoriesStore} from '../../../../stores/repositories.store';
 import {BnaEditorComponent} from '@dytab/ngx-blocknote';
+import {BlockNoteEditor} from '@blocknote/core';
+import {EditButtonComponent} from './components/edit-button/edit-button.component';
+import {SmallButtonComponent} from './components/small-button/small-button.component';
 
 @Component({
   selector: 'krk-recipe-page-tabular-descriptions',
@@ -21,9 +24,11 @@ import {BnaEditorComponent} from '@dytab/ngx-blocknote';
     RouterLink,
     RouterLinkActive,
     BnaEditorComponent,
+    EditButtonComponent,
+    SmallButtonComponent,
   ],
   templateUrl: './recipe-page-tabular-descriptions.component.html',
-  styleUrl: './recipe-page-tabular-descriptions.component.scss'
+  styleUrl: './recipe-page-tabular-descriptions.component.scss',
 })
 export class RecipePageTabularDescriptionsComponent implements OnInit {
   route = inject(ActivatedRoute)
@@ -35,7 +40,32 @@ export class RecipePageTabularDescriptionsComponent implements OnInit {
 
   pageService = inject(RecipePageService);
 
+  editor = signal<BlockNoteEditor | null>(null);
+
+  parseMarkdownCancel$ = new Subject();
+
   allowedFilenames = ["readme", "code-of-conduct", "license"];
+
+  repository = computed(() => {
+    const recipeId = this.pageService.recipeId();
+    if (!recipeId) return null;
+
+    return this.repositoriesStore.findById(recipeId) ?? null;
+  })
+
+  repositoryName = computed(() => {
+    return this.repository()?.index.recipe.name ?? "";
+  })
+
+  creatorUserName = computed(() => {
+    return this.pageService.recipe()?.creator.userName ?? "Unknown";
+  })
+
+  isReadMeSelected = computed(() => {
+    const fileName = this.pageService.fileName();
+    return fileName === "readme"
+  })
+
   content = computed(() => {
     const recipeId = this.pageService.recipeId();
     const fileName = this.pageService.fileName();
@@ -43,7 +73,7 @@ export class RecipePageTabularDescriptionsComponent implements OnInit {
       return null;
     }
 
-    const repository = this.repositoriesStore.findById(recipeId);
+    const repository = this.repository();
     if (!repository) return null;
 
     const contentMap: any = {
@@ -55,6 +85,37 @@ export class RecipePageTabularDescriptionsComponent implements OnInit {
     return contentMap[fileName];
   })
   private cancelled$ = new Subject();
+
+  constructor() {
+    effect(() => {
+      const editor = this.editor();
+      const content = this.content() ?? "";
+
+      if (!editor) {
+        return;
+      }
+
+      this.parseMarkdownCancel$.next(null);
+      from(editor.tryParseMarkdownToBlocks(content)).pipe(
+        takeUntilDestroyed(this.destroyRef),
+        takeUntil(this.parseMarkdownCancel$),
+        tap(blocks => {
+          editor.replaceBlocks(editor.document, blocks)
+        }),
+        catchError(err => {
+          throw err
+        })
+      ).subscribe()
+    });
+
+    effect(() => {
+      if (this.pageService.editMode()) {
+        this.enableEditing()
+      } else {
+        this.disableEditing()
+      }
+    }, {allowSignalWrites: true});
+  }
 
   ngOnInit() {
     this.listenToFileNameChange();
@@ -84,5 +145,26 @@ export class RecipePageTabularDescriptionsComponent implements OnInit {
         takeUntil(this.cancelled$),
       ).subscribe()
     })
+  }
+
+  onEditorReady(editor: BlockNoteEditor) {
+    this.editor.set(editor)
+    // Prevent showing formatting
+    this.editor()!.formattingToolbar.onUpdate(c => {
+      if (!this.pageService.editMode()) {
+        this.editor()!.formattingToolbar.closeMenu()
+      }
+    })
+  }
+
+  onRecipeNameChange($event: Event) {
+  }
+
+  private disableEditing() {
+    this.editor()!.isEditable = false;
+  }
+
+  private enableEditing() {
+    this.editor()!.isEditable = true;
   }
 }

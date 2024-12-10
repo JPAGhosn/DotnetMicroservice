@@ -4,13 +4,13 @@
   justify-content: center;
   padding: 7px 20px;
   border-radius: 12px;
-  background-color: var(--unselected);
-  color: var(--on-unselected);
+  background-color: var(--krk-unselected);
+  color: var(--krk-on-unselected);
   width: fit-content;
   box-sizing: border-box;
 }
 
 :host-context(.active) {
-  background-color: var(--primary);
-  color: var(--on-primary);
+  background-color: var(--krk-primary);
+  color: var(--krk-on-primary);
 }

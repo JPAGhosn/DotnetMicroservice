@@ -13,9 +13,9 @@
 .image-container {
   width: 341px;
   aspect-ratio: 341 / 210;
-  background-color: var(--image-placeholder);
+  background-color: var(--krk-image-placeholder);
   border-radius: 10px;
-  border: solid 1px var(--surface);
+  border: solid 1px var(--krk-surface);
   z-index: 3;
   overflow: hidden;
 }
@@ -28,7 +28,7 @@
 .image-container-2 {
   position: absolute;
   bottom: 17px;
-  background-color: var(--image-placeholder);
+  background-color: var(--krk-image-placeholder);
   z-index: 2;
   transform: scale(calc(321 / 341));
 }
@@ -36,7 +36,7 @@
 .image-container-3 {
   position: absolute;
   bottom: 34px;
-  background-color: var(--image-placeholder);
+  background-color: var(--krk-image-placeholder);
   z-index: 1;
   transform: scale(calc(299 / 341));
 }

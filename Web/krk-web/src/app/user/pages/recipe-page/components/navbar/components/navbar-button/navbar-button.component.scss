@@ -8,20 +8,20 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: var(--border-color-1);
+  border: var(--krk-border-color-1);
   border-radius: 50px;
-  background-color: var(--surface);
-  color: var(--on-surface);
+  background-color: var(--krk-surface);
+  color: var(--krk-on-surface);
   gap: inherit;
   cursor: pointer;
 }
 
 button:focus-visible {
-  outline: var(--input-border-focused);
+  outline: var(--krk-input-border-focused);
 }
 
 :host ::ng-deep button svg {
-  fill: var(--on-surface);
+  fill: var(--krk-on-surface);
 }
 
 button.with-interaction {
@@ -29,19 +29,19 @@ button.with-interaction {
 }
 
 button.with-interaction:hover {
-  background-color: var(--button-hover-color);
-  border: solid 1px var(--button-hover-color);
-  color: var(--on-button-hover-color);
+  background-color: var(--krk-button-hover-color);
+  border: solid 1px var(--krk-button-hover-color);
+  color: var(--krk-on-button-hover-color);
 }
 
 :host ::ng-deep button.with-interaction:hover span {
-  color: var(--on-button-hover-color);
+  color: var(--krk-on-button-hover-color);
 }
 
 :host ::ng-deep button.with-interaction:hover svg {
-  fill: var(--on-button-hover-color);
+  fill: var(--krk-on-button-hover-color);
 }
 
 button.with-interaction.down {
-  background-color: var(--button-down-color) !important;
+  background-color: var(--krk-button-down-color) !important;
 }

@@ -57,8 +57,21 @@
       <ng-container text>MIT License</ng-container>
     </krk-tabular-navigation>
   </ng-container>
-  <ng-container actions></ng-container>
+  <ng-container actions>
+    @if (pageService.editMode()) {
+      <krk-small-button type="cancel">Cancel</krk-small-button>
+      <krk-small-button type="submit">Save</krk-small-button>
+    } @else {
+      <krk-edit-button/>
+    }
+  </ng-container>
   <ng-container body>
-    <bna-editor/>
+    @if (isReadMeSelected()) {
+      <span (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()"
+            (input)="onRecipeNameChange($event)" [contentEditable]="true"
+            class="recipe-name bn-inline-content">{{ repositoryName() }}</span>
+      <span class="creator-username">&#64;{{ creatorUserName() }}</span>
+    }
+    <bna-editor (onEditorReady)="onEditorReady($event)"/>
   </ng-container>
 </krk-tabular-container>

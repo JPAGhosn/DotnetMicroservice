@@ -15,11 +15,12 @@ html, body {
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: var(--surface);
-  color: var(--on-surface);
-  fill: var(--on-surface);
+  background-color: var(--krk-surface);
+  color: var(--krk-on-surface);
+  fill: var(--krk-on-surface);
   //font: unset !important;
-  font-size: 13px;
+  font-size: var(--krk-body-font-size);
+  line-height: var(--krk-body-line-height);
   font-family: "instrument-sans", sans-serif !important;
   //font-family: "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,44 +29,50 @@ html, body {
 }
 
 :root {
-  --primary: #4BBF57;
-  --button-down-color: #4BBF57;
-  --on-primary: #ffffff;
+  --krk-primary: #4BBF57;
+  --krk-button-down-color: #4BBF57;
+  --krk-on-primary: #ffffff;
+
+  --krk-secondary: #DADADA;
+  --on-krk-secondary: #828282;
 
   --mat-app-primary: #4BBF57;
   --mdc-circular-progress-active-indicator-color: #4BBF57;
   --mdc-filled-button-container-color: #4BBF57;
 
-  --surface: white;
-  --on-surface: #686868;
-  --on-surface-light: #959595;
-  --input-border: solid 1px #AEAEAE;
-  --input-border-focused: solid 2px #4BBF57;
-  --placeholder: #AEAEAE;
-  --error: #C60F0F;
+  --krk-surface: white;
+  --krk-on-surface: #686868;
+  --krk-on-surface-light: #959595;
+  --krk-input-border: solid 1px #AEAEAE;
+  --krk-input-border-focused: solid 2px #4BBF57;
+  --krk-placeholder: #AEAEAE;
+  --krk-error: #C60F0F;
 
-  --snackbar-background-error: rgba(184, 27, 27, 0.75);
-  --snackbar-background-success: rgba(50, 150, 26, 0.75);
+  --krk-snackbar-background-error: rgba(184, 27, 27, 0.75);
+  --krk-snackbar-background-success: rgba(50, 150, 26, 0.75);
 
-  --unselected: #E1E1E1;
-  --on-unselected: #696969;
+  --krk-unselected: #E1E1E1;
+  --krk-on-unselected: #696969;
 
-  --border-color-1: solid 1px #CECECE;
-  --border-radius: 10px;
+  --krk-border-color-1: solid 1px #CECECE;
+  --krk-border-radius: 10px;
 
-  --spacer-color: #E4E4E4;
+  --krk-spacer-color: #E4E4E4;
 
-  --image-placeholder: #E4E4E4;
-  --box-shadow: rgb(0, 0, 0, 0.2);
+  --krk-image-placeholder: #E4E4E4;
+  --krk-box-shadow: rgb(0, 0, 0, 0.2);
 
-  --loader-color: #EAEAEA;
+  --krk-loader-color: #EAEAEA;
 
-  --scroll-color: #59E567;
-  --button-hover-color: #B3E9B8;
-  --on-button-hover-color: #3F7344;
+  --krk-scroll-color: #59E567;
+  --krk-button-hover-color: #B3E9B8;
+  --krk-on-button-hover-color: #3F7344;
 
-  --recipe-aspect-ratio: 341 / 192;
-  --max-width-document: 756px
+  --krk-recipe-aspect-ratio: 341 / 192;
+  --krk-max-width-document: 756px;
+
+  --krk-body-font-size: 13px;
+  --krk-body-line-height: 1.538;
 }
 
 input {
