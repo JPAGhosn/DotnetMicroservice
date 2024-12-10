@@ -10,6 +10,7 @@ import {GuidHelper} from '@shared/helpers/guid.helper';
 import {distinctUntilChanged, Subject, takeUntil} from 'rxjs';
 import {RepositoriesRemote} from '../../remotes/repositories.remote';
 import {RepositoriesStore} from '../../../../stores/repositories.store';
+import {BnaEditorComponent} from '@dytab/ngx-blocknote';
 
 @Component({
   selector: 'krk-recipe-page-tabular-descriptions',
@@ -18,7 +19,8 @@ import {RepositoriesStore} from '../../../../stores/repositories.store';
     TabularContainerComponent,
     TabularNavigationComponent,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    BnaEditorComponent,
   ],
   templateUrl: './recipe-page-tabular-descriptions.component.html',
   styleUrl: './recipe-page-tabular-descriptions.component.scss'

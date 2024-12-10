@@ -5,11 +5,12 @@ import {SnackbarService} from '@shared/services/snackbar.service';
 import {SnackbarComponent} from '@shared/components/snackbar/snackbar.component';
 import {ModalsComponent} from '@shared/components/modals/modals.component';
 import {ModalsService} from '@shared/components/modals/services/modals.service';
+import {BnaEditorComponent} from "@dytab/ngx-blocknote";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SnackbarComponent, ModalsComponent],
+  imports: [RouterOutlet, SnackbarComponent, ModalsComponent, BnaEditorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [
