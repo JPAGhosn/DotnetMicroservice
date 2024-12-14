@@ -58,7 +58,9 @@
     </krk-tabular-navigation>
   </ng-container>
   <ng-container actions>
-    @if (pageService.editMode()) {
+    @if (isSaving()) {
+      <krk-loader/>
+    } @else if (pageService.editMode()) {
       <krk-small-button type="cancel">Cancel</krk-small-button>
       <krk-small-button type="submit">Save</krk-small-button>
     } @else {

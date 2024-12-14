@@ -14,6 +14,7 @@ import {BnaEditorComponent} from '@dytab/ngx-blocknote';
 import {BlockNoteEditor} from '@blocknote/core';
 import {EditButtonComponent} from './components/edit-button/edit-button.component';
 import {SmallButtonComponent} from './components/small-button/small-button.component';
+import {LoaderComponent} from './components/loader/loader.component';
 
 @Component({
   selector: 'krk-recipe-page-tabular-descriptions',
@@ -26,6 +27,7 @@ import {SmallButtonComponent} from './components/small-button/small-button.compo
     BnaEditorComponent,
     EditButtonComponent,
     SmallButtonComponent,
+    LoaderComponent,
   ],
   templateUrl: './recipe-page-tabular-descriptions.component.html',
   styleUrl: './recipe-page-tabular-descriptions.component.scss',
@@ -84,6 +86,7 @@ export class RecipePageTabularDescriptionsComponent implements OnInit {
 
     return contentMap[fileName];
   })
+  isSaving = signal(false);
   private cancelled$ = new Subject();
 
   constructor() {
@@ -158,6 +161,13 @@ export class RecipePageTabularDescriptionsComponent implements OnInit {
   }
 
   onRecipeNameChange($event: Event) {
+  }
+
+  onSaveClicked() {
+    this.isSaving.set(true)
+  }
+
+  onCancelClicked() {
   }
 
   private disableEditing() {

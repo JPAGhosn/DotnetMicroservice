@@ -26,6 +26,7 @@ RUN mkdir -p /home/git/.ssh && \
     chmod 700 /home/git/.ssh && \
     chown git:git /home/git/.ssh 
 
+# Create a Project Directory
 WORKDIR /home/git
 
 RUN git init --bare myrepo.git

@@ -92,7 +92,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="reactions_db@K8S [2]" uuid="1a7b7038-9390-4d5e-9659-fb08658d49cf">
+    <data-source source="LOCAL" name="reactions_db@K8S" uuid="1a7b7038-9390-4d5e-9659-fb08658d49cf">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

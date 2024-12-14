@@ -2,6 +2,7 @@ using KRK_Shared.Helpers;
 using Newtonsoft.Json;
 using Repositories.Bindings;
 using Repositories.Models;
+using Repositories.Payload;
 using Repositories.Services;
 using Shared.Bindings;
 
@@ -12,6 +13,14 @@ public static class RepositoriesEndpoints
     public static void MapRepositoriesEndpoints(this WebApplication app)
     {
         app.MapGet("/api/repositories/{recipeId}/{branchName}", GetRecipesInformation);
+        app.MapPost("/api/repositories/{recipeId}/{branchName}", UpdateFile);
+    }
+
+    private static async Task<IResult> UpdateFile(Guid recipeId, string branchName, UpdateFilePayload payload,
+        RepositoriesService repositoriesService, CancellationToken cancellationToken)
+    {
+        await repositoriesService.UpdateFileContent(recipeId, branchName, payload, cancellationToken);
+        return Results.Ok();
     }
 
     private static async Task<IResult> GetRecipesInformation(Guid recipeId, string branchName,

@@ -8,6 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="LibGit2Sharp" Version="0.31.0"/>
+        <PackageReference Include="LibGit2Sharp-SSH" Version="1.0.22"/>
+        <PackageReference Include="LibGit2Sharp-SSH.NativeBinaries" Version="1.0.14"/>
+        <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="2.0.323"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10"/>
         <PackageReference Include="SSH.NET" Version="2024.2.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>

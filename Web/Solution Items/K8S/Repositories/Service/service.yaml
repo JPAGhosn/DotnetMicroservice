@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repositories-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: repositories-service
+  template:
+    metadata:
+      labels:
+        app: repositories-service
+    spec:
+      containers:
+        - name: repositories-service
+          image: localhost:9870/kurkle/repositories-service:latest
+      volumes:
+        - name: repositories-data
+          persistentVolumeClaim:
+            claimName: repositories-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repositories-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: repositories-service
+  ports:
+    - name: repositories-service
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+    - name: platform-grpc
+      protocol: TCP
+      port: 666
+      targetPort: 666

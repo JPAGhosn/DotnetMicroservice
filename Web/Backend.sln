@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B699
 		Solution Items\Scripts\subscriptions.sh = Solution Items\Scripts\subscriptions.sh
 		Solution Items\Scripts\frontend.sh = Solution Items\Scripts\frontend.sh
 		Solution Items\Scripts\keycloak.sh = Solution Items\Scripts\keycloak.sh
+		Solution Items\Scripts\repositories.sh = Solution Items\Scripts\repositories.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{143592C5-9A4C-45DE-B9F7-85270CA1D01A}"
@@ -236,13 +237,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{7EBBC99F-169A-4B85-9D6F-029FD67DCC40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{743FF767-4996-40C5-AE1B-A873F48AAD1D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{E9324C1B-920E-4A1D-8BDE-F77846AA1BA1}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Repositories\Service\service.yaml = Solution Items\K8S\Repositories\Service\service.yaml
+		Solution Items\K8S\Repositories\Service\nodeport.yaml = Solution Items\K8S\Repositories\Service\nodeport.yaml
+		Solution Items\K8S\Repositories\Service\git-server.yaml = Solution Items\K8S\Repositories\Service\git-server.yaml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{946A5FA4-4A8A-407B-AB12-9B0E42639B64}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\K8S\Repositories\External\service.yaml = Solution Items\K8S\Repositories\External\service.yaml
 		Solution Items\K8S\Repositories\External\Dockerfile-VCS = Solution Items\K8S\Repositories\External\Dockerfile-VCS
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{30067FA9-06C1-4329-AA74-FB3765AC71DD}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\K8S\Repositories\Database\pvc.yaml = Solution Items\K8S\Repositories\Database\pvc.yaml
 	EndProjectSection
 EndProject
 Global
@@ -333,7 +341,7 @@ Global
 		{D476AEB7-8154-4517-96C6-B1B96C134C79} = {583950A1-A05E-4D7B-9E7A-D7DD64EED6A4}
 		{7EBBC99F-169A-4B85-9D6F-029FD67DCC40} = {85B066D7-4AA3-470D-B68D-CAAB2D9F349D}
 		{743FF767-4996-40C5-AE1B-A873F48AAD1D} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
-		{E9324C1B-920E-4A1D-8BDE-F77846AA1BA1} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
 		{946A5FA4-4A8A-407B-AB12-9B0E42639B64} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
+		{30067FA9-06C1-4329-AA74-FB3765AC71DD} = {7EBBC99F-169A-4B85-9D6F-029FD67DCC40}
 	EndGlobalSection
 EndGlobal

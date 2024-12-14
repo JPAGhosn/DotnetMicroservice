@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: repositories-node-port
+spec:
+  type: NodePort
+  selector:
+    app: repositories-service
+  ports:
+    - name: repositories-service
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30033
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repositories-git-server-node-port
+spec:
+  type: NodePort
+  selector:
+    app: repositories-git-remote-service
+  ports:
+    - name: repositories-git-remote-service
+      protocol: TCP
+      port: 22
+      targetPort: 22
+      nodePort: 30034

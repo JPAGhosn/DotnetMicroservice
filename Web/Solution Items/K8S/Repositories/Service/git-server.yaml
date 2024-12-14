@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repositories-git-remote-service
+  labels:
+    app: repositories-git-remote-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: repositories-git-remote-service
+  template:
+    metadata:
+      labels:
+        app: repositories-git-remote-service
+    spec:
+      containers:
+        - name: repositories-git-remote
+          image: localhost:9870/kurkle/repositories-git-remote:latest
+          ports:
+            - name: http
+              containerPort: 22
+          volumeMounts:
+            - name: repositories-git-remote-volume
+              mountPath: /opt/repositories-git-remote/data/import
+              readOnly: true
+      volumes:
+        - name: repositories-git-remote-volume
+          persistentVolumeClaim:
+            claimName: repositories-persistent-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repositories-git-remote-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: repositories-git-remote-service
+  ports:
+    - name: repositories-git-remote-service-ssh
+      protocol: TCP
+      port: 22
+      targetPort: 22
+    - name: repositories-git-remote-service-git
+      protocol: TCP
+      port: 80
+      targetPort: 80

@@ -6,4 +6,5 @@ public class RepositoriesServiceBinding
     public int SshPort { get; set; }
     public string SshUserName { get; set; }
     public string SshPassword { get; set; }
+    public string RepositoriesPath { get; set; }
 }
