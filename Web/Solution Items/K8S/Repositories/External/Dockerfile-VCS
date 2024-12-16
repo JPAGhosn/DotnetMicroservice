@@ -9,13 +9,19 @@ RUN apt-get update && \
     apt-get install -y git openssh-server && \
     rm -rf /var/lib/apt/lists/*
 
-# Set the root password
+# Set the root password (optional)
 RUN echo "root:Pa55w0rd!" | chpasswd
 
-# Set up SSH directory and keys
-RUN mkdir /var/run/sshd && \
+# Create SSH directories for root and set permissions
+RUN mkdir -p /run/sshd && \
+    chmod 0755 /run/sshd && \
     mkdir -p /root/.ssh && \
     chmod 700 /root/.ssh
+
+# **Add Your SSH Public Key to Root's Authorized Keys**
+# Replace `id_rsa.pub` with the name of your actual public key file
+COPY ./id_rsa.pub /root/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/authorized_keys
 
 # Add a Git user for managing repositories
 RUN useradd -m -s /bin/bash git && \
@@ -25,6 +31,24 @@ RUN useradd -m -s /bin/bash git && \
 RUN mkdir -p /home/git/.ssh && \
     chmod 700 /home/git/.ssh && \
     chown git:git /home/git/.ssh 
+
+COPY ./id_rsa.pub /home/git/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/authorized_keys
+
+# **Add Your SSH Public Key to Git's Authorized Keys**
+COPY ./id_rsa.pub /home/git/.ssh/authorized_keys
+
+RUN chmod 600 /home/git/.ssh/authorized_keys && \
+    chown git:git /home/git/.ssh/authorized_keys
+
+# **Disable Password Authentication in SSH**
+RUN sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config && \
+    sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+
+# **(Optional) Disable Root Login via SSH**
+# Uncomment the following lines if you want to prevent root from logging in via SSH
+# RUN sed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config && \
+#     sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 
 # Create a Project Directory
 WORKDIR /home/git

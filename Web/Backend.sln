@@ -246,6 +246,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{946A5FA4-4A8A-407B-AB12-9B0E42639B64}"
 	ProjectSection(SolutionItems) = preProject
 		Solution Items\K8S\Repositories\External\Dockerfile-VCS = Solution Items\K8S\Repositories\External\Dockerfile-VCS
+		Solution Items\K8S\Repositories\External\id_rsa = Solution Items\K8S\Repositories\External\id_rsa
+		Solution Items\K8S\Repositories\External\id_rsa.pub = Solution Items\K8S\Repositories\External\id_rsa.pub
+		Solution Items\K8S\Repositories\External\key_script.sh = Solution Items\K8S\Repositories\External\key_script.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{30067FA9-06C1-4329-AA74-FB3765AC71DD}"

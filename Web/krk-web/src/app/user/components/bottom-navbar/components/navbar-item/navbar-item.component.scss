@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-grow: 1;
+}
+
+:host-context(.active) {
+  color: var(--krk-primary);
+}
+
+:host-context(.active) ::ng-deep svg {
+  fill: var(--krk-primary);
+}
+
+:host ::ng-deep span {
+  font-size: 11px;
+}
+
+:host ::ng-deep svg {
+
+}

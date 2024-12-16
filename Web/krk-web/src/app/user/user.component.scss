@@ -1,18 +1,30 @@
+@import "responsive";
+
 :host {
   width: 100%;
   height: 100%;
   display: grid;
+
   grid-template-areas:
     'top-bar top-bar'
-    'side-bar body';
+    'body body'
+    'bottom-navbar bottom-navbar';
   grid-template-rows: auto 1fr;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr;
 
-  --sidebar-width: 270px;
+  @include min-width(ipad) {
+    grid-template-areas:
+    'top-bar top-bar'
+    'side-bar body';
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    --sidebar-width: 270px;
+  }
 }
 
 #body {
   position: relative;
+  grid-area: body;
 }
 
 #body > div:first-child {

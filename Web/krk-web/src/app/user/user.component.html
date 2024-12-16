@@ -1,7 +1,13 @@
 <krk-top-bar/>
-<krk-side-bar/>
+
+@if (responsiveService.minWidth("ipad")) {
+  <krk-side-bar/>
+}
+
 <div id="body">
   <div>
     <router-outlet/>
   </div>
 </div>
+
+<krk-bottom-navbar/>

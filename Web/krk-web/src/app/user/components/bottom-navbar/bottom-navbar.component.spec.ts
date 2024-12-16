@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MySpacePageComponent } from './my-space-page.component';
+import { BottomNavbarComponent } from './bottom-navbar.component';
 
-describe('MySpacePageComponent', () => {
-  let component: MySpacePageComponent;
-  let fixture: ComponentFixture<MySpacePageComponent>;
+describe('BottomNavbarComponent', () => {
+  let component: BottomNavbarComponent;
+  let fixture: ComponentFixture<BottomNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MySpacePageComponent]
+      imports: [BottomNavbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MySpacePageComponent);
+    fixture = TestBed.createComponent(BottomNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -22,5 +22,10 @@ WORKDIR /app
 
 ENV ASPNETCORE_ENVIRONMENT=Production
 
+# Example adjustment assuming Dockerfile is in /Repositories/
+COPY ["../Solution Items/K8S/Repositories/External/id_rsa", "./id_rsa"]
+COPY ["../Solution Items/K8S/Repositories/External/id_rsa.pub", "./id_rsa.pub"]
+COPY ["../Solution Items/K8S/Repositories/External/key_script.sh", "./key_script.sh"]
+
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Repositories.dll"]

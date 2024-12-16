@@ -21,7 +21,7 @@ export class MySpaceNavigationItemComponent {
 
   isSelected = computed(() => {
     this.urlEvents();
-    return this.router.isActive("/user/my-space", {
+    return this.router.isActive("/user/cooking-lab", {
       paths: 'subset',
       queryParams: 'ignored',
       matrixParams: 'ignored',
@@ -30,7 +30,7 @@ export class MySpaceNavigationItemComponent {
   })
 
   navigate() {
-    this.router.navigate(["user", "my-space"], {
+    this.router.navigate(["user", "cooking-lab"], {
       replaceUrl: true
     });
   }

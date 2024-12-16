@@ -1,7 +1,13 @@
+@import "responsive";
+
 :host {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+
+  @include between(mobile, ipad) {
+    display: none;
+  }
 }
 
 krk-title {

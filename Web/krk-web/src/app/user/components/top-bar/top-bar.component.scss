@@ -1,6 +1,8 @@
+@import "responsive";
+
 :host {
   grid-area: top-bar;
-  padding: 0px 20px;
+  padding: 0 20px;
   height: 68px;
   box-sizing: border-box;
   display: flex;
@@ -24,9 +26,16 @@
 
 #right {
   margin-left: auto;
+  padding-left: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 19px;
+}
+
+krk-search-bar {
+  @include between(mobile, ipad) {
+    display: none;
+  }
 }

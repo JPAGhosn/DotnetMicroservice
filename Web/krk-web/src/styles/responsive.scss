@@ -1,0 +1,72 @@
+// Breakpoint definitions in pixels
+$breakpoints: (
+  "mobile": 0px, // Mobile devices
+  "fold": 480px, // Foldable devices (e.g., foldable phones)
+  "ipad": 768px, // iPad and similar tablets
+  "desktop": 1024px, // Standard desktops and laptops
+  "large-desktop": 1440px, // Large desktops
+  "tv": 1920px // TV screens and large displays
+);
+
+// Function to retrieve breakpoint values
+@function breakpoint($point) {
+  @return map-get($breakpoints, $point);
+}
+
+// Mixin for minimum width (applies styles from the specified breakpoint and up)
+@mixin min-width($point) {
+  @media (min-width: breakpoint($point)) {
+    @content;
+  }
+}
+
+// Mixin for maximum width (applies styles up to the specified breakpoint)
+@mixin max-width($point) {
+  @media (max-width: breakpoint($point)) {
+    @content;
+  }
+}
+
+// Mixin for a range between two breakpoints
+@mixin between($min, $max) {
+  @media (min-width: breakpoint($min)) and (max-width: breakpoint($max) - 1px) {
+    @content;
+  }
+}
+
+// Device-specific mixins with @content forwarding
+@mixin mobile {
+  @include max-width("fold") {
+    @content;
+  }
+}
+
+@mixin fold {
+  @include between("fold", "ipad") {
+    @content;
+  }
+}
+
+@mixin ipad {
+  @include between("ipad", "desktop") {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include between("desktop", "large-desktop") {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @include between("large-desktop", "tv") {
+    @content;
+  }
+}
+
+@mixin tv {
+  @include min-width("tv") {
+    @content;
+  }
+}
