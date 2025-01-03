@@ -9,3 +9,4 @@ Example of a dotnet web application with Angular, Dotnet, Docker and Kubernetes.
 - Dotnet to build the backend
 - Ingres to reroute the request to the correct service
 - Registry as a close source Docker registry (alternative for DockerHub)
+- GRPC is used to communicate between dotnet services synchronously
